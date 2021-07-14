@@ -281,7 +281,7 @@ const LinkedProductContainer  = styled.div`
     height: 50px;
 
     font-size: 1.1em;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", sans-serif;
     font-weight: 600;
 `;
 
@@ -300,7 +300,7 @@ const ViewCommentsContainer  = styled.div`
 
 
     font-size: 1.1em;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI",sans-serif;
     font-weight: 600;
 `;
 
@@ -353,7 +353,7 @@ const LikeNumber = styled.span`
     height: 50px;
 
     font-size: 1em;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI",sans-serif;
     font-weight: 600;
 `;
 
@@ -390,7 +390,7 @@ const CollectNumber = styled.span`
     height: 50px;
 
     font-size: 1em;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI",sans-serif;
     font-weight: 600;
 `;
 
@@ -467,39 +467,26 @@ let isCollected = false;
 
 const Sydney = '2147714';
 
-const getCurrentLikeNum = (handleLikeChange) => {
+const getCurrentLikeNum = () => {
    
-    const xhttp = new XMLHttpRequest();
     const basePath = 'https://api.openweathermap.org/data/2.5/';
     const units = 'metric';
     const appid = '2466213f21b4b723d341e00a430a7673';
     const url = `${basePath}/weather?id=${Sydney}&units=${units}&appid=${appid}`;
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            const data = JSON.parse(xhttp.responseText);
-           // console.log(data);
-           handleLikeChange(data);
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    
+    return fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
 
-const getNoteInfo = (handleNoteChange) => {
+const getNoteInfo = () => {
    
     const xhttp = new XMLHttpRequest();
     const basePath = 'http://localhost:8080';
     const noteid = '2';
     const url = `${basePath}/notes/${noteid}`;
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            const data = JSON.parse(xhttp.responseText);
-           // console.log(data);
-           handleNoteChange(data);
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    return fetch(url)
+    .then((response) => response.json());
 }
 
 const getCollectNume = (handleCollectChange) => {
@@ -546,17 +533,18 @@ class NotePage extends React.Component{
 
     // 当组件被加载时，我们调用api call
     componentDidMount(){
-        //getCurrentLikeNum(this.handleLikeChange);
-        getNoteInfo(this.handleNoteChange);
-        getCollectNume(this.handleCollectChange);
+       // getCurrentLikeNum().then(this.handleLikeChange);
+        getNoteInfo().then(this.handleNoteChange);
+        //getCollectNume(this.handleCollectChange);
     }
 
     render(){
 
-        const {collectNum, noteData } = this.state;
-        console.log(collectNum);
-        console.log(noteData);
-    
+        const {noteData} = this.state;
+        
+        if(!noteData){
+            return 'Loading';
+        }
 
         return(
             <NoteCard>
@@ -572,7 +560,7 @@ class NotePage extends React.Component{
                                 <AuthorAvatarLoader src={avatarImage}/>
                             </AuthorAvatar>
                             <AuthorName>
-                                <AuthorNameLabel>Angela Elizabeth</AuthorNameLabel>
+                                <AuthorNameLabel>{noteData.author}</AuthorNameLabel>
                             </AuthorName>
                             <AuthorButtonArea>
                                 <AuthorButton>Follow</AuthorButton>
@@ -580,7 +568,7 @@ class NotePage extends React.Component{
                         </AuthorRow>
                         <DisplayedAccordion>
                             <DescriptionContainer>
-                                <DescriptionLabel>Infused with divine swirls of toffee, caramel and chocolate, these Brown Obsessions mimic the dreamy tortoiseshell designs that Huda is obsessed with. Effortlessly easy to master, these sumptuously pigmented palettes feature four delectable finishes in complementary tones that look ravishing on every skin tone. Velvety smooth powders, intense metallics, buttery marble cream shimmers, and an irresistible new pearl flake texture give you creative freedom to playfully shade, highlight, and define the eyes</DescriptionLabel>
+                                <DescriptionLabel>{noteData.content}</DescriptionLabel>
                             </DescriptionContainer>
                             <LinkedProductContainer>Linked Products</LinkedProductContainer>
                             <ViewCommentsContainer>View Comments</ViewCommentsContainer>
