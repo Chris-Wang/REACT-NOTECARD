@@ -8,6 +8,7 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import LocalHostMap from '../../../../utils/LocalHostMap';
+import axios from 'axios';
 
 const NoteCard = styled.div`
     //display: block;
@@ -479,11 +480,9 @@ const getCurrentLikeNum = () => {
     .then((response) => response.json());
 }
 
-const getNoteInfo = () => {
-   
-    const noteid = '2'
-    return LocalHostMap(noteid);
-}
+const noteid = '5';
+const getNoteInfo = () => LocalHostMap.get(`/notes/${noteid}`).then((response) => response.data);
+
 
 const getCollectNume = (handleCollectChange) => {
    
