@@ -7,6 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
+import LocalHostMap from '../../../../utils/LocalHostMap';
 
 const NoteCard = styled.div`
     //display: block;
@@ -475,18 +476,13 @@ const getCurrentLikeNum = () => {
     const url = `${basePath}/weather?id=${Sydney}&units=${units}&appid=${appid}`;
     
     return fetch(url)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((response) => response.json());
 }
 
 const getNoteInfo = () => {
    
-    const xhttp = new XMLHttpRequest();
-    const basePath = 'http://localhost:8080';
-    const noteid = '2';
-    const url = `${basePath}/notes/${noteid}`;
-    return fetch(url)
-    .then((response) => response.json());
+    const noteid = '2'
+    return LocalHostMap(noteid);
 }
 
 const getCollectNume = (handleCollectChange) => {
