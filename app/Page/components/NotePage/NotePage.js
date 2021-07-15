@@ -7,7 +7,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
-import LocalHostMap from '../../../../utils/LocalHostMap';
 import getNote from '../../../../apis/getNote';
 
 const NoteCard = styled.div`
@@ -463,12 +462,8 @@ let collectNum = '15';
 let isLiked = false;
 let isCollected = false;
 
-//state：
-//images,
-//props
 
-
-const noteid = '1';
+const noteid = '9';
 const getNoteInfo = () => getNote(noteid);
 
 
@@ -553,56 +548,5 @@ class NotePage extends React.Component{
         )
     }
 }
-// const NotePage = ({
-//     likeNum,
-//     collectNum,
-//     }) => (
-//     <NoteCard>
-//         <CardLeft>
-//             <ImageContainer>
-//                 <ImageLoader src={productImage}/>
-//             </ImageContainer>
-//         </CardLeft>
-//         <CardRight>
-//             <RightContainer>
-//                 <AuthorRow>
-//                     <AuthorAvatar>
-//                         <AuthorAvatarLoader src={avatarImage}/>
-//                     </AuthorAvatar>
-//                     <AuthorName>
-//                         <AuthorNameLabel>Angela Elizabeth</AuthorNameLabel>
-//                     </AuthorName>
-//                     <AuthorButtonArea>
-//                         <AuthorButton>Follow</AuthorButton>
-//                     </AuthorButtonArea>
-//                 </AuthorRow>
-//                 <DisplayedAccordion>
-//                     <DescriptionContainer>
-//                         <DescriptionLabel>Infused with divine swirls of toffee, caramel and chocolate, these Brown Obsessions mimic the dreamy tortoiseshell designs that Huda is obsessed with. Effortlessly easy to master, these sumptuously pigmented palettes feature four delectable finishes in complementary tones that look ravishing on every skin tone. Velvety smooth powders, intense metallics, buttery marble cream shimmers, and an irresistible new pearl flake texture give you creative freedom to playfully shade, highlight, and define the eyes</DescriptionLabel>
-//                     </DescriptionContainer>
-//                     <LinkedProductContainer>Linked Products</LinkedProductContainer>
-//                     <ViewCommentsContainer>View Comments</ViewCommentsContainer>
-//                 </DisplayedAccordion>
-//                 <FunctionSet>
-//                     <LikeButton>
-//                         <FontAwesomeIcon icon={faHeart} />
-//                     </LikeButton>
-//                     <LikeNumber likeNum = {likeNum}>21</LikeNumber>
-//                     <CollectButton>
-//                         <FontAwesomeIcon icon={faBookmark} />
-//                     </CollectButton>
-//                     <CollectNumber>32</CollectNumber>
-//                     <ForwardButton>
-//                         <FontAwesomeIcon icon={faReply} />
-//                     </ForwardButton>
-//                 </FunctionSet>
-//                 <QuickCommentContainer>
-//                     <CommentInput defaultValue = "Say Something..." type = "text" inputColor = "black" />
-//                 </QuickCommentContainer>
-//             </RightContainer>
-//         </CardRight>
-//         </NoteCard>    
-
-// );
 
 export default NotePage;

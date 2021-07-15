@@ -28,7 +28,7 @@ const FooterText = styled.div`
 const Footer = () => (
     <FooterContainer>
         <FooterText>
-        Copyright © Polar 2021 All right reserved
+            Copyright © Polar 2021 All right reserved
         </FooterText>
     </FooterContainer>
 );
