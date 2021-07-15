@@ -8,7 +8,7 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import LocalHostMap from '../../../../utils/LocalHostMap';
-import axios from 'axios';
+import getNote from '../../../../apis/getNote';
 
 const NoteCard = styled.div`
     //display: block;
@@ -467,29 +467,9 @@ let isCollected = false;
 //images,
 //props
 
-const Sydney = '2147714';
 
-const getCurrentLikeNum = () => {
-   
-    const basePath = 'https://api.openweathermap.org/data/2.5/';
-    const units = 'metric';
-    const appid = '2466213f21b4b723d341e00a430a7673';
-    const url = `${basePath}/weather?id=${Sydney}&units=${units}&appid=${appid}`;
-    
-    return fetch(url)
-    .then((response) => response.json());
-}
-
-const noteid = '5';
-const getNoteInfo = () => LocalHostMap.get(`/notes/${noteid}`).then((response) => response.data);
-
-
-const getCollectNume = (handleCollectChange) => {
-   
-    const colNum = '256';
-    handleCollectChange(colNum);
-   
-}
+const noteid = '1';
+const getNoteInfo = () => getNote(noteid);
 
 
 class NotePage extends React.Component{
@@ -498,21 +478,12 @@ class NotePage extends React.Component{
         super(props);
 
         this.state = {
-          likeNum: null, 
           noteData: null, 
-          collectNum: null,
         };
 
-        this.handleLikeChange = this.handleLikeChange.bind(this);
-        this.handleCollectChange = this.handleCollectChange.bind(this);
         this.handleNoteChange = this.handleNoteChange.bind(this);
     }
 
-    handleLikeChange(newLike) {
-        this.setState({
-            likeNum: newLike,
-        });
-    };
 
     handleNoteChange(newNote) {
         this.setState({
@@ -520,17 +491,9 @@ class NotePage extends React.Component{
         });
     };
 
-    handleCollectChange(newCollect) {
-        this.setState({
-            collectNum:newCollect,
-        });
-    };
 
-    // 当组件被加载时，我们调用api call
     componentDidMount(){
-       // getCurrentLikeNum().then(this.handleLikeChange);
         getNoteInfo().then(this.handleNoteChange);
-        //getCollectNume(this.handleCollectChange);
     }
 
     render(){
@@ -572,11 +535,11 @@ class NotePage extends React.Component{
                             <LikeButton>
                                 <FontAwesomeIcon icon={faHeart} />
                             </LikeButton>
-                            <LikeNumber>21</LikeNumber>
+                            <LikeNumber>{noteData.likeNum}</LikeNumber>
                             <CollectButton>
                                 <FontAwesomeIcon icon={faBookmark} />
                             </CollectButton>
-                            <CollectNumber>{collectNum}</CollectNumber>
+                            <CollectNumber>{noteData.collectNum}</CollectNumber>
                             <ForwardButton>
                                 <FontAwesomeIcon icon={faReply} />
                             </ForwardButton>
