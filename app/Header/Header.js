@@ -5,13 +5,14 @@ import Button from '../../components/Button';
 import InputBox from '../../components/InputBox';
 
 const HeadBar = styled(HeaderDiv)`
-    padding: 5.9px 58.5px 6.1px 59px;
+    min-width: 1016px;
+    padding: 5.9px 0px 6.1px 0px;
     box-shadow: 0 0 60px rgb(70 70 70 / 12%);
 `;
 
 const HeadBarContainer = styled(HeaderDiv)`
     margin: 0 auto;
-    width: 1008px;
+    width: 1000px;
     justify-content:space-between;
 
 `;
