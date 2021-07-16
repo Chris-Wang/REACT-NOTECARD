@@ -108,7 +108,7 @@ class Button extends React.Component {
         case "LIKENOTEUSERS":
             return (
                 <NoteNumsBtn>
-                        21
+                        {this.props.number}
                 </NoteNumsBtn>
             );
 
@@ -122,7 +122,7 @@ class Button extends React.Component {
         case "COLLECTNOTEUSERS":
             return (
                 <NoteNumsBtn>
-                        32
+                        {this.props.number}
                 </NoteNumsBtn>
             );
 

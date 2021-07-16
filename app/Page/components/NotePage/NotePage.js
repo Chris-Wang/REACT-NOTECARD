@@ -179,10 +179,6 @@ const QuickCommentContainer = styled(FlexBox)`
     height: 50px;
 `;
 
-{/* <LikeNumber>{noteData.likeNum}</LikeNumber>
-                            <Button type={"COLLECTNOTE"} />
-                            <CollectNumber>{noteData.collectNum}</CollectNumber> */}
-
 const noteid = '9';
 const getNoteInfo = () => getNote(noteid);
 
@@ -248,9 +244,9 @@ class NotePage extends React.Component{
                         </DisplayedAccordion>
                         <FunctionSetContainer>
                             <Button type={"LIKENOTE"} />
-                            <Button type={"LIKENOTEUSERS"} />
+                            <Button number = {noteData.likeNum} type={"LIKENOTEUSERS"} />
                             <Button type={"COLLECTNOTE"} />
-                            <Button type={"COLLECTNOTEUSERS"} />
+                            <Button number = {noteData.collectNum} type={"COLLECTNOTEUSERS"} />
                             <Button type={"FORWARDNOTE"} />
                         </FunctionSetContainer>
                         <QuickCommentContainer>
