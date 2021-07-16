@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HeaderDiv from '../../components/Layout/HeaderLayout/HeaderDiv';
 import Button from '../../components/Button';
+import InputBox from '../../components/InputBox';
 
 const HeadBar = styled(HeaderDiv)`
     padding: 5.9px 58.5px 6.1px 59px;
@@ -28,29 +29,15 @@ const RightContainer = styled(HeaderDiv)`
     justify-content: flex-end;
 `;
 
-
-const SearchArea = styled.div`
+const SearchContainer = styled.div`
     width: 330px;
     height: 26px;
     flex-grow: 0;
     margin: 0 0 0 6px;
     padding: 0;
-    // margin: 4.6px 12px 4.9px 13.5px;
-    // padding: 5px 9.5px 4px 8.5px;
     border-radius: 10.5px;
     background-color: #ffffff;
 `;
-
-const SearchInput = styled.input`
-    padding: 0;
-    margin: 5px 3px 3px 15px;
-    outline: none;
-    color: ${props => props.inputColor || "black"};
-    background-color: #ffffff;
-    border: none;
-    border-radius: 3px;
-`;
-
 
 
 const Header = () => (
@@ -61,9 +48,9 @@ const Header = () => (
         </LeftContainer>
         <MiddleContainer>
           <Button type={"CATEGORY"} />
-          <SearchArea>
-            <SearchInput defaultValue = "Search" type = "text" inputColor = "black" />
-          </SearchArea>
+          <SearchContainer>
+            <InputBox type={"SEARCH"} />
+          </SearchContainer>
         </MiddleContainer>
         <RightContainer>
           <Button type={"HOME"} />

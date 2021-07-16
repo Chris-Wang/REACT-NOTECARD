@@ -1,16 +1,20 @@
 import React from "react";
+
+import CategoryBtn from "./components/CategoryBtn";
+import HeaderLogoBtn from "./components/HeaderLogoBtn";
+import HeaderBtn from "./components/HeaderBtn";
+
+import HeaderLogo from "../Image/HeaderLogo";
+import logoImage from '../Image/HeaderLogo/logo.png';
+
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
-import CategoryBtn from "./components/CategoryBtn";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logoImage from '../Image/HeaderLogo/logo.png';
-import HeaderLogo from "../Image/HeaderLogo";
-import HeaderLogoBtn from "./components/HeaderLogoBtn";
-import HeaderBtn from "./components/HeaderBtn";
+
 
 
 class Button extends React.Component {
