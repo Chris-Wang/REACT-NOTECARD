@@ -5,19 +5,17 @@ import avatarImage from '../../../../build/static/media/user_avatar.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import getNote from '../../../../apis/getNote';
 
+import CardContainer from '../../../../components/Layout/CardContainer';
+import ImageLoader from '../../../../utils/ImageLoader';
+import ImageSlider from '../../../../components/Image/ImageSlider/ImageSlider';
+
 const NoteCard = styled.div`
-    //display: block;
-    //background-color: #f5f5f5;
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    position: relative;
-    // width: 617.5px;
-    // height: 441px;
     width: 1000px;
     
     margin:0 auto;
@@ -27,60 +25,16 @@ const NoteCard = styled.div`
     border: solid 1px #a86c6d;
 `;
 
-const CardLeft = styled.div`
-    display: block;
-    position: relative;
-    // width: 617.5px;
-    // height: 441px;
-    min-height: 700px;
-    width: 100%;
-    margin: 0;
-    padding: 0; 
-    //border: solid 0.5px #a86c6d;
-`;
 
 const ImageContainer = styled.div`
-    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    box-sizing: border-box;
-
-    padding-left: 25px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-top: 20px;
     margin: 0;
+    padding: 20px 10px 20px 25px;
 
 `;
 
-const ImageLoader = styled.img`
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    box-sizing: border-box;
 
-    border-radius: 10px;
-    height: 655px;
-    width: 560px;
-   
-`;
-
-const CardRight = styled.div`
-    display: block;
-    position: relative;
-    // width: 617.5px;
-    // height: 441px;
-    
-    min-height: 700px;
-    width: 100%;
-    margin:0 auto;
-  
-    //border: solid 0.5px #a86c6d;
-`;
-
-const RightContainer = styled.div`
+const RightBox = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -501,13 +455,13 @@ class NotePage extends React.Component{
 
         return(
             <NoteCard>
-                <CardLeft>
+                <CardContainer>
                     <ImageContainer>
-                        <ImageLoader src={productImage}/>
+                        <ImageSlider slides={ImageLoader} />
                     </ImageContainer>
-                </CardLeft>
-                <CardRight>
-                    <RightContainer>
+                </CardContainer>
+                <CardContainer>
+                    <RightBox>
                         <AuthorRow>
                             <AuthorAvatar>
                                 <AuthorAvatarLoader src={avatarImage}/>
@@ -542,8 +496,8 @@ class NotePage extends React.Component{
                         <QuickCommentContainer>
                             <CommentInput defaultValue = "Say Something..." type = "text" inputColor = "black" />
                         </QuickCommentContainer>
-                    </RightContainer>
-                </CardRight>
+                    </RightBox>
+                </CardContainer>
             </NoteCard>    
         )
     }

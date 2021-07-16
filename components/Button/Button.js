@@ -3,6 +3,7 @@ import React from "react";
 import CategoryBtn from "./components/CategoryBtn";
 import HeaderLogoBtn from "./components/HeaderLogoBtn";
 import HeaderBtn from "./components/HeaderBtn";
+import HeaderLastBtn from "./components/HeaderLastBtn";
 
 import HeaderLogo from "../Image/HeaderLogo";
 import logoImage from '../Image/HeaderLogo/logo.png';
@@ -79,9 +80,9 @@ class Button extends React.Component {
 
         case "USERPROFILE":
             return (
-                <HeaderBtn>
+                <HeaderLastBtn>
                     <FontAwesomeIcon icon={faUserAlt} />
-                </HeaderBtn>
+                </HeaderLastBtn>
             );
         }
     }
