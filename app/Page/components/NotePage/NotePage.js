@@ -21,6 +21,7 @@ const NoteCard = styled(FlexBox)`
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
     border: solid 1px #a86c6d;
+    position: relative;
 `;
 
 const ImageContainer = styled(FlexBox)`

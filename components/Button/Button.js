@@ -1,5 +1,7 @@
 import React from "react";
 
+import styled from "styled-components";
+
 import CategoryBtn from "./components/CategoryBtn";
 import HeaderLogoBtn from "./components/HeaderLogoBtn";
 import HeaderBtn from "./components/HeaderBtn";
@@ -21,8 +23,46 @@ import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FlexBox from "../Layout/FlexBox";
 
 
+const ListCardLeftContainer = styled(FlexBox)`
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #ffffff;
+    bottom: 125px;
+    right: 100px;
+
+    padding: 12px;
+    margin: 2px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    border: solid 1px #a86c6d;
+
+    width: 280px;
+    height: 300px;
+`
+
+const ListCardRightContainer = styled(FlexBox)`
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #ffffff;
+    bottom: 125px;
+    right: 30px;
+
+    padding: 12px;
+    margin: 2px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    border: solid 1px #a86c6d;
+
+    width: 280px;
+    height: 300px;
+`
 
 class Button extends React.Component {
     constructor(props) {
@@ -30,13 +70,36 @@ class Button extends React.Component {
       this.state = {
         seen: false,
       };
-      this.togglePop = this.togglePop.bind(this);
+      this.handleButtonClick = this.handleButtonClick.bind(this);
     }
-    togglePop() {
-      this.setState({
-        seen: !this.state.seen,
-      });
+
+    
+    handleButtonClick = () => {
+        this.setState((state) => {
+          return {
+            seen: !state.seen,
+          };
+        });
+    };
+    
+    componentDidMount() {
+        document.addEventListener("mousedown", this.handleClickOutside);
     }
+    
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+      
+    handleClickOutside = (event) => {
+        // if (
+        //   this.container.current &&
+        //   !this.container.current.contains(event.target)
+        // ) {
+          this.setState({
+        //   seen: false,
+          });
+        }
+
 
     renderButton( type ) {
         switch ( type ) {
@@ -107,7 +170,7 @@ class Button extends React.Component {
         
         case "LIKENOTEUSERS":
             return (
-                <NoteNumsBtn>
+                <NoteNumsBtn onClick={this.handleButtonClick}>
                         {this.props.number}
                 </NoteNumsBtn>
             );
@@ -121,7 +184,7 @@ class Button extends React.Component {
 
         case "COLLECTNOTEUSERS":
             return (
-                <NoteNumsBtn>
+                <NoteNumsBtn onClick={this.handleButtonClick}>
                         {this.props.number}
                 </NoteNumsBtn>
             );
@@ -137,7 +200,14 @@ class Button extends React.Component {
 
     render() {
         return (
-          <div>{this.renderButton(this.props.type)}</div>
+          <div>{this.renderButton(this.props.type)}
+          {this.state.seen && this.props.type === 'LIKENOTEUSERS' &&(
+            <ListCardLeftContainer></ListCardLeftContainer>
+          )}
+          {this.state.seen && this.props.type === 'COLLECTNOTEUSERS' &&(
+            <ListCardRightContainer></ListCardRightContainer>
+          )}
+          </div>
         );
     }
 }
