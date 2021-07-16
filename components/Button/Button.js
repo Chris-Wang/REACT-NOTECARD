@@ -4,6 +4,10 @@ import CategoryBtn from "./components/CategoryBtn";
 import HeaderLogoBtn from "./components/HeaderLogoBtn";
 import HeaderBtn from "./components/HeaderBtn";
 import HeaderLastBtn from "./components/HeaderLastBtn";
+import NoteFollowBtn from "./components/NoteFollowBtn";
+import NoteForwardBtn from "./components/NoteForwardBtn";
+import NoteFunctionBtn from "./components/NoteFunctionBtn";
+import NoteNumsBtn from "./components/NoteNumsBtn";
 
 import HeaderLogo from "../Image/HeaderLogo";
 import logoImage from '../Image/HeaderLogo/logo.png';
@@ -14,6 +18,8 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -84,7 +90,49 @@ class Button extends React.Component {
                     <FontAwesomeIcon icon={faUserAlt} />
                 </HeaderLastBtn>
             );
-        }
+
+        case "AUTHORFOLLOW":
+            return (
+                <NoteFollowBtn>
+                    Follow
+                </NoteFollowBtn>
+            );
+
+        case "LIKENOTE":
+            return (
+                <NoteFunctionBtn>
+                    <FontAwesomeIcon icon={faHeart} />
+                </NoteFunctionBtn>
+            );        
+        
+        case "LIKENOTEUSERS":
+            return (
+                <NoteNumsBtn>
+                        21
+                </NoteNumsBtn>
+            );
+
+        case "COLLECTNOTE":
+            return (
+                <NoteFunctionBtn>
+                    <FontAwesomeIcon icon={faBookmark} />
+                </NoteFunctionBtn>
+            );
+
+        case "COLLECTNOTEUSERS":
+            return (
+                <NoteNumsBtn>
+                        32
+                </NoteNumsBtn>
+            );
+
+        case "FORWARDNOTE":
+            return (
+                <NoteForwardBtn>
+                    <FontAwesomeIcon icon={faReply} />
+                </NoteForwardBtn>
+            );
+        } 
     }
 
     render() {
