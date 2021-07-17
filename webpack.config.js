@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    //需要打包什么样的东西
+
     mode: 'development',
     entry: './index.js',
     module: {

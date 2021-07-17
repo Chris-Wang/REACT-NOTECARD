@@ -22,5 +22,4 @@ const NoteFunctionBtn = styled.button`
 
 `;
 
-
 export default NoteFunctionBtn;

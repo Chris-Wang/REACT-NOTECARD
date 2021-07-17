@@ -1,1 +1,1 @@
-export { default } from './getNote';
+export { default } from "./getNote";

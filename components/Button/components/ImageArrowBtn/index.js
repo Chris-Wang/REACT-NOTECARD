@@ -1,1 +1,1 @@
-export { default } from './ImageArrowBtn';
+export { default } from "./ImageArrowBtn";

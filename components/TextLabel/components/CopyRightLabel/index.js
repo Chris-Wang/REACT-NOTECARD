@@ -1,1 +1,1 @@
-export { default } from './CopyRightLabel'
+export { default } from "./CopyRightLabel";

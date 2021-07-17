@@ -1,1 +1,1 @@
-export { default } from './NoteAuthorImage';
+export { default } from "./NoteAuthorImage";

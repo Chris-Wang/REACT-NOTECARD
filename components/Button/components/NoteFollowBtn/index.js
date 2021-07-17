@@ -1,1 +1,1 @@
-export { default } from './NoteFollowBtn';
+export { default } from "./NoteFollowBtn";

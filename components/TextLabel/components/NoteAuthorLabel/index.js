@@ -1,1 +1,1 @@
-export { default } from './NoteAuthorLabel';
+export { default } from "./NoteAuthorLabel";
