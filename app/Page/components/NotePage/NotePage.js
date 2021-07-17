@@ -11,6 +11,7 @@ import NoteAuthorImage from "../../../../components/Image/NoteAuthorImage";
 import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAuthorLabel";
 import Button from "../../../../components/Button";
 import CommentInput from "../../../../components/InputBox/components/CommentInput";
+import Accordion from "../../../../components/Accordion";
 
 const NoteCard = styled(FlexBox)`
   flex-direction: row;
@@ -70,92 +71,6 @@ const AuthorButtonContainer = styled(FlexBox)`
   padding: 5px;
   width: 100px;
   height: 80px;
-`;
-
-const DisplayedAccordion = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-
-  padding: 0;
-  margin: 0;
-  //border: solid 0.5px #a86c6d;
-
-  width: 358px;
-  height: 480px;
-`;
-
-const DescriptionContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  box-sizing: border-box;
-  border-radius: 5px;
-
-  padding: 12px;
-  margin: 2px;
-  border: solid 0.6px #c7c7c7;
-
-  width: 352px;
-  height: 350px;
-`;
-
-const DescriptionLabel = styled.div`
-  position: relative;
-  box-sizing: border-box;
-
-  //border: solid 0.5px #a86c6d;
-
-  width: 100%;
-
-  font-size: 0.9em;
-  font-family: sans-serif;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: 0.18px;
-  text-align: left;
-  color: black;
-`;
-
-const LinkedProductContainer = styled.div`
-  position: relative;
-  box-sizing: border-box;
-  border-radius: 5px;
-  background-color: #f4ded7;
-
-  padding: 12px;
-  margin: 10px 2px 0px 2px;
-  //border: solid 0.5px #a86c6d;
-
-  width: 352px;
-  height: 50px;
-
-  font-size: 1.1em;
-  font-family: "Segoe UI", sans-serif;
-  font-weight: 600;
-`;
-
-const ViewCommentsContainer = styled.div`
-  position: relative;
-  box-sizing: border-box;
-  border-radius: 5px;
-  background-color: #f4ded7;
-
-  padding: 12px;
-  margin: 10px 2px 0px 2px;
-  //border: solid 0.5px #a86c6d;
-
-  width: 352px;
-  height: 50px;
-
-  font-size: 1.1em;
-  font-family: "Segoe UI", sans-serif;
-  font-weight: 600;
 `;
 
 const FunctionSetContainer = styled(FlexBox)`
@@ -230,13 +145,7 @@ class NotePage extends React.Component {
                 <Button type={"AUTHORFOLLOW"} />
               </AuthorButtonContainer>
             </AuthorContainer>
-            <DisplayedAccordion>
-              <DescriptionContainer>
-                <DescriptionLabel>{noteData.content}</DescriptionLabel>
-              </DescriptionContainer>
-              <LinkedProductContainer>Linked Products</LinkedProductContainer>
-              <ViewCommentsContainer>View Comments</ViewCommentsContainer>
-            </DisplayedAccordion>
+            <Accordion noteData = {noteData} />
             <FunctionSetContainer>
               <Button type={"LIKENOTE"} />
               <Button number={noteData.likeNum} type={"LIKENOTEUSERS"} />
