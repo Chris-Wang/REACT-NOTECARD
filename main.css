@@ -27,3 +27,26 @@ body {
     position: relative;
     flex: 1;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(197, 137, 136);
+    border-radius: 2px;
+  }
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(159, 111, 110);
+    border-radius: 2px;
+  }
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(159, 111, 110);
+    border-radius: 2px;
+  }

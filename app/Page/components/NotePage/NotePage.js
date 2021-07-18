@@ -94,7 +94,7 @@ const QuickCommentContainer = styled(FlexBox)`
   height: 50px;
 `;
 
-const noteid = "9";
+const noteid = "1";
 const getNoteInfo = () => getNote(noteid);
 
 class NotePage extends React.Component {
