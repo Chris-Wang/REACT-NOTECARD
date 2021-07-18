@@ -11,6 +11,9 @@ import DisplayContainer from "./components/DisplayContainer";
 import productMiniImage1 from "../../media/product_img1_sml.png"
 import ratingMiniImage from "../../media/rating_smp_sml.png"
 
+import getProductMini from "../../apis/getProductMini/getProductMini";
+import ProductMiniCard from "../MiniCard/ProductMiniCard";
+
 const AccordionContainer = styled.div`
   position: relative;
   display: flex;
@@ -55,162 +58,6 @@ const ItemsContainer = styled(DisplayContainer)`
   overflow-x:hidden;
 `;
 
-const ProductCardMini = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-sizing: border-box;
-
-  padding: 5px;
-  width: 332px;
-
-  border-radius: 5px;
-  margin: 0 0 10px 0;
-  border: solid 0.6px #c7c7c7;
-
-  height: 106px;
-`;
-
-const ProductCardMiniLeftContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0px;
-  width: 95px;
-  margin: 0 0 0px 0;
-
-  height: 95px;
-`;
-
-const ProductImageMini = styled.img`
-  flex-grow: 0;
-  margin: 0 auto;
-
-  border-radius: 4px;
-  transition-property: transform, box-shadow;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-
-  // &:hover{
-  //     transform: translateZ(-2px);
-  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);
-  // }
-`;
-
-const ProductCardMiniRightContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-
-  // padding: 6px 0px 6px 0px;
-  width: 218px;
-  padding: 0px;
-
-
-  margin: 0 0 0px 0;
-  height: 95px;
-
-`;
-
-const ProductMiniNameLabel = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 55%;
-
-  font-size: 0.9em;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: 0.18px;
-  text-align: left;
-  color: black;
-`;
-
-const ProductMiniBrandLabel = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 25%;
-
-  font-size: 0.9em;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: 0.18px;
-  text-align: left;
-  color: black;
-`;
-
-const ProductMiniPriceContainer = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  width: 100%;
-  height: 30%;
-
-  font-size: 0.9em;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: 0.18px;
-  text-align: left;
-  color: black;
-`;
-
-const ProductMiniPriceLabel = styled.div`
-  box-sizing: border-box;
-  width: 30%;
-  
-
-  font-size: 1.2em;
-  font-family: New Paris;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: 0.18px;
-  text-align: left;
-  color: black;
-`;
-
-const ProductMiniRating = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 70%;
-  
-`;
-
-const ProductMiniRatingImg = styled.img`
-  flex-grow: 0;
-  margin: 0 auto;
-
-  border-radius: 4px;
-  transition-property: transform, box-shadow;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-
-  // &:hover{
-  //     transform: translateZ(-2px);
-  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);
-  // }
-`;
-
-
 
 const CommentsContainer = styled(DisplayContainer)`
   border-bottom-left-radius: 5px;
@@ -225,19 +72,26 @@ const CommentsContainer = styled(DisplayContainer)`
   height: 418px;
 `;
 
+
+
 class Accordion extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      itemFirOn: false,
-      itemSecOn: true,
+      itemFirOn: true,
+      itemSecOn: false,
       itemThdOn: false,
       data: null,
+      productData: null,
     };
+
+    this.handleProductChange = this.handleProductChange.bind(this);
+    this.handleDataChange = this.handleDataChange.bind(this);
   }
 
   handleTabTwoClick = () => {
+
     this.setState((state) => {
       return {
         itemFirOn: !state.itemFirOn,
@@ -245,6 +99,18 @@ class Accordion extends React.Component {
       };
     });
   };
+
+  handleProductChange(newProduct) {
+    this.setState({
+      productData: newProduct,
+    });
+  }
+
+  handleDataChange(newNote) {
+    this.setState({
+      data: newNote,
+    });
+  }
 
   handleTabThreeDesOffClick = () => {
     this.setState((state) => {
@@ -273,7 +139,14 @@ class Accordion extends React.Component {
     });
   };
 
+  componentDidMount() {
+    getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+  }
+
   render() {
+
+    const {productData} = this.state;
+
     return (
       <AccordionContainer>
         {this.state.itemFirOn && (
@@ -305,66 +178,8 @@ class Accordion extends React.Component {
               </ItemsTabArrow>
             </ItemsTabOn>
             <ItemsContainer>
-              <ProductCardMini>
-                <ProductCardMiniLeftContainer>
-                  <ProductImageMini src = {productMiniImage1} />
-                </ProductCardMiniLeftContainer>
-                <ProductCardMiniRightContainer>
-                  <ProductMiniNameLabel>香奈儿柔和净肤泡沫洁面乳</ProductMiniNameLabel>
-                  <ProductMiniBrandLabel>香奈儿</ProductMiniBrandLabel>
-                  <ProductMiniPriceContainer>
-                    <ProductMiniPriceLabel>$22.5</ProductMiniPriceLabel>
-                    <ProductMiniRating>
-                      <ProductMiniRatingImg src = {ratingMiniImage} />
-                    </ProductMiniRating>
-                  </ProductMiniPriceContainer>
-                </ProductCardMiniRightContainer>
-              </ProductCardMini>
-              <ProductCardMini>
-                <ProductCardMiniLeftContainer>
-                  <ProductImageMini src = {productMiniImage1} />
-                </ProductCardMiniLeftContainer>
-                <ProductCardMiniRightContainer>
-                  <ProductMiniNameLabel>香奈儿柔和净肤泡沫洁面乳</ProductMiniNameLabel>
-                  <ProductMiniBrandLabel>香奈儿</ProductMiniBrandLabel>
-                  <ProductMiniPriceContainer>
-                    <ProductMiniPriceLabel>$22.5</ProductMiniPriceLabel>
-                    <ProductMiniRating>
-                      <ProductMiniRatingImg src = {ratingMiniImage} />
-                    </ProductMiniRating>
-                  </ProductMiniPriceContainer>
-                </ProductCardMiniRightContainer>
-              </ProductCardMini>
-              <ProductCardMini>
-                <ProductCardMiniLeftContainer>
-                  <ProductImageMini src = {productMiniImage1} />
-                </ProductCardMiniLeftContainer>
-                <ProductCardMiniRightContainer>
-                  <ProductMiniNameLabel>香奈儿柔和净肤泡沫洁面乳</ProductMiniNameLabel>
-                  <ProductMiniBrandLabel>香奈儿</ProductMiniBrandLabel>
-                  <ProductMiniPriceContainer>
-                    <ProductMiniPriceLabel>$22.5</ProductMiniPriceLabel>
-                    <ProductMiniRating>
-                      <ProductMiniRatingImg src = {ratingMiniImage} />
-                    </ProductMiniRating>
-                  </ProductMiniPriceContainer>
-                </ProductCardMiniRightContainer>
-              </ProductCardMini>
-              <ProductCardMini>
-                <ProductCardMiniLeftContainer>
-                  <ProductImageMini src = {productMiniImage1} />
-                </ProductCardMiniLeftContainer>
-                <ProductCardMiniRightContainer>
-                  <ProductMiniNameLabel>香奈儿柔和净肤泡沫洁面乳</ProductMiniNameLabel>
-                  <ProductMiniBrandLabel>香奈儿</ProductMiniBrandLabel>
-                  <ProductMiniPriceContainer>
-                    <ProductMiniPriceLabel>$22.5</ProductMiniPriceLabel>
-                    <ProductMiniRating>
-                      <ProductMiniRatingImg src = {ratingMiniImage} />
-                    </ProductMiniRating>
-                  </ProductMiniPriceContainer>
-                </ProductCardMiniRightContainer>
-              </ProductCardMini>
+              <ProductMiniCard products = {productData}>
+              </ProductMiniCard>
             </ItemsContainer>
             <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
               View Comments
