@@ -77,6 +77,7 @@ const ProductMiniNameLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
+  word-wrap:break-word;
 `;
 
 const ProductMiniBrandLabel = styled.div`
@@ -93,6 +94,7 @@ const ProductMiniBrandLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
+  word-wrap:break-word;
 `;
 
 const ProductMiniPriceContainer = styled.div`

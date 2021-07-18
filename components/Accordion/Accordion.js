@@ -8,11 +8,11 @@ import ItemsTabOff from "./components/ItemsTabOff";
 import ItemsTabOn from "./components/ItemsTabOn";
 import ItemsTabArrow from "./components/ItemsTabArrow";
 import DisplayContainer from "./components/DisplayContainer";
-import productMiniImage1 from "../../media/product_img1_sml.png"
-import ratingMiniImage from "../../media/rating_smp_sml.png"
 
-import getProductMini from "../../apis/getProductMini/getProductMini";
+import getProductMini from "../../apis/getProductMini";
+import getCommentMini from "../../apis/getCommentMini";
 import ProductMiniCard from "../MiniCard/ProductMiniCard";
+import CommentMiniCard from "../MiniCard/CommentMiniCard";
 
 const AccordionContainer = styled.div`
   position: relative;
@@ -64,12 +64,15 @@ const CommentsContainer = styled(DisplayContainer)`
   border-bottom-right-radius: 5px;
 
   margin: 0px 2px 2px 2px;
+  padding: 10px 6px 0 10px;
   border-top: none;
   border-left: solid 0.6px #c7c7c7;
   border-right: solid 0.6px #c7c7c7;
   border-bottom: solid 0.6px #c7c7c7;
 
   height: 418px;
+  overflow-y: scroll;
+  overflow-x:hidden;
 `;
 
 
@@ -84,9 +87,11 @@ class Accordion extends React.Component {
       itemThdOn: false,
       data: null,
       productData: null,
+      commentData: null,
     };
 
     this.handleProductChange = this.handleProductChange.bind(this);
+    this.handleCommentsChange = this.handleCommentsChange.bind(this);
     this.handleDataChange = this.handleDataChange.bind(this);
   }
 
@@ -103,6 +108,12 @@ class Accordion extends React.Component {
   handleProductChange(newProduct) {
     this.setState({
       productData: newProduct,
+    });
+  }
+
+  handleCommentsChange(newComments) {
+    this.setState({
+      commentData: newComments,
     });
   }
 
@@ -141,11 +152,12 @@ class Accordion extends React.Component {
 
   componentDidMount() {
     getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+    getCommentMini(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
   render() {
 
-    const {productData} = this.state;
+    const {productData, commentData} = this.state;
 
     return (
       <AccordionContainer>
@@ -178,8 +190,7 @@ class Accordion extends React.Component {
               </ItemsTabArrow>
             </ItemsTabOn>
             <ItemsContainer>
-              <ProductMiniCard products = {productData}>
-              </ProductMiniCard>
+              <ProductMiniCard products = {productData} />
             </ItemsContainer>
             <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
               View Comments
@@ -198,7 +209,9 @@ class Accordion extends React.Component {
                 <FontAwesomeIcon icon={faChevronDown} />
               </ItemsTabArrow>
             </ItemsTabOn>
-            <CommentsContainer></CommentsContainer>
+            <CommentsContainer>
+              <CommentMiniCard comments = {commentData} />  
+            </CommentsContainer>
           </div>
         )}
       </AccordionContainer>
