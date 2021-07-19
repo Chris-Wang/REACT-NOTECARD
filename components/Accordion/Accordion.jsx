@@ -8,6 +8,7 @@ import ItemsTabOff from "./components/ItemsTabOff";
 import ItemsTabOn from "./components/ItemsTabOn";
 import ItemsTabArrow from "./components/ItemsTabArrow";
 import DisplayContainer from "./components/DisplayContainer";
+import TabDisplayContainer from "./components/TabDisplayContainer";
 
 import getProductMini from "../../apis/getProductMini";
 import getCommentMini from "../../apis/getCommentMini";
@@ -37,40 +38,24 @@ const DescriptionContainer = styled(DisplayContainer)`
   height: 350px;
 `;
 
-const ItemsContainer = styled(DisplayContainer)`
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-
+const ItemsContainer = styled(TabDisplayContainer)`
   flex-direction: column;
   justify-content: flex-start;
 
   margin: 0px 2px 2px 2px;
   padding: 10px 10px 0 10px;
-  border-top: none;
-  border-left: solid 0.6px #c7c7c7;
-  border-right: solid 0.6px #c7c7c7;
-  border-bottom: solid 0.6px #c7c7c7;
 
   height: 360px;
-
-  overflow-y: scroll;
-  overflow-x:hidden;
 `;
 
-const CommentsContainer = styled(DisplayContainer)`
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+const CommentsContainer = styled(TabDisplayContainer)`
+  flex-direction: row;
+  justify-content: center;
 
   margin: 0px 2px 2px 2px;
   padding: 10px 6px 0 10px;
-  border-top: none;
-  border-left: solid 0.6px #c7c7c7;
-  border-right: solid 0.6px #c7c7c7;
-  border-bottom: solid 0.6px #c7c7c7;
 
   height: 418px;
-  overflow-y: scroll;
-  overflow-x:hidden;
 `;
 
 class Accordion extends React.Component {
@@ -81,18 +66,15 @@ class Accordion extends React.Component {
       itemFirOn: true,
       itemSecOn: false,
       itemThdOn: false,
-      data: null,
       productData: null,
       commentData: null,
     };
 
     this.handleProductChange = this.handleProductChange.bind(this);
     this.handleCommentsChange = this.handleCommentsChange.bind(this);
-    this.handleDataChange = this.handleDataChange.bind(this);
   }
 
   handleTabTwoClick = () => {
-
     this.setState((state) => {
       return {
         itemFirOn: !state.itemFirOn,
@@ -110,12 +92,6 @@ class Accordion extends React.Component {
   handleCommentsChange(newComments) {
     this.setState({
       commentData: newComments,
-    });
-  }
-
-  handleDataChange(newNote) {
-    this.setState({
-      data: newNote,
     });
   }
 
@@ -152,8 +128,7 @@ class Accordion extends React.Component {
   }
 
   render() {
-
-    const {productData, commentData} = this.state;
+    const { productData, commentData } = this.state;
 
     return (
       <AccordionContainer>
@@ -186,7 +161,7 @@ class Accordion extends React.Component {
               </ItemsTabArrow>
             </ItemsTabOn>
             <ItemsContainer>
-              <ProductMiniCard products = {productData} />
+              <ProductMiniCard products={productData} />
             </ItemsContainer>
             <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
               View Comments
@@ -206,7 +181,7 @@ class Accordion extends React.Component {
               </ItemsTabArrow>
             </ItemsTabOn>
             <CommentsContainer>
-              <CommentMiniCard comments = {commentData} />  
+              <CommentMiniCard comments={commentData} />
             </CommentsContainer>
           </div>
         )}
