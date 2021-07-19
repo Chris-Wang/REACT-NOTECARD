@@ -24,44 +24,10 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlexBox from "../Layout/FlexBox";
+import NoteLikeMenu from "../Menu/NoteLikeMenu";
+import NoteCollectMenu from "../Menu/NoteCollectMenu";
 
-const ListCardLeftContainer = styled(FlexBox)`
-  flex-direction: row;
-  justify-content: center;
-  border-radius: 5px;
-  position: absolute;
-  background-color: #ffffff;
-  bottom: 125px;
-  right: 100px;
 
-  padding: 12px;
-  margin: 2px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  border: solid 1px #a86c6d;
-
-  width: 280px;
-  height: 300px;
-`;
-
-const ListCardRightContainer = styled(FlexBox)`
-  flex-direction: row;
-  justify-content: center;
-  border-radius: 5px;
-  position: absolute;
-  background-color: #ffffff;
-  bottom: 125px;
-  right: 30px;
-
-  padding: 12px;
-  margin: 2px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  border: solid 1px #a86c6d;
-
-  width: 280px;
-  height: 300px;
-`;
 const Container = styled.div`
   display: inline-block;
 `;
@@ -72,17 +38,23 @@ class Button extends React.Component {
     super(props);
     this.state = {
       seen: false,
+      isUserFollow: true
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleButtonClick = () => {
-    this.setState((state) => {
-      return {
-        seen: !state.seen,
-      };
-    });
-  };
+  handleClick() {
+    this.setState(state =>({
+      isUserFollow: !state.isUserFollow
+    }))
+  }
+
+  handleButtonClick() {
+    this.setState(state => ({
+        seen: !state.seen
+    }))
+  }
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
@@ -155,8 +127,11 @@ class Button extends React.Component {
         );
 
       case "AUTHORFOLLOW":
-        return <NoteFollowBtn>Follow</NoteFollowBtn>;
-
+        return (
+        <NoteFollowBtn onClick={this.handleClick}>
+          {this.state.isUserFollow ? "Follow" : "Following"}
+        </NoteFollowBtn>
+        )
       case "LIKENOTE":
         return (
           <NoteFunctionBtn>
@@ -200,10 +175,10 @@ class Button extends React.Component {
         {this.renderButton(this.props.type)}
         <Container ref={this.container}>
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
-            <ListCardLeftContainer></ListCardLeftContainer>
+            <NoteLikeMenu></NoteLikeMenu>
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
-            <ListCardRightContainer></ListCardRightContainer>
+            <NoteCollectMenu></NoteCollectMenu>
           )}
         </Container>
       </div>
