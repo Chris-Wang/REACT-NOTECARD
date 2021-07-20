@@ -9,25 +9,91 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./App.js":
-/*!****************!*\
-  !*** ./App.js ***!
-  \****************/
+/***/ "./App.jsx":
+/*!*****************!*\
+  !*** ./App.jsx ***!
+  \*****************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _app_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/Header */ \"./app/Header/index.js\");\n/* harmony import */ var _app_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/Page */ \"./app/Page/index.js\");\n/* harmony import */ var _app_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/Footer */ \"./app/Footer/index.js\");\n\n\n\n\n\nconst App = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"main\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"container\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Header__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Page__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Footer__WEBPACK_IMPORTED_MODULE_3__.default, null)));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://tempfe/./App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _app_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/Header */ \"./app/Header/index.js\");\n/* harmony import */ var _app_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/Page */ \"./app/Page/index.js\");\n/* harmony import */ var _app_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/Footer */ \"./app/Footer/index.js\");\n\n\n\n\n\nconst App = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"main\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"container\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Header__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Page__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_Footer__WEBPACK_IMPORTED_MODULE_3__.default, null)));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://tempfe/./App.jsx?");
 
 /***/ }),
 
-/***/ "./app/Footer/Footer.js":
-/*!******************************!*\
-  !*** ./app/Footer/Footer.js ***!
-  \******************************/
+/***/ "./apis/getCommentMini/getCommentMini.jsx":
+/*!************************************************!*\
+  !*** ./apis/getCommentMini/getCommentMini.jsx ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _components_Flex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Flex */ \"./components/Flex.js\");\n\n\n\nconst FooterContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n    margin: 0;\n    padding: 4px;\n    max-height: 20px;\n    background-color: #f4ded7;\n    align-items: center;\n\n`;\nconst FooterText = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n    font-family: sans-serif;\n    font-size: 12px;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    letter-spacing: 0.18px;\n    text-align: center;\n    color: #a86c6d;\n    margin: 0 auto;\n`;\n\nconst Footer = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(FooterContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(FooterText, null, \"Copyright \\xA9 Polar 2021 All right reserved\"));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);\n\n//# sourceURL=webpack://tempfe/./app/Footer/Footer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/LocalHostMap */ \"./utils/LocalHostMap/index.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (noteId => _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__.default.get(`/note/notecomments/${noteId}`).then(response => response.data));\n\n//# sourceURL=webpack://tempfe/./apis/getCommentMini/getCommentMini.jsx?");
+
+/***/ }),
+
+/***/ "./apis/getCommentMini/index.js":
+/*!**************************************!*\
+  !*** ./apis/getCommentMini/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _getCommentMini__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _getCommentMini__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getCommentMini */ \"./apis/getCommentMini/getCommentMini.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./apis/getCommentMini/index.js?");
+
+/***/ }),
+
+/***/ "./apis/getNote/getNote.jsx":
+/*!**********************************!*\
+  !*** ./apis/getNote/getNote.jsx ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/LocalHostMap */ \"./utils/LocalHostMap/index.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (noteId => _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__.default.get(`/note/${noteId}`).then(response => response.data));\n\n//# sourceURL=webpack://tempfe/./apis/getNote/getNote.jsx?");
+
+/***/ }),
+
+/***/ "./apis/getNote/index.js":
+/*!*******************************!*\
+  !*** ./apis/getNote/index.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _getNote__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _getNote__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getNote */ \"./apis/getNote/getNote.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./apis/getNote/index.js?");
+
+/***/ }),
+
+/***/ "./apis/getProductMini/getProductMini.jsx":
+/*!************************************************!*\
+  !*** ./apis/getProductMini/getProductMini.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/LocalHostMap */ \"./utils/LocalHostMap/index.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (noteId => _utils_LocalHostMap__WEBPACK_IMPORTED_MODULE_0__.default.get(`/product/linkedproducts/${noteId}`).then(response => response.data));\n\n//# sourceURL=webpack://tempfe/./apis/getProductMini/getProductMini.jsx?");
+
+/***/ }),
+
+/***/ "./apis/getProductMini/index.js":
+/*!**************************************!*\
+  !*** ./apis/getProductMini/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _getProductMini__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _getProductMini__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getProductMini */ \"./apis/getProductMini/getProductMini.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./apis/getProductMini/index.js?");
+
+/***/ }),
+
+/***/ "./app/Footer/Footer.jsx":
+/*!*******************************!*\
+  !*** ./app/Footer/Footer.jsx ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _components_Flex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Flex */ \"./components/Flex.jsx\");\n/* harmony import */ var _components_TextLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/TextLabel */ \"./components/TextLabel/index.js\");\n\n\n\n\nconst FooterContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_3__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n  margin: 0;\n  min-width: 1008px;\n  padding: 4px;\n  max-height: 20px;\n  background-color: #f4ded7;\n  align-items: center;\n  justify-content: center;\n`;\n\nconst Footer = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(FooterContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextLabel__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"COPYRIGHT\"\n}));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);\n\n//# sourceURL=webpack://tempfe/./app/Footer/Footer.jsx?");
 
 /***/ }),
 
@@ -38,29 +104,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Footer__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer */ \"./app/Footer/Footer.js\");\n\n\n//# sourceURL=webpack://tempfe/./app/Footer/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Footer__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer */ \"./app/Footer/Footer.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./app/Footer/index.js?");
 
 /***/ }),
 
-/***/ "./app/Header/Header.js":
-/*!******************************!*\
-  !*** ./app/Header/Header.js ***!
-  \******************************/
+/***/ "./app/Header/Header.jsx":
+/*!*******************************!*\
+  !*** ./app/Header/Header.jsx ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _components_Flex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Flex */ \"./components/Flex.js\");\n/* harmony import */ var _components_NavbarItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/NavbarItem */ \"./app/Header/components/NavbarItem.js\");\n/* harmony import */ var _build_static_media_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../build/static/media/logo.png */ \"./build/static/media/logo.png\");\n/* harmony import */ var _build_static_media_home_icon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../build/static/media/home_icon.png */ \"./build/static/media/home_icon.png\");\n/* harmony import */ var _build_static_media_like_icon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../build/static/media/like_icon.png */ \"./build/static/media/like_icon.png\");\n/* harmony import */ var _build_static_media_collection_icon_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../build/static/media/collection_icon.png */ \"./build/static/media/collection_icon.png\");\n/* harmony import */ var _build_static_media_createnote_icon_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../build/static/media/createnote_icon.png */ \"./build/static/media/createnote_icon.png\");\n/* harmony import */ var _build_static_media_Account_icon_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../build/static/media/Account_icon.png */ \"./build/static/media/Account_icon.png\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"./node_modules/@fortawesome/react-fontawesome/index.es.js\");\n/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ \"./node_modules/@fortawesome/free-solid-svg-icons/index.es.js\");\n\n\n\n\n\n\n\n\n\n\n\n\nconst Logo = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.img`\n    width: 88px;\n    height: 44px;\n    flex-grow: 0;\n    margin: 0 0 0 0; \n\n    border-radius: 4px;\n    transition-property: transform, box-shadow;\n    transition-duration: 0.3s;\n    transition-timing-function: ease-in-out;\n\n    &:hover{\n        transform: translateZ(-2px);\n        box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n    }\n`;\nconst Nav = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n    margin: 0;\n    padding: 5.9px 58.5px 6.1px 59px;\n    background-color: #f4ded7;\n    align-items: center;\n    box-shadow: 0 0 60px rgb(70 70 70 / 12%);\n`;\nconst NavInternal = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n    margin: 0 auto;\n    align-items: center;\n    width: 1000px;\n    justify-content:space-between;\n`;\nconst RightItem = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.img`\n    width: 18px;\n    height: 18px;\n    flex-grow: 0;\n    margin: 0 15px 0 0; \n\n    border-radius: 4px;\n   \n    transition-property: transform, box-shadow;\n    transition-duration: 0.3s;\n    transition-timing-function: ease-in-out;\n\n    &:hover{\n        transform: translateY(-8px);\n        box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n    }   \n`;\nconst Left = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.div`\n    width:200 px;\n`;\nconst Middle = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n    margin: 0 0 0 80px; \n`;\nconst CategoryButton = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.button`\n    width: 30px;\n    font-size: 1em;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color: white;\n    background-color: #f4ded7; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: black;\n    }\n\n\n`;\nconst SearchArea = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.div`\n    width: 330px;\n    height: 26px;\n    flex-grow: 0;\n    margin: 0 0 0 6px;\n    padding: 0;\n    // margin: 4.6px 12px 4.9px 13.5px;\n    // padding: 5px 9.5px 4px 8.5px;\n    border-radius: 10.5px;\n    background-color: #ffffff;\n`;\nconst SearchInput = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.input`\n    padding: 0;\n    margin: 5px 3px 3px 15px;\n    outline: none;\n    color: ${props => props.inputColor || \"black\"};\n    background-color: #ffffff;\n    border: none;\n    border-radius: 3px;\n`;\nconst Right = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.div`\n    min-width: 160px;\n`;\nconst RightItems = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__.default)(_components_Flex__WEBPACK_IMPORTED_MODULE_1__.default)`\n    margin: 0;\n`;\n\nconst Header = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NavInternal, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Left, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Logo, {\n  src: _build_static_media_logo_png__WEBPACK_IMPORTED_MODULE_3__.default\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Middle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CategoryButton, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__.FontAwesomeIcon, {\n  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__.faCompass\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(SearchArea, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(SearchInput, {\n  defaultValue: \"Search\",\n  type: \"text\",\n  inputColor: \"black\"\n}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItems, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItem, {\n  src: _build_static_media_home_icon_png__WEBPACK_IMPORTED_MODULE_4__.default,\n  href: \"EXPLORER\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItem, {\n  src: _build_static_media_createnote_icon_png__WEBPACK_IMPORTED_MODULE_7__.default,\n  href: \"CREATE\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItem, {\n  src: _build_static_media_collection_icon_png__WEBPACK_IMPORTED_MODULE_6__.default,\n  href: \"COLLECT\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItem, {\n  src: _build_static_media_like_icon_png__WEBPACK_IMPORTED_MODULE_5__.default,\n  href: \"LIKE\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightItem, {\n  src: _build_static_media_Account_icon_png__WEBPACK_IMPORTED_MODULE_8__.default,\n  href: \"ACCOUNT\"\n})))));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);\n\n//# sourceURL=webpack://tempfe/./app/Header/Header.js?");
-
-/***/ }),
-
-/***/ "./app/Header/components/NavbarItem.js":
-/*!*********************************************!*\
-  !*** ./app/Header/components/NavbarItem.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NavbarItem = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.a`\n    padding: 16px;\n    text-decoration: none;\n    color: #49515d;\n    font-size: 15px;\n    opacity: 0.6;\n    display: block;\n    transition: opacity 0.3s ease-in-out;\n\n    /* SCSS 规范 */\n    &::after {\n        content: \"\";  \n        width: 0;\n        border-bottom: 3px solid #377e9a;\n        margin: auto;\n        margin-top: 4px;\n        display: block;\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:hover{\n        opacity: 1;\n    }\n\n    &:hover::after {\n        width: 24px;\n    }\n      \n    &:last-of-type {\n        padding-right: 0;\n    }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavbarItem);\n\n//# sourceURL=webpack://tempfe/./app/Header/components/NavbarItem.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Layout/HeaderLayout/HeaderDiv */ \"./components/Layout/HeaderLayout/HeaderDiv.jsx\");\n/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Button */ \"./components/Button/index.js\");\n/* harmony import */ var _components_InputBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/InputBox */ \"./components/InputBox/index.js\");\n\n\n\n\n\nconst HeadBar = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__.default)(_components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__.default)`\n  min-width: 1016px;\n  padding: 5.9px 0px 6.1px 0px;\n  box-shadow: 0 0 60px rgb(70 70 70 / 12%);\n`;\nconst HeadBarContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__.default)(_components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__.default)`\n  margin: 0 auto;\n  width: 1000px;\n  justify-content: space-between;\n`;\nconst LeftContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__.default)(_components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__.default)`\n  width: 200 px;\n`;\nconst MiddleContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__.default)(_components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__.default)`\n  margin: 0 0 0 80px;\n`;\nconst RightContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__.default)(_components_Layout_HeaderLayout_HeaderDiv__WEBPACK_IMPORTED_MODULE_1__.default)`\n  width: 260px;\n  justify-content: flex-end;\n`;\nconst SearchContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  width: 330px;\n  height: 26px;\n  flex-grow: 0;\n  margin: 0 0 0 6px;\n  padding: 0;\n  border-radius: 10.5px;\n  background-color: #ffffff;\n`;\n\nconst Header = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(HeadBar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(HeadBarContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(LeftContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"HEADERLOGO\"\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(MiddleContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"CATEGORY\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(SearchContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_InputBox__WEBPACK_IMPORTED_MODULE_3__.default, {\n  type: \"SEARCH\"\n}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"HOME\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"CREATENOTE\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"LIKEHISTORY\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"COLLECTEDNOTE\"\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__.default, {\n  type: \"USERPROFILE\"\n}))));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);\n\n//# sourceURL=webpack://tempfe/./app/Header/Header.jsx?");
 
 /***/ }),
 
@@ -71,29 +126,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Header__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./app/Header/Header.js\");\n\n\n//# sourceURL=webpack://tempfe/./app/Header/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Header__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./app/Header/Header.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./app/Header/index.js?");
 
 /***/ }),
 
-/***/ "./app/Page/Page.js":
-/*!**************************!*\
-  !*** ./app/Page/Page.js ***!
-  \**************************/
+/***/ "./app/Page/Page.jsx":
+/*!***************************!*\
+  !*** ./app/Page/Page.jsx ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_NotePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NotePage */ \"./app/Page/components/NotePage/index.js\");\n\n\n\nconst Page = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"pages\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NotePage__WEBPACK_IMPORTED_MODULE_1__.default, null));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);\n\n//# sourceURL=webpack://tempfe/./app/Page/Page.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_NotePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NotePage */ \"./app/Page/components/NotePage/index.js\");\n\n\n\nconst Page = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n  className: \"pages\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NotePage__WEBPACK_IMPORTED_MODULE_1__.default, null));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);\n\n//# sourceURL=webpack://tempfe/./app/Page/Page.jsx?");
 
 /***/ }),
 
-/***/ "./app/Page/components/NotePage/NotePage.js":
-/*!**************************************************!*\
-  !*** ./app/Page/components/NotePage/NotePage.js ***!
-  \**************************************************/
+/***/ "./app/Page/components/NotePage/NotePage.jsx":
+/*!***************************************************!*\
+  !*** ./app/Page/components/NotePage/NotePage.jsx ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _build_static_media_product_image_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../build/static/media/product_image.png */ \"./build/static/media/product_image.png\");\n/* harmony import */ var _build_static_media_user_avatar_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../build/static/media/user_avatar.png */ \"./build/static/media/user_avatar.png\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"./node_modules/@fortawesome/react-fontawesome/index.es.js\");\n/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ \"./node_modules/@fortawesome/free-solid-svg-icons/index.es.js\");\n\n\n\n\n\n\n\n\n\nconst NoteCard = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    //display: block;\n    //background-color: #f5f5f5;\n    display: flex;\n    flex-direction: row;\n    flex-shrink: 0;\n    position: relative;\n    // width: 617.5px;\n    // height: 441px;\n    width: 1000px;\n    \n    margin:0 auto;\n    padding: 3px;\n    border-radius: 10px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);\n    border: solid 1px #a86c6d;\n`;\nconst CardLeft = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    display: block;\n    position: relative;\n    // width: 617.5px;\n    // height: 441px;\n    min-height: 700px;\n    width: 100%;\n    margin: 0;\n    padding: 0; \n    //border: solid 0.5px #a86c6d;\n`;\nconst ImageContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    box-sizing: border-box;\n\n    padding-left: 20px;\n    padding-right: 20px;\n    padding-bottom: 20px;\n    padding-top: 20px;\n    margin: 0;\n\n`;\nconst ImageLoader = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.img`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    box-sizing: border-box;\n\n    border-radius: 10px;\n    height: 655px;\n    width: 560px;\n   \n`;\nconst CardRight = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    display: block;\n    position: relative;\n    // width: 617.5px;\n    // height: 441px;\n    \n    min-height: 700px;\n    width: 100%;\n    margin:0 auto;\n  \n    //border: solid 0.5px #a86c6d;\n`;\nconst RightContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    box-sizing: border-box;\n\n    padding-left: 20px;\n    padding-right: 20px;\n    padding-bottom: 20px;\n    padding-top: 20px;\n    margin: 0;\n\n`;\nconst AuthorRow = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    box-sizing: border-box;\n    align-items: center;\n\n    padding: 0;\n    margin: 0;\n\n    width: 358px;\n    height: 80px;\n\n`;\nconst AuthorAvatar = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    padding: 5px;\n    margin: 0;\n\n    width: 80px;\n    height: 80px;\n\n`;\nconst AuthorAvatarLoader = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.img`\n    position: relative;\n    box-sizing: border-box;\n    margin: 0;\n\n    border-radius: 35px;\n    width: 65px;\n    height: 65px;\n\n`;\nconst AuthorName = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    padding-left: 5px;\n    padding-right: 5px;\n    margin: 0;\n    \n    width: 170px;\n    height: 80px;\n\n`;\nconst AuthorNameLabel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n\n    padding: 0;\n    margin: 0;\n\n    width: 160px;\n    height: 36px;\n\n    font-size: 1.4em;\n    font-family: New Paris;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    letter-spacing: 0.18px;\n    text-align: center;\n    color: black;\n\n`;\nconst AuthorButtonArea = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    padding: 5px;\n    margin: 0;\n\n    width: 100px;\n    height: 80px;\n\n`;\nconst AuthorButton = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button`\n    width: 80px;\n    height: 20px;\n    font-size: 0.75em;\n    margin: 0;\n    padding: 0;\n    color: white;\n    background-color: #a86c6d; \n    border: none; \n\n    font-family: sans-serif;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    text-align: center;\n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: black;\n    }\n\n\n`;\nconst DisplayedAccordion = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    box-sizing: border-box;\n\n    padding: 0;\n    margin: 0;\n    //border: solid 0.5px #a86c6d;\n\n    width: 358px;\n    height: 480px;\n`;\nconst DescriptionContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    box-sizing: border-box;\n    border-radius: 5px;\n\n    padding: 12px;\n    margin: 2px;\n    border: solid 0.6px #c7c7c7;\n\n    width: 352px;\n    height: 350px;\n`;\nconst DescriptionLabel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n\n    //border: solid 0.5px #a86c6d;\n\n    width: 100%;\n\n    font-size: 0.9em;\n    font-family: sans-serif;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    letter-spacing: 0.18px;\n    text-align: left;\n    color: black;\n`;\nconst LinkedProductContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n    border-radius: 5px;\n    background-color: #f4ded7;\n\n    padding: 12px;\n    margin: 10px 2px 0px 2px;\n    //border: solid 0.5px #a86c6d;\n\n    width: 352px;\n    height: 50px;\n\n    font-size: 1.1em;\n    font-family: \"Segoe UI\";\n    font-weight: 600;\n`;\nconst ViewCommentsContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    box-sizing: border-box;\n    border-radius: 5px;\n    background-color: #f4ded7;\n\n    padding: 12px;\n    margin: 10px 2px 10px 2px;\n    //border: solid 0.5px #a86c6d;\n\n    width: 352px;\n    height: 50px;\n\n\n    font-size: 1.1em;\n    font-family: \"Segoe UI\";\n    font-weight: 600;\n`;\nconst FunctionSet = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    box-sizing: border-box;\n\n    padding: 0;\n    margin: 0;\n    //border: solid 0.5px #a86c6d;\n\n    width: 358px;\n    height: 50px;\n`;\nconst LikeButton = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button`\n    width: 50px;\n    height: 50px;\n    font-size: 30px;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color: #c7c7c7;\n    background-color: white; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:active {\n        color: #a86c6d;\n    }\n\n\n`;\nconst LikeNumber = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.span`\n    position: relative;\n    box-sizing: border-box;\n\n    padding: 10px 20px 10px 0px;\n    margin: 0;\n    //border: solid 0.5px #a86c6d;\n\n    width: 40px;\n    height: 50px;\n\n    font-size: 1em;\n    font-family: \"Segoe UI\";\n    font-weight: 600;\n`;\nconst CollectButton = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button`\n    width: 50px;\n    height: 50px;\n    font-size: 30px;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color:  #c7c7c7;\n    background-color: white; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:active {\n        color: #a86c6d;\n    }\n\n`;\nconst CollectNumber = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.span`\n    position: relative;\n    box-sizing: border-box;\n\n    padding: 10px 20px 10px 0px;\n    margin: 0;\n    //border: solid 0.5px #a86c6d;\n\n    width: 40px;\n    height: 50px;\n\n    font-size: 1em;\n    font-family: \"Segoe UI\";\n    font-weight: 600;\n`;\nconst ForwardButton = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button`\n    width: 50px;\n    height: 50px;\n    font-size: 30px;\n    margin: 0 0 0 110px;\n    padding: 0;\n    border: none; \n    color: #c7c7c7;\n    background-color: white; \n \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:active {\n        color: #a86c6d;\n    }\n`;\nconst QuickCommentContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    border-radius: 5px;\n    box-sizing: border-box;\n\n    border: solid 0.5px #c7c7c7;\n\n    width: 352px;\n    height: 50px;\n\n    padding: 10px;\n    margin: 0 px 2px 0px 2px;\n\n`;\nconst CommentInput = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.input`\n    padding: 0;\n    margin: 0;\n    outline: none;\n    color: ${props => props.inputColor || \"black\"};\n    background-color: #ffffff;\n    border: none;\n    border-radius: 3px;\n\n    width: 350px;\n\n    font-size: 0.9em;\n    font-family: sans-serif;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    letter-spacing: 0.18px;\n    text-align: left;\n    color: black;\n`;\n\nconst NotePage = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NoteCard, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CardLeft, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ImageContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ImageLoader, {\n  src: _build_static_media_product_image_png__WEBPACK_IMPORTED_MODULE_1__.default\n}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CardRight, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorRow, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorAvatar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorAvatarLoader, {\n  src: _build_static_media_user_avatar_png__WEBPACK_IMPORTED_MODULE_2__.default\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorName, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorNameLabel, null, \"Angela Elizabeth\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorButtonArea, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorButton, null, \"Follow\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(DisplayedAccordion, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(DescriptionContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(DescriptionLabel, null, \"Infused with divine swirls of toffee, caramel and chocolate, these Brown Obsessions mimic the dreamy tortoiseshell designs that Huda is obsessed with. Effortlessly easy to master, these sumptuously pigmented palettes feature four delectable finishes in complementary tones that look ravishing on every skin tone. Velvety smooth powders, intense metallics, buttery marble cream shimmers, and an irresistible new pearl flake texture give you creative freedom to playfully shade, highlight, and define the eyes\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(LinkedProductContainer, null, \"Linked Products\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ViewCommentsContainer, null, \"View Comments\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(FunctionSet, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(LikeButton, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {\n  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faHeart\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(LikeNumber, null, \"21\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CollectButton, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {\n  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faBookmark\n})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CollectNumber, null, \"32\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ForwardButton, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {\n  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faReply\n}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(QuickCommentContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentInput, {\n  defaultValue: \"Say Something...\",\n  type: \"text\",\n  inputColor: \"black\"\n})))));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotePage);\n\n//# sourceURL=webpack://tempfe/./app/Page/components/NotePage/NotePage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _media_user_avatar_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../media/user_avatar.png */ \"./media/user_avatar.png\");\n/* harmony import */ var _apis_getNote__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../apis/getNote */ \"./apis/getNote/index.js\");\n/* harmony import */ var _components_Layout_CardContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/Layout/CardContainer */ \"./components/Layout/CardContainer/index.js\");\n/* harmony import */ var _utils_ImageLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/ImageLoader */ \"./utils/ImageLoader/index.js\");\n/* harmony import */ var _components_Image_ImageSlider_ImageSlider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/Image/ImageSlider/ImageSlider */ \"./components/Image/ImageSlider/ImageSlider.jsx\");\n/* harmony import */ var _components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../components/Layout/FlexBox */ \"./components/Layout/FlexBox/index.js\");\n/* harmony import */ var _components_Image_NoteAuthorImage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../components/Image/NoteAuthorImage */ \"./components/Image/NoteAuthorImage/index.js\");\n/* harmony import */ var _components_TextLabel_components_NoteAuthorLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../components/TextLabel/components/NoteAuthorLabel */ \"./components/TextLabel/components/NoteAuthorLabel/index.js\");\n/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../components/Button */ \"./components/Button/index.js\");\n/* harmony import */ var _components_InputBox_components_CommentInput__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../components/InputBox/components/CommentInput */ \"./components/InputBox/components/CommentInput/index.js\");\n/* harmony import */ var _components_Accordion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../components/Accordion */ \"./components/Accordion/index.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst NoteCard = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  flex-direction: row;\n  flex-shrink: 0;\n  width: 1000px;\n\n  padding: 3px;\n  border-radius: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);\n  border: solid 1px #a86c6d;\n  position: relative;\n`;\nconst ImageContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  padding: 20px 10px 20px 25px;\n`;\nconst RightBox = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  flex-direction: column;\n  justify-content: center;\n  padding: 20px 25px 20px 15px;\n`;\nconst AuthorContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n\n  padding: 0;\n  width: 358px;\n  height: 80px;\n`;\nconst AuthorAvatarContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  justify-content: center;\n  align-items: center;\n\n  padding: 5px;\n  width: 80px;\n  height: 80px;\n`;\nconst AuthorNameContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  justify-content: center;\n  align-items: center;\n\n  padding-left: 5px;\n  padding-right: 5px;\n  width: 170px;\n  height: 80px;\n`;\nconst AuthorButtonContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  justify-content: center;\n  align-items: center;\n\n  padding: 5px;\n  width: 100px;\n  height: 80px;\n`;\nconst FunctionSetContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  flex-direction: row;\n  justify-content: flex-start;\n\n  padding: 0;\n  width: 358px;\n  height: 50px;\n`;\nconst QuickCommentContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_6__.default)`\n  flex-direction: row;\n  justify-content: center;\n  border-radius: 5px;\n  border: solid 0.5px #c7c7c7;\n\n  padding: 10px;\n  margin: 0 px 2px 0px 2px;\n  width: 352px;\n  height: 50px;\n`;\nconst noteid = \"2\";\n\nconst getNoteInfo = () => (0,_apis_getNote__WEBPACK_IMPORTED_MODULE_2__.default)(noteid);\n\nclass NotePage extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      noteData: null\n    };\n    this.handleNoteChange = this.handleNoteChange.bind(this);\n  }\n\n  handleNoteChange(newNote) {\n    this.setState({\n      noteData: newNote\n    });\n  }\n\n  componentDidMount() {\n    getNoteInfo().then(this.handleNoteChange);\n  }\n\n  render() {\n    const {\n      noteData\n    } = this.state;\n\n    if (!noteData) {\n      return \"Loading\";\n    }\n\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NoteCard, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Layout_CardContainer__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ImageContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Image_ImageSlider_ImageSlider__WEBPACK_IMPORTED_MODULE_5__.default, {\n      slides: _utils_ImageLoader__WEBPACK_IMPORTED_MODULE_4__.default\n    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Layout_CardContainer__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RightBox, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorAvatarContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Image_NoteAuthorImage__WEBPACK_IMPORTED_MODULE_7__.default, {\n      src: _media_user_avatar_png__WEBPACK_IMPORTED_MODULE_1__.default\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorNameContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextLabel_components_NoteAuthorLabel__WEBPACK_IMPORTED_MODULE_8__.default, null, noteData.author)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AuthorButtonContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      type: \"AUTHORFOLLOW\"\n    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_11__.default, {\n      noteData: noteData\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(FunctionSetContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      type: \"LIKENOTE\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      number: noteData.likeNum,\n      type: \"LIKENOTEUSERS\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      type: \"COLLECTNOTE\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      number: noteData.collectNum,\n      type: \"COLLECTNOTEUSERS\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_9__.default, {\n      type: \"FORWARDNOTE\"\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(QuickCommentContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_InputBox_components_CommentInput__WEBPACK_IMPORTED_MODULE_10__.default, {\n      defaultValue: \"Say Something...\",\n      type: \"text\",\n      inputColor: \"black\"\n    })))));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotePage);\n\n//# sourceURL=webpack://tempfe/./app/Page/components/NotePage/NotePage.jsx?");
 
 /***/ }),
 
@@ -104,7 +159,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NotePage__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NotePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotePage */ \"./app/Page/components/NotePage/NotePage.js\");\n\n\n//# sourceURL=webpack://tempfe/./app/Page/components/NotePage/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NotePage__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NotePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotePage */ \"./app/Page/components/NotePage/NotePage.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./app/Page/components/NotePage/index.js?");
 
 /***/ }),
 
@@ -115,18 +170,942 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Page__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Page */ \"./app/Page/Page.js\");\n\n\n//# sourceURL=webpack://tempfe/./app/Page/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Page__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Page */ \"./app/Page/Page.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./app/Page/index.js?");
 
 /***/ }),
 
-/***/ "./components/Flex.js":
-/*!****************************!*\
-  !*** ./components/Flex.js ***!
-  \****************************/
+/***/ "./components/Accordion/Accordion.jsx":
+/*!********************************************!*\
+  !*** ./components/Accordion/Accordion.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst Flex = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n    display: flex;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Flex);\n\n//# sourceURL=webpack://tempfe/./components/Flex.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _TextLabel_components_DescriptionLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TextLabel/components/DescriptionLabel */ \"./components/TextLabel/components/DescriptionLabel/index.js\");\n/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ \"./node_modules/@fortawesome/free-solid-svg-icons/index.es.js\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"./node_modules/@fortawesome/react-fontawesome/index.es.js\");\n/* harmony import */ var _components_ItemsTabOff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ItemsTabOff */ \"./components/Accordion/components/ItemsTabOff/index.js\");\n/* harmony import */ var _components_ItemsTabOn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ItemsTabOn */ \"./components/Accordion/components/ItemsTabOn/index.js\");\n/* harmony import */ var _components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ItemsTabArrow */ \"./components/Accordion/components/ItemsTabArrow/index.js\");\n/* harmony import */ var _components_DisplayContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/DisplayContainer */ \"./components/Accordion/components/DisplayContainer/index.js\");\n/* harmony import */ var _components_TabDisplayContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/TabDisplayContainer */ \"./components/Accordion/components/TabDisplayContainer/index.js\");\n/* harmony import */ var _apis_getProductMini__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../apis/getProductMini */ \"./apis/getProductMini/index.js\");\n/* harmony import */ var _apis_getCommentMini__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../apis/getCommentMini */ \"./apis/getCommentMini/index.js\");\n/* harmony import */ var _MiniCard_ProductMiniCard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../MiniCard/ProductMiniCard */ \"./components/MiniCard/ProductMiniCard/index.js\");\n/* harmony import */ var _MiniCard_CommentMiniCard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../MiniCard/CommentMiniCard */ \"./components/MiniCard/CommentMiniCard/index.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst AccordionContainer = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  box-sizing: border-box;\n  align-items: flex-start;\n\n  padding: 0;\n  margin: 0;\n\n  width: 358px;\n  height: 480px;\n`;\nconst DescriptionContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_DisplayContainer__WEBPACK_IMPORTED_MODULE_6__.default)`\n  border-radius: 5px;\n  margin: 2px;\n  border: solid 0.6px #c7c7c7;\n\n  height: 350px;\n`;\nconst ItemsContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_TabDisplayContainer__WEBPACK_IMPORTED_MODULE_7__.default)`\n  flex-direction: column;\n  justify-content: flex-start;\n\n  margin: 0px 2px 2px 2px;\n  padding: 10px 10px 0 10px;\n\n  height: 360px;\n`;\nconst CommentsContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_components_TabDisplayContainer__WEBPACK_IMPORTED_MODULE_7__.default)`\n  flex-direction: row;\n  justify-content: center;\n\n  margin: 0px 2px 2px 2px;\n  padding: 10px 6px 0 10px;\n\n  height: 418px;\n`;\n\nclass Accordion extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      itemFirOn: true,\n      itemSecOn: false,\n      itemThdOn: false,\n      productData: null,\n      commentData: null\n    };\n    this.handleProductChange = this.handleProductChange.bind(this);\n    this.handleCommentsChange = this.handleCommentsChange.bind(this);\n  }\n\n  handleTabTwoClick = () => {\n    this.setState(state => {\n      return {\n        itemFirOn: !state.itemFirOn,\n        itemSecOn: !state.itemSecOn\n      };\n    });\n  };\n\n  handleProductChange(newProduct) {\n    this.setState({\n      productData: newProduct\n    });\n  }\n\n  handleCommentsChange(newComments) {\n    this.setState({\n      commentData: newComments\n    });\n  }\n\n  handleTabThreeDesOffClick = () => {\n    this.setState(state => {\n      return {\n        itemFirOn: !state.itemFirOn,\n        itemThdOn: !state.itemThdOn\n      };\n    });\n  };\n  handleTabThreeItmOffClick = () => {\n    this.setState(state => {\n      return {\n        itemSecOn: !state.itemSecOn,\n        itemThdOn: !state.itemThdOn\n      };\n    });\n  };\n  handleTabThreeOnClick = () => {\n    this.setState(state => {\n      return {\n        itemFirOn: !state.itemFirOn,\n        itemThdOn: !state.itemThdOn\n      };\n    });\n  };\n\n  componentDidMount() {\n    (0,_apis_getProductMini__WEBPACK_IMPORTED_MODULE_8__.default)(this.props.noteData.noteId).then(this.handleProductChange);\n    (0,_apis_getCommentMini__WEBPACK_IMPORTED_MODULE_9__.default)(this.props.noteData.noteId).then(this.handleCommentsChange);\n  }\n\n  render() {\n    const {\n      productData,\n      commentData\n    } = this.state;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AccordionContainer, null, this.state.itemFirOn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(DescriptionContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_TextLabel_components_DescriptionLabel__WEBPACK_IMPORTED_MODULE_1__.default, null, this.props.noteData.content)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabOff__WEBPACK_IMPORTED_MODULE_3__.default, {\n      onClick: this.handleTabTwoClick\n    }, \"Linked Product\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {\n      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__.faChevronUp\n    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabOff__WEBPACK_IMPORTED_MODULE_3__.default, {\n      onClick: this.handleTabThreeDesOffClick\n    }, \"View Comments\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {\n      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__.faChevronUp\n    })))), this.state.itemSecOn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabOn__WEBPACK_IMPORTED_MODULE_4__.default, {\n      onClick: this.handleTabTwoClick\n    }, \"Linked Product\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {\n      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__.faChevronDown\n    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ItemsContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MiniCard_ProductMiniCard__WEBPACK_IMPORTED_MODULE_10__.default, {\n      products: productData\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabOff__WEBPACK_IMPORTED_MODULE_3__.default, {\n      onClick: this.handleTabThreeItmOffClick\n    }, \"View Comments\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {\n      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__.faChevronUp\n    })))), this.state.itemThdOn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabOn__WEBPACK_IMPORTED_MODULE_4__.default, {\n      onClick: this.handleTabThreeOnClick\n    }, \"View Comments\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ItemsTabArrow__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {\n      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__.faChevronDown\n    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentsContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MiniCard_CommentMiniCard__WEBPACK_IMPORTED_MODULE_11__.default, {\n      comments: commentData\n    }))));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Accordion);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/Accordion.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/DisplayContainer/DisplayContainer.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/Accordion/components/DisplayContainer/DisplayContainer.jsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst DisplayContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  box-sizing: border-box;\n  \n  padding: 12px;\n  width: 352px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DisplayContainer);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/DisplayContainer/DisplayContainer.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/DisplayContainer/index.js":
+/*!*******************************************************************!*\
+  !*** ./components/Accordion/components/DisplayContainer/index.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _DisplayContainer__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _DisplayContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayContainer */ \"./components/Accordion/components/DisplayContainer/DisplayContainer.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/DisplayContainer/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabArrow/ItemsTabArrow.jsx":
+/*!*************************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabArrow/ItemsTabArrow.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst ItemsTabArrow = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: absolute;\n  right: 10%;\n  top: 28%;\n  margin: 0;\n  padding: 0;\n  color: #9F6F6E;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemsTabArrow);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabArrow/ItemsTabArrow.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabArrow/index.js":
+/*!****************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabArrow/index.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ItemsTabArrow__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ItemsTabArrow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemsTabArrow */ \"./components/Accordion/components/ItemsTabArrow/ItemsTabArrow.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabArrow/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabOff/ItemsTabOff.jsx":
+/*!*********************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabOff/ItemsTabOff.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _ItemsTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ItemsTab */ \"./components/Accordion/components/ItemsTab/index.js\");\n\n\nconst ItemsTabOff = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_ItemsTab__WEBPACK_IMPORTED_MODULE_0__.default)`\n  border-radius: 5px;\n  \n  margin: 10px 2px 0px 2px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemsTabOff);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabOff/ItemsTabOff.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabOff/index.js":
+/*!**************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabOff/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ItemsTabOff__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ItemsTabOff__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemsTabOff */ \"./components/Accordion/components/ItemsTabOff/ItemsTabOff.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabOff/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabOn/ItemsTabOn.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabOn/ItemsTabOn.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _ItemsTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ItemsTab */ \"./components/Accordion/components/ItemsTab/index.js\");\n\n\nconst ItemsTabOn = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_ItemsTab__WEBPACK_IMPORTED_MODULE_0__.default)`\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  margin: 2px 2px 0px 2px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemsTabOn);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabOn/ItemsTabOn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTabOn/index.js":
+/*!*************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTabOn/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ItemsTabOn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ItemsTabOn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemsTabOn */ \"./components/Accordion/components/ItemsTabOn/ItemsTabOn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTabOn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTab/ItemsTab.jsx":
+/*!***************************************************************!*\
+  !*** ./components/Accordion/components/ItemsTab/ItemsTab.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst ItemsTab = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  box-sizing: border-box;\n  background-color: #f4ded7;\n\n  padding: 12px;\n  width: 352px;\n  height: 50px;\n\n  font-size: 1.1em;\n  font-family: \"Segoe UI\", sans-serif;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemsTab);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTab/ItemsTab.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/ItemsTab/index.js":
+/*!***********************************************************!*\
+  !*** ./components/Accordion/components/ItemsTab/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ItemsTab__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ItemsTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemsTab */ \"./components/Accordion/components/ItemsTab/ItemsTab.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/ItemsTab/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/TabDisplayContainer/TabDisplayContainer.jsx":
+/*!*************************************************************************************!*\
+  !*** ./components/Accordion/components/TabDisplayContainer/TabDisplayContainer.jsx ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst TabDisplayContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  display: flex;\n  box-sizing: border-box;\n  padding: 12px;\n  width: 352px;\n\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n  border-top: none;\n  border-left: solid 0.6px #c7c7c7;\n  border-right: solid 0.6px #c7c7c7;\n  border-bottom: solid 0.6px #c7c7c7;\n  \n  overflow-y: scroll;\n  overflow-x:hidden;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabDisplayContainer);\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/TabDisplayContainer/TabDisplayContainer.jsx?");
+
+/***/ }),
+
+/***/ "./components/Accordion/components/TabDisplayContainer/index.js":
+/*!**********************************************************************!*\
+  !*** ./components/Accordion/components/TabDisplayContainer/index.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _TabDisplayContainer__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _TabDisplayContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabDisplayContainer */ \"./components/Accordion/components/TabDisplayContainer/TabDisplayContainer.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/components/TabDisplayContainer/index.js?");
+
+/***/ }),
+
+/***/ "./components/Accordion/index.js":
+/*!***************************************!*\
+  !*** ./components/Accordion/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Accordion__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Accordion */ \"./components/Accordion/Accordion.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Accordion/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/Button.jsx":
+/*!**************************************!*\
+  !*** ./components/Button/Button.jsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _components_CategoryBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CategoryBtn */ \"./components/Button/components/CategoryBtn/index.js\");\n/* harmony import */ var _components_HeaderLogoBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/HeaderLogoBtn */ \"./components/Button/components/HeaderLogoBtn/index.js\");\n/* harmony import */ var _components_HeaderBtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/HeaderBtn */ \"./components/Button/components/HeaderBtn/index.js\");\n/* harmony import */ var _components_HeaderLastBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/HeaderLastBtn */ \"./components/Button/components/HeaderLastBtn/index.js\");\n/* harmony import */ var _components_NoteFollowBtn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/NoteFollowBtn */ \"./components/Button/components/NoteFollowBtn/index.js\");\n/* harmony import */ var _components_NoteForwardBtn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/NoteForwardBtn */ \"./components/Button/components/NoteForwardBtn/index.js\");\n/* harmony import */ var _components_NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/NoteFunctionBtn */ \"./components/Button/components/NoteFunctionBtn/index.js\");\n/* harmony import */ var _components_NoteNumsBtn__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/NoteNumsBtn */ \"./components/Button/components/NoteNumsBtn/index.js\");\n/* harmony import */ var _Image_HeaderLogo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Image/HeaderLogo */ \"./components/Image/HeaderLogo/index.js\");\n/* harmony import */ var _Image_HeaderLogo_logo_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Image/HeaderLogo/logo.png */ \"./components/Image/HeaderLogo/logo.png\");\n/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ \"./node_modules/@fortawesome/free-solid-svg-icons/index.es.js\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"./node_modules/@fortawesome/react-fontawesome/index.es.js\");\n/* harmony import */ var _Layout_FlexBox__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Layout/FlexBox */ \"./components/Layout/FlexBox/index.js\");\n/* harmony import */ var _Menu_NoteLikeMenu__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Menu/NoteLikeMenu */ \"./components/Menu/NoteLikeMenu/index.js\");\n/* harmony import */ var _Menu_NoteCollectMenu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Menu/NoteCollectMenu */ \"./components/Menu/NoteCollectMenu/index.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst Container = styled_components__WEBPACK_IMPORTED_MODULE_15__.default.div`\n  display: inline-block;\n`;\n\nclass Button extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  container = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();\n\n  constructor(props) {\n    super(props);\n    this.state = {\n      seen: false,\n      isUserFollow: true\n    };\n    this.handleButtonClick = this.handleButtonClick.bind(this);\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState(state => ({\n      isUserFollow: !state.isUserFollow\n    }));\n  }\n\n  handleButtonClick() {\n    this.setState(state => ({\n      seen: !state.seen\n    }));\n  }\n\n  componentDidMount() {\n    document.addEventListener(\"mousedown\", this.handleClickOutside);\n  }\n\n  componentWillUnmount() {\n    document.removeEventListener(\"mousedown\", this.handleClickOutside);\n  }\n\n  handleClickOutside = event => {\n    if (this.container.current && !this.container.current.contains(event.target)) {\n      this.setState({\n        seen: false\n      });\n    }\n  };\n\n  renderButton(type) {\n    switch (type) {\n      case \"CATEGORY\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CategoryBtn__WEBPACK_IMPORTED_MODULE_1__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faCompass\n        }));\n\n      case \"HEADERLOGO\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderLogoBtn__WEBPACK_IMPORTED_MODULE_2__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image_HeaderLogo__WEBPACK_IMPORTED_MODULE_9__.default, {\n          src: _Image_HeaderLogo_logo_png__WEBPACK_IMPORTED_MODULE_10__.default\n        }));\n\n      case \"HOME\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderBtn__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faHouseUser\n        }));\n\n      case \"CREATENOTE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderBtn__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faPen\n        }));\n\n      case \"COLLECTEDNOTE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderBtn__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faBook\n        }));\n\n      case \"LIKEHISTORY\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderBtn__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faHeart\n        }));\n\n      case \"USERPROFILE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_HeaderLastBtn__WEBPACK_IMPORTED_MODULE_4__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faUserAlt\n        }));\n\n      case \"AUTHORFOLLOW\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteFollowBtn__WEBPACK_IMPORTED_MODULE_5__.default, {\n          onClick: this.handleClick\n        }, this.state.isUserFollow ? \"Follow\" : \"Following\");\n\n      case \"LIKENOTE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faHeart\n        }));\n\n      case \"LIKENOTEUSERS\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteNumsBtn__WEBPACK_IMPORTED_MODULE_8__.default, {\n          onClick: this.handleButtonClick\n        }, this.props.number);\n\n      case \"COLLECTNOTE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faBookmark\n        }));\n\n      case \"COLLECTNOTEUSERS\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteNumsBtn__WEBPACK_IMPORTED_MODULE_8__.default, {\n          onClick: this.handleButtonClick\n        }, this.props.number);\n\n      case \"FORWARDNOTE\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteForwardBtn__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__.FontAwesomeIcon, {\n          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__.faReply\n        }));\n    }\n  }\n\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, this.renderButton(this.props.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Container, {\n      ref: this.container\n    }, this.state.seen && this.props.type === \"LIKENOTEUSERS\" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Menu_NoteLikeMenu__WEBPACK_IMPORTED_MODULE_13__.default, null), this.state.seen && this.props.type === \"COLLECTNOTEUSERS\" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Menu_NoteCollectMenu__WEBPACK_IMPORTED_MODULE_14__.default, null)));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);\n\n//# sourceURL=webpack://tempfe/./components/Button/Button.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/CategoryBtn/CategoryBtn.jsx":
+/*!******************************************************************!*\
+  !*** ./components/Button/components/CategoryBtn/CategoryBtn.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst CategoryButton = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    width: 30px;\n    font-size: 1.1em;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color: white;\n    background-color: #f4ded7; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: #9F6F6E;\n    }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoryButton);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/CategoryBtn/CategoryBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/CategoryBtn/index.js":
+/*!***********************************************************!*\
+  !*** ./components/Button/components/CategoryBtn/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _CategoryBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _CategoryBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryBtn */ \"./components/Button/components/CategoryBtn/CategoryBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/CategoryBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderBtn/HeaderBtn.jsx":
+/*!**************************************************************!*\
+  !*** ./components/Button/components/HeaderBtn/HeaderBtn.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst HeaderButton = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    width: 20px;\n    height: 20px;\n    font-size: 1.2em;\n    margin: 0 15px 0 0;\n    padding: 0;\n    border: none; \n    color: #9F6F6E;\n    background-color: #f4ded7; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: white;\n    }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderButton);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderBtn/HeaderBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderBtn/index.js":
+/*!*********************************************************!*\
+  !*** ./components/Button/components/HeaderBtn/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _HeaderBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _HeaderBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderBtn */ \"./components/Button/components/HeaderBtn/HeaderBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderLastBtn/HeaderLastBtn.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/Button/components/HeaderLastBtn/HeaderLastBtn.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _HeaderBtn_HeaderBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../HeaderBtn/HeaderBtn */ \"./components/Button/components/HeaderBtn/HeaderBtn.jsx\");\n\n\nconst HeaderLastBtn = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_HeaderBtn_HeaderBtn__WEBPACK_IMPORTED_MODULE_0__.default)`\n  margin: 0 0 0 0;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderLastBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderLastBtn/HeaderLastBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderLastBtn/index.js":
+/*!*************************************************************!*\
+  !*** ./components/Button/components/HeaderLastBtn/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _HeaderLastBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _HeaderLastBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderLastBtn */ \"./components/Button/components/HeaderLastBtn/HeaderLastBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderLastBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderLogoBtn/HeaderLogoBtn.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/Button/components/HeaderLogoBtn/HeaderLogoBtn.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst HeaderLogoButton = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    width: 88px;\n    height: 44px;\n    font-size: 1em;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color: white;\n    background-color: #f4ded7; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: black;\n    }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderLogoButton);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderLogoBtn/HeaderLogoBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/HeaderLogoBtn/index.js":
+/*!*************************************************************!*\
+  !*** ./components/Button/components/HeaderLogoBtn/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _HeaderLogoBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _HeaderLogoBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderLogoBtn */ \"./components/Button/components/HeaderLogoBtn/HeaderLogoBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/HeaderLogoBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/ImageArrowBtn/ImageArrowBtn.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/Button/components/ImageArrowBtn/ImageArrowBtn.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst ImageArrowBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n\n    font-size: 2em;\n    margin:  0;\n    border: none; \n    color: white;\n\n    background: transparent; \n\n    position: absolute;\n    top: 48%;\n\n    opacity: 0.6;\n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: 9F6F6E;\n    }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageArrowBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/ImageArrowBtn/ImageArrowBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/ImageArrowBtn/index.js":
+/*!*************************************************************!*\
+  !*** ./components/Button/components/ImageArrowBtn/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ImageArrowBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ImageArrowBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageArrowBtn */ \"./components/Button/components/ImageArrowBtn/ImageArrowBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/ImageArrowBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteFollowBtn/NoteFollowBtn.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/Button/components/NoteFollowBtn/NoteFollowBtn.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteFollowBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    width: 80px;\n    height: 20px;\n    font-size: 0.75em;\n    margin: 0;\n    padding: 0;\n    color: white;\n    background-color: #a86c6d; \n    border: none; \n\n    font-family: sans-serif;\n    font-weight: normal;\n    font-stretch: normal;\n    font-style: normal;\n    line-height: 1.6;\n    text-align: center;\n\n    &:hover{\n        transform: translateZ(-2px);\n        transition: width 0.3s ease-in-out;\n    }\n    \n    &:active {\n        color: black;\n    }\n\n\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteFollowBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteFollowBtn/NoteFollowBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteFollowBtn/index.js":
+/*!*************************************************************!*\
+  !*** ./components/Button/components/NoteFollowBtn/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteFollowBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteFollowBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteFollowBtn */ \"./components/Button/components/NoteFollowBtn/NoteFollowBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteFollowBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteForwardBtn/NoteForwardBtn.jsx":
+/*!************************************************************************!*\
+  !*** ./components/Button/components/NoteForwardBtn/NoteForwardBtn.jsx ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NoteFunctionBtn */ \"./components/Button/components/NoteFunctionBtn/index.js\");\n\n\nconst NoteForwardBtn = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_0__.default)`\n  margin: 0 0 0 110px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteForwardBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteForwardBtn/NoteForwardBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteForwardBtn/index.js":
+/*!**************************************************************!*\
+  !*** ./components/Button/components/NoteForwardBtn/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteForwardBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteForwardBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteForwardBtn */ \"./components/Button/components/NoteForwardBtn/NoteForwardBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteForwardBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteFunctionBtn/NoteFunctionBtn.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/Button/components/NoteFunctionBtn/NoteFunctionBtn.jsx ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteFunctionBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    width: 50px;\n    height: 50px;\n    font-size: 30px;\n    margin: 0;\n    padding: 0;\n    border: none; \n    color: #c7c7c7;\n    background: transparent;\n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:active {\n        color: #a86c6d;\n    }\n\n\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteFunctionBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteFunctionBtn/NoteFunctionBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteFunctionBtn/index.js":
+/*!***************************************************************!*\
+  !*** ./components/Button/components/NoteFunctionBtn/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteFunctionBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteFunctionBtn */ \"./components/Button/components/NoteFunctionBtn/NoteFunctionBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteFunctionBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteNumsBtn/NoteNumsBtn.jsx":
+/*!******************************************************************!*\
+  !*** ./components/Button/components/NoteNumsBtn/NoteNumsBtn.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteNumsBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.button`\n    padding: 10px 20px 10px 0px;\n    margin: 0;\n\n    width: 40px;\n    height: 50px;\n    font-size: 1em;\n    font-family: \"Segoe UI\",sans-serif;\n    font-weight: 600;\n    border: none; \n    color: black;\n    background: transparent; \n\n    &:hover{\n        transform: translateZ(-2px);=\n        transition: width 0.3s ease-in-out;\n    }\n\n    &:active {\n        color: #a86c6d;\n    }\n\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteNumsBtn);\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteNumsBtn/NoteNumsBtn.jsx?");
+
+/***/ }),
+
+/***/ "./components/Button/components/NoteNumsBtn/index.js":
+/*!***********************************************************!*\
+  !*** ./components/Button/components/NoteNumsBtn/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteNumsBtn__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteNumsBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteNumsBtn */ \"./components/Button/components/NoteNumsBtn/NoteNumsBtn.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/components/NoteNumsBtn/index.js?");
+
+/***/ }),
+
+/***/ "./components/Button/index.js":
+/*!************************************!*\
+  !*** ./components/Button/index.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Button__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Button */ \"./components/Button/Button.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Button/index.js?");
+
+/***/ }),
+
+/***/ "./components/Flex.jsx":
+/*!*****************************!*\
+  !*** ./components/Flex.jsx ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst Flex = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  display: flex;\n  align-items: center;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Flex);\n\n//# sourceURL=webpack://tempfe/./components/Flex.jsx?");
+
+/***/ }),
+
+/***/ "./components/Image/HeaderLogo/HeaderLogo.jsx":
+/*!****************************************************!*\
+  !*** ./components/Image/HeaderLogo/HeaderLogo.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst HeaderLogo = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.img`\n  width: 88px;\n  height: 44px;\n  flex-grow: 0;\n  margin: 0 0 0 0;\n\n  border-radius: 4px;\n  transition-property: transform, box-shadow;\n  transition-duration: 0.3s;\n  transition-timing-function: ease-in-out;\n\n  // &:hover{\n  //     transform: translateZ(-2px);\n  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n  // }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderLogo);\n\n//# sourceURL=webpack://tempfe/./components/Image/HeaderLogo/HeaderLogo.jsx?");
+
+/***/ }),
+
+/***/ "./components/Image/HeaderLogo/index.js":
+/*!**********************************************!*\
+  !*** ./components/Image/HeaderLogo/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _HeaderLogo__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _HeaderLogo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderLogo */ \"./components/Image/HeaderLogo/HeaderLogo.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Image/HeaderLogo/index.js?");
+
+/***/ }),
+
+/***/ "./components/Image/ImageSlider/ImageSlider.jsx":
+/*!******************************************************!*\
+  !*** ./components/Image/ImageSlider/ImageSlider.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"./node_modules/@fortawesome/react-fontawesome/index.es.js\");\n/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ \"./node_modules/@fortawesome/free-solid-svg-icons/index.es.js\");\n/* harmony import */ var _Button_components_ImageArrowBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Button/components/ImageArrowBtn */ \"./components/Button/components/ImageArrowBtn/index.js\");\n/* harmony import */ var _utils_ImageLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../utils/ImageLoader */ \"./utils/ImageLoader/index.js\");\n/* harmony import */ var _NoteImage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../NoteImage */ \"./components/Image/NoteImage/index.js\");\n\n\n\n\n\n\n\n\nconst SliderContainer = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.section`\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n`;\nconst ImageLeftArrowBtn = (0,styled_components__WEBPACK_IMPORTED_MODULE_5__.default)(_Button_components_ImageArrowBtn__WEBPACK_IMPORTED_MODULE_2__.default)`\n  left: 0;\n`;\nconst ImageRightArrowBtn = (0,styled_components__WEBPACK_IMPORTED_MODULE_5__.default)(_Button_components_ImageArrowBtn__WEBPACK_IMPORTED_MODULE_2__.default)`\n  right: 0;\n`;\n\nconst ImageSlider = ({\n  slides\n}) => {\n  const [current, setCurrent] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);\n  const length = slides.length;\n\n  const nextSlide = () => setCurrent(current === length - 1 ? 0 : current + 1);\n\n  const prevSlide = () => setCurrent(current === 0 ? length - 1 : current - 1);\n\n  if (!Array.isArray(slides) || slides.length <= 0) {\n    return null;\n  }\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(SliderContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ImageLeftArrowBtn, {\n    onClick: prevSlide\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {\n    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faAngleLeft\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ImageRightArrowBtn, {\n    onClick: nextSlide\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {\n    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faAngleRight\n  })), _utils_ImageLoader__WEBPACK_IMPORTED_MODULE_3__.default.map((slide, index) => {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: index === current ? \"slide active\" : \"slide\",\n      key: index\n    }, index === current && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_NoteImage__WEBPACK_IMPORTED_MODULE_4__.default, {\n      src: slide.image,\n      alt: \"IMAGE\"\n    }));\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageSlider);\n\n//# sourceURL=webpack://tempfe/./components/Image/ImageSlider/ImageSlider.jsx?");
+
+/***/ }),
+
+/***/ "./components/Image/NoteAuthorImage/NoteAuthorImage.jsx":
+/*!**************************************************************!*\
+  !*** ./components/Image/NoteAuthorImage/NoteAuthorImage.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteAuthorImage = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.img`\n  position: relative;\n  box-sizing: border-box;\n  margin: 0;\n\n  border-radius: 35px;\n  width: 65px;\n  height: 65px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteAuthorImage);\n\n//# sourceURL=webpack://tempfe/./components/Image/NoteAuthorImage/NoteAuthorImage.jsx?");
+
+/***/ }),
+
+/***/ "./components/Image/NoteAuthorImage/index.js":
+/*!***************************************************!*\
+  !*** ./components/Image/NoteAuthorImage/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteAuthorImage__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteAuthorImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteAuthorImage */ \"./components/Image/NoteAuthorImage/NoteAuthorImage.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Image/NoteAuthorImage/index.js?");
+
+/***/ }),
+
+/***/ "./components/Image/NoteImage/NoteImage.jsx":
+/*!**************************************************!*\
+  !*** ./components/Image/NoteImage/NoteImage.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteImage = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.img`\n  border-radius: 10px;\n  height: 655px;\n  width: 560px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteImage);\n\n//# sourceURL=webpack://tempfe/./components/Image/NoteImage/NoteImage.jsx?");
+
+/***/ }),
+
+/***/ "./components/Image/NoteImage/index.js":
+/*!*********************************************!*\
+  !*** ./components/Image/NoteImage/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteImage__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteImage */ \"./components/Image/NoteImage/NoteImage.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Image/NoteImage/index.js?");
+
+/***/ }),
+
+/***/ "./components/InputBox/InputBox.jsx":
+/*!******************************************!*\
+  !*** ./components/InputBox/InputBox.jsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_SearchInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/SearchInput */ \"./components/InputBox/components/SearchInput/index.js\");\n\n\n\nclass InputBox extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      seen: false\n    };\n    this.togglePop = this.togglePop.bind(this);\n  }\n\n  togglePop() {\n    this.setState({\n      seen: !this.state.seen\n    });\n  }\n\n  renderInputBox(type) {\n    switch (type) {\n      case \"SEARCH\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SearchInput__WEBPACK_IMPORTED_MODULE_1__.default, {\n          defaultValue: \"Search\",\n          type: \"text\",\n          inputColor: \"black\"\n        });\n    }\n  }\n\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, this.renderInputBox(this.props.type));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputBox);\n\n//# sourceURL=webpack://tempfe/./components/InputBox/InputBox.jsx?");
+
+/***/ }),
+
+/***/ "./components/InputBox/components/CommentInput/CommentInput.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/InputBox/components/CommentInput/CommentInput.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst CommentInput = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.input`\n  padding: 0;\n  margin: 0;\n  outline: none;\n  color: ${props => props.inputColor || \"black\"};\n  background-color: #ffffff;\n  border: none;\n  border-radius: 3px;\n\n  width: 350px;\n\n  font-size: 0.9em;\n  font-family: sans-serif;\n  font-weight: normal;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentInput);\n\n//# sourceURL=webpack://tempfe/./components/InputBox/components/CommentInput/CommentInput.jsx?");
+
+/***/ }),
+
+/***/ "./components/InputBox/components/CommentInput/index.js":
+/*!**************************************************************!*\
+  !*** ./components/InputBox/components/CommentInput/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _CommentInput__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _CommentInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommentInput */ \"./components/InputBox/components/CommentInput/CommentInput.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/InputBox/components/CommentInput/index.js?");
+
+/***/ }),
+
+/***/ "./components/InputBox/components/SearchInput/SearchInput.jsx":
+/*!********************************************************************!*\
+  !*** ./components/InputBox/components/SearchInput/SearchInput.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _Layout_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Layout/InputField */ \"./components/Layout/InputField/index.js\");\n\n\nconst SearchInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_Layout_InputField__WEBPACK_IMPORTED_MODULE_0__.default)`\n  padding: 0;\n  margin: 5px 3px 3px 15px;\n  outline: none;\n  //color: ${props => props.inputColor || \"black\"};\n  border: none;\n  border-radius: 3px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchInput);\n\n//# sourceURL=webpack://tempfe/./components/InputBox/components/SearchInput/SearchInput.jsx?");
+
+/***/ }),
+
+/***/ "./components/InputBox/components/SearchInput/index.js":
+/*!*************************************************************!*\
+  !*** ./components/InputBox/components/SearchInput/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _SearchInput__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _SearchInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchInput */ \"./components/InputBox/components/SearchInput/SearchInput.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/InputBox/components/SearchInput/index.js?");
+
+/***/ }),
+
+/***/ "./components/InputBox/index.js":
+/*!**************************************!*\
+  !*** ./components/InputBox/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _InputBox__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _InputBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputBox */ \"./components/InputBox/InputBox.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/InputBox/index.js?");
+
+/***/ }),
+
+/***/ "./components/Layout/CardContainer/CardContainer.jsx":
+/*!***********************************************************!*\
+  !*** ./components/Layout/CardContainer/CardContainer.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  min-height: 700px;\n  margin: 0;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardContainer);\n\n//# sourceURL=webpack://tempfe/./components/Layout/CardContainer/CardContainer.jsx?");
+
+/***/ }),
+
+/***/ "./components/Layout/CardContainer/index.js":
+/*!**************************************************!*\
+  !*** ./components/Layout/CardContainer/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _CardContainer__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _CardContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardContainer */ \"./components/Layout/CardContainer/CardContainer.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Layout/CardContainer/index.js?");
+
+/***/ }),
+
+/***/ "./components/Layout/FlexBox/FlexBox.jsx":
+/*!***********************************************!*\
+  !*** ./components/Layout/FlexBox/FlexBox.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst FlexBox = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  display: flex;\n  box-sizing: border-box;\n\n  margin: 0 auto;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FlexBox);\n\n//# sourceURL=webpack://tempfe/./components/Layout/FlexBox/FlexBox.jsx?");
+
+/***/ }),
+
+/***/ "./components/Layout/FlexBox/index.js":
+/*!********************************************!*\
+  !*** ./components/Layout/FlexBox/index.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _FlexBox__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _FlexBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FlexBox */ \"./components/Layout/FlexBox/FlexBox.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Layout/FlexBox/index.js?");
+
+/***/ }),
+
+/***/ "./components/Layout/HeaderLayout/HeaderDiv.jsx":
+/*!******************************************************!*\
+  !*** ./components/Layout/HeaderLayout/HeaderDiv.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _Flex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Flex */ \"./components/Flex.jsx\");\n\n\nconst HeaderDiv = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_Flex__WEBPACK_IMPORTED_MODULE_0__.default)`\n  display: flex;\n  align-items: center;\n  background-color: #f4ded7;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderDiv);\n\n//# sourceURL=webpack://tempfe/./components/Layout/HeaderLayout/HeaderDiv.jsx?");
+
+/***/ }),
+
+/***/ "./components/Layout/InputField/InputField.jsx":
+/*!*****************************************************!*\
+  !*** ./components/Layout/InputField/InputField.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst InputField = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.input`\n  background-color: #ffffff;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputField);\n\n//# sourceURL=webpack://tempfe/./components/Layout/InputField/InputField.jsx?");
+
+/***/ }),
+
+/***/ "./components/Layout/InputField/index.js":
+/*!***********************************************!*\
+  !*** ./components/Layout/InputField/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _InputField__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputField */ \"./components/Layout/InputField/InputField.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Layout/InputField/index.js?");
+
+/***/ }),
+
+/***/ "./components/Menu/NoteCollectMenu/NoteCollectMenu.jsx":
+/*!*************************************************************!*\
+  !*** ./components/Menu/NoteCollectMenu/NoteCollectMenu.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _Layout_FlexBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layout/FlexBox */ \"./components/Layout/FlexBox/index.js\");\n\n\nconst NoteCollectMenu = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_0__.default)`\n  flex-direction: row;\n  justify-content: center;\n  border-radius: 5px;\n  position: absolute;\n  background-color: #ffffff;\n  bottom: 125px;\n  right: 30px;\n\n  padding: 12px;\n  margin: 2px;\n  border-radius: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);\n  border: solid 1px #a86c6d;\n\n  width: 280px;\n  height: 300px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteCollectMenu);\n\n//# sourceURL=webpack://tempfe/./components/Menu/NoteCollectMenu/NoteCollectMenu.jsx?");
+
+/***/ }),
+
+/***/ "./components/Menu/NoteCollectMenu/index.js":
+/*!**************************************************!*\
+  !*** ./components/Menu/NoteCollectMenu/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteCollectMenu__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteCollectMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteCollectMenu */ \"./components/Menu/NoteCollectMenu/NoteCollectMenu.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Menu/NoteCollectMenu/index.js?");
+
+/***/ }),
+
+/***/ "./components/Menu/NoteLikeMenu/NoteLikeMenu.jsx":
+/*!*******************************************************!*\
+  !*** ./components/Menu/NoteLikeMenu/NoteLikeMenu.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_NoteMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/NoteMenu */ \"./components/Menu/components/NoteMenu/index.js\");\n/* harmony import */ var _components_MenuTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MenuTitle */ \"./components/Menu/components/MenuTitle/index.js\");\n/* harmony import */ var _components_MenuItems__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/MenuItems */ \"./components/Menu/components/MenuItems/index.js\");\n/* harmony import */ var _MiniCard_UserMiniCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../MiniCard/UserMiniCard */ \"./components/MiniCard/UserMiniCard/index.js\");\n\n\n\n\n\n\nclass NoteLikeMenu extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    // const { users } = this.props;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NoteMenu__WEBPACK_IMPORTED_MODULE_1__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MenuTitle__WEBPACK_IMPORTED_MODULE_2__.default, {\n      type: \"Likes\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MenuItems__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MiniCard_UserMiniCard__WEBPACK_IMPORTED_MODULE_4__.default, null)));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteLikeMenu);\n\n//# sourceURL=webpack://tempfe/./components/Menu/NoteLikeMenu/NoteLikeMenu.jsx?");
+
+/***/ }),
+
+/***/ "./components/Menu/NoteLikeMenu/index.js":
+/*!***********************************************!*\
+  !*** ./components/Menu/NoteLikeMenu/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteLikeMenu__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteLikeMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteLikeMenu */ \"./components/Menu/NoteLikeMenu/NoteLikeMenu.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Menu/NoteLikeMenu/index.js?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/MenuItems/MenuItems.jsx":
+/*!************************************************************!*\
+  !*** ./components/Menu/components/MenuItems/MenuItems.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst MenuItems = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  display: flex;\n  box-sizing: border-box;\n  padding: 0 5px 0 0;\n  width: 264px;\n  flex-direction: column;\n\n  overflow-y: scroll;\n  overflow-x: hidden;\n  align-content: center;\n\n  //border: solid 0.6px #c7c7c7;\n  height: 247px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MenuItems);\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/MenuItems/MenuItems.jsx?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/MenuItems/index.js":
+/*!*******************************************************!*\
+  !*** ./components/Menu/components/MenuItems/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _MenuItems__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _MenuItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MenuItems */ \"./components/Menu/components/MenuItems/MenuItems.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/MenuItems/index.js?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/MenuTitle/MenuTitle.jsx":
+/*!************************************************************!*\
+  !*** ./components/Menu/components/MenuTitle/MenuTitle.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _TextLabel_components_NoteMenuTitleLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../TextLabel/components/NoteMenuTitleLabel */ \"./components/TextLabel/components/NoteMenuTitleLabel/index.js\");\n\n\n\nconst MenuTitleContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  position: relative;\n  box-sizing: border-box;\n\n  padding: 3px;\n  width: 264px;\n  height: 40px;\n\n  font-size: 1.1em;\n  font-family: \"Segoe UI\", sans-serif;\n\n`;\n\nclass MenuTitle extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    // const { users } = this.props;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(MenuTitleContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_TextLabel_components_NoteMenuTitleLabel__WEBPACK_IMPORTED_MODULE_1__.default, null, this.props.type));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MenuTitle);\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/MenuTitle/MenuTitle.jsx?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/MenuTitle/index.js":
+/*!*******************************************************!*\
+  !*** ./components/Menu/components/MenuTitle/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _MenuTitle__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _MenuTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MenuTitle */ \"./components/Menu/components/MenuTitle/MenuTitle.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/MenuTitle/index.js?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/NoteMenu/NoteMenu.jsx":
+/*!**********************************************************!*\
+  !*** ./components/Menu/components/NoteMenu/NoteMenu.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _Layout_FlexBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Layout/FlexBox */ \"./components/Layout/FlexBox/index.js\");\n\n\nconst NoteMenu = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.default)(_Layout_FlexBox__WEBPACK_IMPORTED_MODULE_0__.default)`\n  flex-direction: column;\n  justify-content: center;\n  border-radius: 5px;\n  position: absolute;\n  background-color: #ffffff;\n  bottom: 125px;\n  right: 100px;\n\n  padding: 0px 3px 0 12px;\n  margin: 2px;\n  border-radius: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);\n\n  width: 280px;\n  height: 300px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteMenu);\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/NoteMenu/NoteMenu.jsx?");
+
+/***/ }),
+
+/***/ "./components/Menu/components/NoteMenu/index.js":
+/*!******************************************************!*\
+  !*** ./components/Menu/components/NoteMenu/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteMenu__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteMenu */ \"./components/Menu/components/NoteMenu/NoteMenu.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/Menu/components/NoteMenu/index.js?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/CommentMiniCard/CommentMiniCard.jsx":
+/*!*****************************************************************!*\
+  !*** ./components/MiniCard/CommentMiniCard/CommentMiniCard.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _media_user_avatar3_sml_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../media/user_avatar3_sml.png */ \"./media/user_avatar3_sml.png\");\n\n\n\nconst CommentsListCard = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  box-sizing: border-box;\n\n  padding: 8px;\n  width: 332px;\n\n  border-radius: 5px;\n  margin: 0 0 10px 0;\n  border: solid 0.6px #c7c7c7;\n\n  height: 70px;\n`;\nconst CommentAvatorContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  box-sizing: border-box;\n  padding: 0px;\n  width: 45px;\n  margin: 4px 0 0px 3px;\n  height: 45px;\n  // border: solid 1px #a86c6d;\n`;\nconst CommentAuthorContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  // border: solid 1px #a86c6d;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  box-sizing: border-box;\n  align-items: center;\n\n  // padding: 6px 0px 6px 0px;\n  width: 80px;\n  height: 50px;\n  padding: 0px;\n\n  margin: 7px 0px 10px 0px;\n  height: 40px;\n`;\nconst CommentLabelContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  // border: solid 1px #a86c6d;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  box-sizing: border-box;\n  align-items: center;\n\n  // padding: 6px 0px 6px 3px;\n  width: 170px;\n  padding: 0px 0px 0px 3px;\n\n  margin: 0 5px 0px 0;\n  height: 50px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n`;\nconst CommentAvatarImg = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.img`\n  flex-grow: 0;\n  margin: 0 auto;\n\n  // border: solid 1px #a86c6d;\n  border-radius: 22px;\n  transition-property: transform, box-shadow;\n  transition-duration: 0.3s;\n  transition-timing-function: ease-in-out;\n\n  // &:hover{\n  //     transform: translateZ(-2px);\n  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n  // }\n`;\nconst CommentAuthorNameLabel = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  width: 100%;\n  box-sizing: border-box;\n  height: 100%;\n\n  font-size: 0.85em;\n  font-family: sans-serif;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.2;\n  letter-spacing: 0.18px;\n  color: black;\n  // border: solid 1px #a86c6d;\n  word-wrap: break-word;\n  text-align: center;\n`;\nconst CommentContentLabel = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div`\n  width: 100%;\n  box-sizing: border-box;\n  height: 80%;\n\n  font-size: 0.85em;\n  font-family: sans-serif;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.2;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n  // border: solid 1px #a86c6d;\n  word-wrap: break-word;\n`;\n\nclass CommentMiniCard extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    const {\n      comments\n    } = this.props;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, comments.map(comment => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentsListCard, {\n      key: comment.commentId\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentAvatorContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentAvatarImg, {\n      src: _media_user_avatar3_sml_png__WEBPACK_IMPORTED_MODULE_1__.default\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentAuthorContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentAuthorNameLabel, null, comment.commentAuthor, \":\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentLabelContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(CommentContentLabel, null, comment.comment)))));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentMiniCard);\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/CommentMiniCard/CommentMiniCard.jsx?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/CommentMiniCard/index.js":
+/*!******************************************************!*\
+  !*** ./components/MiniCard/CommentMiniCard/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _CommentMiniCard__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _CommentMiniCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommentMiniCard */ \"./components/MiniCard/CommentMiniCard/CommentMiniCard.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/CommentMiniCard/index.js?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/ProductMiniCard/ProductMiniCard.jsx":
+/*!*****************************************************************!*\
+  !*** ./components/MiniCard/ProductMiniCard/ProductMiniCard.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _media_product_img1_sml_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../media/product_img1_sml.png */ \"./media/product_img1_sml.png\");\n/* harmony import */ var _media_rating_smp_sml_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../media/rating_smp_sml.png */ \"./media/rating_smp_sml.png\");\n/* harmony import */ var _components_ProductCardMini__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ProductCardMini */ \"./components/MiniCard/ProductMiniCard/components/ProductCardMini/index.js\");\n\n\n\n\n\nconst ProductCardMiniLeftContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  box-sizing: border-box;\n  padding: 0px;\n  width: 95px;\n  margin: 0 0 0px 0;\n\n  height: 95px;\n`;\nconst ProductImageMini = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.img`\n  flex-grow: 0;\n  margin: 0 auto;\n\n  border-radius: 4px;\n  transition-property: transform, box-shadow;\n  transition-duration: 0.3s;\n  transition-timing-function: ease-in-out;\n\n  // &:hover{\n  //     transform: translateZ(-2px);\n  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n  // }\n`;\nconst ProductCardMiniRightContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  box-sizing: border-box;\n\n  // padding: 6px 0px 6px 0px;\n  width: 218px;\n  padding: 0px;\n\n  margin: 0 0 0px 0;\n  height: 95px;\n`;\nconst ProductMiniNameLabel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  box-sizing: border-box;\n  width: 100%;\n  height: 55%;\n\n  font-size: 0.9em;\n  font-family: sans-serif;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n  word-wrap:break-word;\n`;\nconst ProductMiniBrandLabel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  box-sizing: border-box;\n  width: 100%;\n  height: 25%;\n\n  font-size: 0.9em;\n  font-family: sans-serif;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n  word-wrap:break-word;\n`;\nconst ProductMiniPriceContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n\n  width: 100%;\n  height: 30%;\n\n  font-size: 0.9em;\n  font-family: sans-serif;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n`;\nconst ProductMiniPriceLabel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  box-sizing: border-box;\n  width: 30%;\n\n  font-size: 1.2em;\n  font-family: New Paris;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n`;\nconst ProductMiniRating = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div`\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  width: 70%;\n`;\nconst ProductMiniRatingImg = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.img`\n  flex-grow: 0;\n  margin: 0 auto;\n\n  border-radius: 4px;\n  transition-property: transform, box-shadow;\n  transition-duration: 0.3s;\n  transition-timing-function: ease-in-out;\n\n  // &:hover{\n  //     transform: translateZ(-2px);\n  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);\n  // }\n`;\n\nclass ProductMiniCard extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    const {\n      products\n    } = this.props;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, products.map(product => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductCardMini__WEBPACK_IMPORTED_MODULE_3__.default, {\n      key: product.productId\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductCardMiniLeftContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductImageMini, {\n      src: _media_product_img1_sml_png__WEBPACK_IMPORTED_MODULE_1__.default\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductCardMiniRightContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniNameLabel, null, product.productName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniBrandLabel, null, \"Artimes\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniPriceContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniPriceLabel, null, \"$\", product.productPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniRating, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductMiniRatingImg, {\n      src: _media_rating_smp_sml_png__WEBPACK_IMPORTED_MODULE_2__.default\n    })))))));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductMiniCard);\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/ProductMiniCard/ProductMiniCard.jsx?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/ProductMiniCard/components/ProductCardMini/ProductCardMini.jsx":
+/*!********************************************************************************************!*\
+  !*** ./components/MiniCard/ProductMiniCard/components/ProductCardMini/ProductCardMini.jsx ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst ProductCardMini = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  box-sizing: border-box;\n\n  padding: 5px;\n  width: 332px;\n\n  border-radius: 5px;\n  margin: 0 0 10px 0;\n  border: solid 0.6px #c7c7c7;\n\n  height: 106px;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductCardMini);\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/ProductMiniCard/components/ProductCardMini/ProductCardMini.jsx?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/ProductMiniCard/components/ProductCardMini/index.js":
+/*!*********************************************************************************!*\
+  !*** ./components/MiniCard/ProductMiniCard/components/ProductCardMini/index.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ProductCardMini__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ProductCardMini__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductCardMini */ \"./components/MiniCard/ProductMiniCard/components/ProductCardMini/ProductCardMini.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/ProductMiniCard/components/ProductCardMini/index.js?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/ProductMiniCard/index.js":
+/*!******************************************************!*\
+  !*** ./components/MiniCard/ProductMiniCard/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ProductMiniCard__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ProductMiniCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductMiniCard */ \"./components/MiniCard/ProductMiniCard/ProductMiniCard.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/ProductMiniCard/index.js?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/UserMiniCard/UserMiniCard.jsx":
+/*!***********************************************************!*\
+  !*** ./components/MiniCard/UserMiniCard/UserMiniCard.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _media_user_avatar2_sml_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../media/user_avatar2_sml.png */ \"./media/user_avatar2_sml.png\");\n/* harmony import */ var _TextLabel_components_MiniCardUserContentLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../TextLabel/components/MiniCardUserContentLabel */ \"./components/TextLabel/components/MiniCardUserContentLabel/index.js\");\n\n\n\n\nconst MiniCard = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  box-sizing: border-box;\n\n  padding: 0px;\n  width: 256px;\n\n  border-radius: 5px;\n  margin: 0 0 9px 0;\n  border: solid 0.6px #c7c7c7;\n\n  height: 40px;\n`;\nconst UserAvatar = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div`\n  position: relative;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  box-sizing: border-box;\n  padding: 0px;\n  width: 30px;\n  margin: 5px 3px 5px 7px;\n  height: 30px;\n`;\nconst AvatarImg = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.img`\n  flex-grow: 0;\n  margin: 0 auto;\n\n  border-radius: 20px;\n  transition-property: transform, box-shadow;\n  transition-duration: 0.3s;\n  transition-timing-function: ease-in-out;\n`;\nconst Content = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div`\n  position: relative;\n  display: flex;\n  justify-content: center;\n  box-sizing: border-box;\n  align-items: center;\n\n  width: 210px;\n  padding: 0px;\n\n  margin: 0px 0px 0px 0px;\n  height: 40px;\n`;\n\nclass UserMiniCard extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(MiniCard, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(UserAvatar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(AvatarImg, {\n      src: _media_user_avatar2_sml_png__WEBPACK_IMPORTED_MODULE_1__.default\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_TextLabel_components_MiniCardUserContentLabel__WEBPACK_IMPORTED_MODULE_2__.default, null, \"ThompsonCamille like this note\")));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserMiniCard);\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/UserMiniCard/UserMiniCard.jsx?");
+
+/***/ }),
+
+/***/ "./components/MiniCard/UserMiniCard/index.js":
+/*!***************************************************!*\
+  !*** ./components/MiniCard/UserMiniCard/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _UserMiniCard__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _UserMiniCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserMiniCard */ \"./components/MiniCard/UserMiniCard/UserMiniCard.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/MiniCard/UserMiniCard/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/TextLabel.jsx":
+/*!********************************************!*\
+  !*** ./components/TextLabel/TextLabel.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_CopyRightLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CopyRightLabel */ \"./components/TextLabel/components/CopyRightLabel/index.js\");\n\n\n\nclass TextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      seen: false\n    };\n    this.togglePop = this.togglePop.bind(this);\n  }\n\n  togglePop() {\n    this.setState({\n      seen: !this.state.seen\n    });\n  }\n\n  renderText(type) {\n    switch (type) {\n      case \"COPYRIGHT\":\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CopyRightLabel__WEBPACK_IMPORTED_MODULE_1__.default, null, \"Copyright \\xA9 Polar 2021 All right reserved\");\n    }\n  }\n\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, this.renderText(this.props.type));\n  }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/TextLabel.jsx?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/CopyRightLabel/CopyRightLabel.js":
+/*!**************************************************************************!*\
+  !*** ./components/TextLabel/components/CopyRightLabel/CopyRightLabel.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst CopyRightLabel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  font-family: sans-serif;\n  font-size: 12px;\n  font-weight: normal;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: center;\n  color: #a86c6d;\n  margin: 0 auto;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CopyRightLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/CopyRightLabel/CopyRightLabel.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/CopyRightLabel/index.js":
+/*!*****************************************************************!*\
+  !*** ./components/TextLabel/components/CopyRightLabel/index.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _CopyRightLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _CopyRightLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CopyRightLabel */ \"./components/TextLabel/components/CopyRightLabel/CopyRightLabel.js\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/CopyRightLabel/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/DescriptionLabel/DescriptionLabel.js":
+/*!******************************************************************************!*\
+  !*** ./components/TextLabel/components/DescriptionLabel/DescriptionLabel.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst DescriptionLabel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  box-sizing: border-box;\n\n  //border: solid 0.5px #a86c6d;\n\n  width: 100%;\n\n  font-size: 0.9em;\n  font-family: sans-serif;\n  font-weight: normal;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DescriptionLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/DescriptionLabel/DescriptionLabel.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/DescriptionLabel/index.js":
+/*!*******************************************************************!*\
+  !*** ./components/TextLabel/components/DescriptionLabel/index.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _DescriptionLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _DescriptionLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DescriptionLabel */ \"./components/TextLabel/components/DescriptionLabel/DescriptionLabel.js\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/DescriptionLabel/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/MiniCardUserContentLabel/MiniCardUserContentLabel.jsx":
+/*!***********************************************************************************************!*\
+  !*** ./components/TextLabel/components/MiniCardUserContentLabel/MiniCardUserContentLabel.jsx ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst MiniCardUserContentLabel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  width: 100%;\n  box-sizing: border-box;\n  height: 50%;\n\n  margin-left: 5px;\n  font-size: 0.8em;\n  font-family: sans-serif;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.2;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n  word-wrap: break-word;\n  overflow-y: scroll;\n  overflow-x: hidden;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiniCardUserContentLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/MiniCardUserContentLabel/MiniCardUserContentLabel.jsx?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/MiniCardUserContentLabel/index.js":
+/*!***************************************************************************!*\
+  !*** ./components/TextLabel/components/MiniCardUserContentLabel/index.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _MiniCardUserContentLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _MiniCardUserContentLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MiniCardUserContentLabel */ \"./components/TextLabel/components/MiniCardUserContentLabel/MiniCardUserContentLabel.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/MiniCardUserContentLabel/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/NoteAuthorLabel/NoteAuthorLabel.js":
+/*!****************************************************************************!*\
+  !*** ./components/TextLabel/components/NoteAuthorLabel/NoteAuthorLabel.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteAuthorLabel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  position: relative;\n  box-sizing: border-box;\n\n  padding: 0;\n  margin: 0;\n\n  width: 160px;\n  height: 36px;\n\n  font-size: 1.4em;\n  font-family: New Paris;\n  font-weight: normal;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: center;\n  color: black;\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteAuthorLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/NoteAuthorLabel/NoteAuthorLabel.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/NoteAuthorLabel/index.js":
+/*!******************************************************************!*\
+  !*** ./components/TextLabel/components/NoteAuthorLabel/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteAuthorLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteAuthorLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteAuthorLabel */ \"./components/TextLabel/components/NoteAuthorLabel/NoteAuthorLabel.js\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/NoteAuthorLabel/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/NoteMenuTitleLabel/NoteMenuTitleLabel.jsx":
+/*!***********************************************************************************!*\
+  !*** ./components/TextLabel/components/NoteMenuTitleLabel/NoteMenuTitleLabel.jsx ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\nconst NoteMenuTitleLabel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div`\n  box-sizing: border-box;\n  width: 100%;\n  height: 100%;\n\n  font-size: 1em;\n  font-family: sans-serif;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: 1.6;\n  letter-spacing: 0.18px;\n  text-align: left;\n  color: black;\n\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteMenuTitleLabel);\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/NoteMenuTitleLabel/NoteMenuTitleLabel.jsx?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/components/NoteMenuTitleLabel/index.js":
+/*!*********************************************************************!*\
+  !*** ./components/TextLabel/components/NoteMenuTitleLabel/index.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _NoteMenuTitleLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _NoteMenuTitleLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteMenuTitleLabel */ \"./components/TextLabel/components/NoteMenuTitleLabel/NoteMenuTitleLabel.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/components/NoteMenuTitleLabel/index.js?");
+
+/***/ }),
+
+/***/ "./components/TextLabel/index.js":
+/*!***************************************!*\
+  !*** ./components/TextLabel/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _TextLabel__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _TextLabel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TextLabel */ \"./components/TextLabel/TextLabel.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./components/TextLabel/index.js?");
 
 /***/ }),
 
@@ -137,7 +1116,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./App.js\");\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.css */ \"./main.css\");\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.querySelector('#app'));\n\n//# sourceURL=webpack://tempfe/./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./App.jsx\");\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.css */ \"./main.css\");\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.querySelector(\"#app\"));\n\n//# sourceURL=webpack://tempfe/./index.js?");
 
 /***/ }),
 
@@ -215,6 +1194,302 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"FontAwesomeIcon\": () => (/* binding */ FontAwesomeIcon)\n/* harmony export */ });\n/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ \"./node_modules/@fortawesome/fontawesome-svg-core/index.es.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\n\n\nfunction _typeof(obj) {\n  if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") {\n    _typeof = function (obj) {\n      return typeof obj;\n    };\n  } else {\n    _typeof = function (obj) {\n      return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    };\n  }\n\n  return _typeof(obj);\n}\n\nfunction _defineProperty(obj, key, value) {\n  if (key in obj) {\n    Object.defineProperty(obj, key, {\n      value: value,\n      enumerable: true,\n      configurable: true,\n      writable: true\n    });\n  } else {\n    obj[key] = value;\n  }\n\n  return obj;\n}\n\nfunction ownKeys(object, enumerableOnly) {\n  var keys = Object.keys(object);\n\n  if (Object.getOwnPropertySymbols) {\n    var symbols = Object.getOwnPropertySymbols(object);\n    if (enumerableOnly) symbols = symbols.filter(function (sym) {\n      return Object.getOwnPropertyDescriptor(object, sym).enumerable;\n    });\n    keys.push.apply(keys, symbols);\n  }\n\n  return keys;\n}\n\nfunction _objectSpread2(target) {\n  for (var i = 1; i < arguments.length; i++) {\n    var source = arguments[i] != null ? arguments[i] : {};\n\n    if (i % 2) {\n      ownKeys(Object(source), true).forEach(function (key) {\n        _defineProperty(target, key, source[key]);\n      });\n    } else if (Object.getOwnPropertyDescriptors) {\n      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));\n    } else {\n      ownKeys(Object(source)).forEach(function (key) {\n        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));\n      });\n    }\n  }\n\n  return target;\n}\n\nfunction _objectWithoutPropertiesLoose(source, excluded) {\n  if (source == null) return {};\n  var target = {};\n  var sourceKeys = Object.keys(source);\n  var key, i;\n\n  for (i = 0; i < sourceKeys.length; i++) {\n    key = sourceKeys[i];\n    if (excluded.indexOf(key) >= 0) continue;\n    target[key] = source[key];\n  }\n\n  return target;\n}\n\nfunction _objectWithoutProperties(source, excluded) {\n  if (source == null) return {};\n\n  var target = _objectWithoutPropertiesLoose(source, excluded);\n\n  var key, i;\n\n  if (Object.getOwnPropertySymbols) {\n    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);\n\n    for (i = 0; i < sourceSymbolKeys.length; i++) {\n      key = sourceSymbolKeys[i];\n      if (excluded.indexOf(key) >= 0) continue;\n      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;\n      target[key] = source[key];\n    }\n  }\n\n  return target;\n}\n\nfunction _toConsumableArray(arr) {\n  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();\n}\n\nfunction _arrayWithoutHoles(arr) {\n  if (Array.isArray(arr)) {\n    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];\n\n    return arr2;\n  }\n}\n\nfunction _iterableToArray(iter) {\n  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === \"[object Arguments]\") return Array.from(iter);\n}\n\nfunction _nonIterableSpread() {\n  throw new TypeError(\"Invalid attempt to spread non-iterable instance\");\n} // Get CSS class list from a props object\n\n\nfunction classList(props) {\n  var _classes;\n\n  var spin = props.spin,\n      pulse = props.pulse,\n      fixedWidth = props.fixedWidth,\n      inverse = props.inverse,\n      border = props.border,\n      listItem = props.listItem,\n      flip = props.flip,\n      size = props.size,\n      rotation = props.rotation,\n      pull = props.pull; // map of CSS class names to properties\n\n  var classes = (_classes = {\n    'fa-spin': spin,\n    'fa-pulse': pulse,\n    'fa-fw': fixedWidth,\n    'fa-inverse': inverse,\n    'fa-border': border,\n    'fa-li': listItem,\n    'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',\n    'fa-flip-vertical': flip === 'vertical' || flip === 'both'\n  }, _defineProperty(_classes, \"fa-\".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty(_classes, \"fa-rotate-\".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty(_classes, \"fa-pull-\".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object\n  // return an array of the keys where the value for the key is not null\n\n  return Object.keys(classes).map(function (key) {\n    return classes[key] ? key : null;\n  }).filter(function (key) {\n    return key;\n  });\n} // Camelize taken from humps\n// humps is copyright © 2012+ Dom Christie\n// Released under the MIT license.\n// Performant way to determine if object coerces to a number\n\n\nfunction _isNumerical(obj) {\n  obj = obj - 0; // eslint-disable-next-line no-self-compare\n\n  return obj === obj;\n}\n\nfunction camelize(string) {\n  if (_isNumerical(string)) {\n    return string;\n  } // eslint-disable-next-line no-useless-escape\n\n\n  string = string.replace(/[\\-_\\s]+(.)?/g, function (match, chr) {\n    return chr ? chr.toUpperCase() : '';\n  }); // Ensure 1st char is always lowercase\n\n  return string.substr(0, 1).toLowerCase() + string.substr(1);\n}\n\nfunction capitalize(val) {\n  return val.charAt(0).toUpperCase() + val.slice(1);\n}\n\nfunction styleToObject(style) {\n  return style.split(';').map(function (s) {\n    return s.trim();\n  }).filter(function (s) {\n    return s;\n  }).reduce(function (acc, pair) {\n    var i = pair.indexOf(':');\n    var prop = camelize(pair.slice(0, i));\n    var value = pair.slice(i + 1).trim();\n    prop.startsWith('webkit') ? acc[capitalize(prop)] = value : acc[prop] = value;\n    return acc;\n  }, {});\n}\n\nfunction convert(createElement, element) {\n  var extraProps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};\n\n  if (typeof element === 'string') {\n    return element;\n  }\n\n  var children = (element.children || []).map(function (child) {\n    return convert(createElement, child);\n  });\n  /* eslint-disable dot-notation */\n\n  var mixins = Object.keys(element.attributes || {}).reduce(function (acc, key) {\n    var val = element.attributes[key];\n\n    switch (key) {\n      case 'class':\n        acc.attrs['className'] = val;\n        delete element.attributes['class'];\n        break;\n\n      case 'style':\n        acc.attrs['style'] = styleToObject(val);\n        break;\n\n      default:\n        if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {\n          acc.attrs[key.toLowerCase()] = val;\n        } else {\n          acc.attrs[camelize(key)] = val;\n        }\n\n    }\n\n    return acc;\n  }, {\n    attrs: {}\n  });\n\n  var _extraProps$style = extraProps.style,\n      existingStyle = _extraProps$style === void 0 ? {} : _extraProps$style,\n      remaining = _objectWithoutProperties(extraProps, [\"style\"]);\n\n  mixins.attrs['style'] = _objectSpread2({}, mixins.attrs['style'], {}, existingStyle);\n  /* eslint-enable */\n\n  return createElement.apply(void 0, [element.tag, _objectSpread2({}, mixins.attrs, {}, remaining)].concat(_toConsumableArray(children)));\n}\n\nvar PRODUCTION = false;\n\ntry {\n  PRODUCTION = \"development\" === 'production';\n} catch (e) {}\n\nfunction log() {\n  if (!PRODUCTION && console && typeof console.error === 'function') {\n    var _console;\n\n    (_console = console).error.apply(_console, arguments);\n  }\n}\n\nfunction normalizeIconArgs(icon) {\n  if (_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.parse.icon) {\n    return _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.parse.icon(icon);\n  } // if the icon is null, there's nothing to do\n\n\n  if (icon === null) {\n    return null;\n  } // if the icon is an object and has a prefix and an icon name, return it\n\n\n  if (_typeof(icon) === 'object' && icon.prefix && icon.iconName) {\n    return icon;\n  } // if it's an array with length of two\n\n\n  if (Array.isArray(icon) && icon.length === 2) {\n    // use the first item as prefix, second as icon name\n    return {\n      prefix: icon[0],\n      iconName: icon[1]\n    };\n  } // if it's a string, use it as the icon name\n\n\n  if (typeof icon === 'string') {\n    return {\n      prefix: 'fas',\n      iconName: icon\n    };\n  }\n} // creates an object with a key of key\n// and a value of value\n// if certain conditions are met\n\n\nfunction objectWithKey(key, value) {\n  // if the value is a non-empty array\n  // or it's not an array but it is truthy\n  // then create the object with the key and the value\n  // if not, return an empty array\n  return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};\n}\n\nfunction FontAwesomeIcon(_ref) {\n  var forwardedRef = _ref.forwardedRef,\n      props = _objectWithoutProperties(_ref, [\"forwardedRef\"]);\n\n  var iconArgs = props.icon,\n      maskArgs = props.mask,\n      symbol = props.symbol,\n      className = props.className,\n      title = props.title,\n      titleId = props.titleId;\n  var iconLookup = normalizeIconArgs(iconArgs);\n  var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));\n  var transform = objectWithKey('transform', typeof props.transform === 'string' ? _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.parse.transform(props.transform) : props.transform);\n  var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));\n  var renderedIcon = (0,_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.icon)(iconLookup, _objectSpread2({}, classes, {}, transform, {}, mask, {\n    symbol: symbol,\n    title: title,\n    titleId: titleId\n  }));\n\n  if (!renderedIcon) {\n    log('Could not find icon', iconLookup);\n    return null;\n  }\n\n  var abstract = renderedIcon.abstract;\n  var extraProps = {\n    ref: forwardedRef\n  };\n  Object.keys(props).forEach(function (key) {\n    // eslint-disable-next-line no-prototype-builtins\n    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {\n      extraProps[key] = props[key];\n    }\n  });\n  return convertCurry(abstract[0], extraProps);\n}\n\nFontAwesomeIcon.displayName = 'FontAwesomeIcon';\nFontAwesomeIcon.propTypes = {\n  border: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  className: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),\n  mask: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_1___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().array), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)]),\n  fixedWidth: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  inverse: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  flip: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(['horizontal', 'vertical', 'both']),\n  icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_1___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().array), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)]),\n  listItem: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  pull: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(['right', 'left']),\n  pulse: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  rotation: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf([0, 90, 180, 270]),\n  size: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),\n  spin: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),\n  symbol: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)]),\n  title: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),\n  transform: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_1___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().object)]),\n  swapOpacity: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool)\n};\nFontAwesomeIcon.defaultProps = {\n  border: false,\n  className: '',\n  mask: null,\n  fixedWidth: false,\n  inverse: false,\n  flip: null,\n  icon: null,\n  listItem: false,\n  pull: null,\n  pulse: false,\n  rotation: null,\n  size: null,\n  spin: false,\n  symbol: false,\n  title: '',\n  transform: null,\n  swapOpacity: false\n};\nvar convertCurry = convert.bind(null, react__WEBPACK_IMPORTED_MODULE_2__.createElement);\n\n\n//# sourceURL=webpack://tempfe/./node_modules/@fortawesome/react-fontawesome/index.es.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__(/*! ./lib/axios */ \"./node_modules/axios/lib/axios.js\");\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/adapters/xhr.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nvar settle = __webpack_require__(/*! ./../core/settle */ \"./node_modules/axios/lib/core/settle.js\");\n\nvar cookies = __webpack_require__(/*! ./../helpers/cookies */ \"./node_modules/axios/lib/helpers/cookies.js\");\n\nvar buildURL = __webpack_require__(/*! ./../helpers/buildURL */ \"./node_modules/axios/lib/helpers/buildURL.js\");\n\nvar buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ \"./node_modules/axios/lib/core/buildFullPath.js\");\n\nvar parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ \"./node_modules/axios/lib/helpers/parseHeaders.js\");\n\nvar isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ \"./node_modules/axios/lib/helpers/isURLSameOrigin.js\");\n\nvar createError = __webpack_require__(/*! ../core/createError */ \"./node_modules/axios/lib/core/createError.js\");\n\nmodule.exports = function xhrAdapter(config) {\n  return new Promise(function dispatchXhrRequest(resolve, reject) {\n    var requestData = config.data;\n    var requestHeaders = config.headers;\n\n    if (utils.isFormData(requestData)) {\n      delete requestHeaders['Content-Type']; // Let the browser set it\n    }\n\n    var request = new XMLHttpRequest(); // HTTP basic authentication\n\n    if (config.auth) {\n      var username = config.auth.username || '';\n      var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';\n      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);\n    }\n\n    var fullPath = buildFullPath(config.baseURL, config.url);\n    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true); // Set the request timeout in MS\n\n    request.timeout = config.timeout; // Listen for ready state\n\n    request.onreadystatechange = function handleLoad() {\n      if (!request || request.readyState !== 4) {\n        return;\n      } // The request errored out and we didn't get a response, this will be\n      // handled by onerror instead\n      // With one exception: request that using file: protocol, most browsers\n      // will return status as 0 even though it's a successful request\n\n\n      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {\n        return;\n      } // Prepare the response\n\n\n      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;\n      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;\n      var response = {\n        data: responseData,\n        status: request.status,\n        statusText: request.statusText,\n        headers: responseHeaders,\n        config: config,\n        request: request\n      };\n      settle(resolve, reject, response); // Clean up request\n\n      request = null;\n    }; // Handle browser request cancellation (as opposed to a manual cancellation)\n\n\n    request.onabort = function handleAbort() {\n      if (!request) {\n        return;\n      }\n\n      reject(createError('Request aborted', config, 'ECONNABORTED', request)); // Clean up request\n\n      request = null;\n    }; // Handle low level network errors\n\n\n    request.onerror = function handleError() {\n      // Real errors are hidden from us by the browser\n      // onerror should only fire if it's a network error\n      reject(createError('Network Error', config, null, request)); // Clean up request\n\n      request = null;\n    }; // Handle timeout\n\n\n    request.ontimeout = function handleTimeout() {\n      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';\n\n      if (config.timeoutErrorMessage) {\n        timeoutErrorMessage = config.timeoutErrorMessage;\n      }\n\n      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', request)); // Clean up request\n\n      request = null;\n    }; // Add xsrf header\n    // This is only done if running in a standard browser environment.\n    // Specifically not if we're in a web worker, or react-native.\n\n\n    if (utils.isStandardBrowserEnv()) {\n      // Add xsrf header\n      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;\n\n      if (xsrfValue) {\n        requestHeaders[config.xsrfHeaderName] = xsrfValue;\n      }\n    } // Add headers to the request\n\n\n    if ('setRequestHeader' in request) {\n      utils.forEach(requestHeaders, function setRequestHeader(val, key) {\n        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {\n          // Remove Content-Type if data is undefined\n          delete requestHeaders[key];\n        } else {\n          // Otherwise add header to the request\n          request.setRequestHeader(key, val);\n        }\n      });\n    } // Add withCredentials to request if needed\n\n\n    if (!utils.isUndefined(config.withCredentials)) {\n      request.withCredentials = !!config.withCredentials;\n    } // Add responseType to request if needed\n\n\n    if (config.responseType) {\n      try {\n        request.responseType = config.responseType;\n      } catch (e) {\n        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.\n        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.\n        if (config.responseType !== 'json') {\n          throw e;\n        }\n      }\n    } // Handle progress if needed\n\n\n    if (typeof config.onDownloadProgress === 'function') {\n      request.addEventListener('progress', config.onDownloadProgress);\n    } // Not all browsers support upload events\n\n\n    if (typeof config.onUploadProgress === 'function' && request.upload) {\n      request.upload.addEventListener('progress', config.onUploadProgress);\n    }\n\n    if (config.cancelToken) {\n      // Handle cancellation\n      config.cancelToken.promise.then(function onCanceled(cancel) {\n        if (!request) {\n          return;\n        }\n\n        request.abort();\n        reject(cancel); // Clean up request\n\n        request = null;\n      });\n    }\n\n    if (!requestData) {\n      requestData = null;\n    } // Send the request\n\n\n    request.send(requestData);\n  });\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/adapters/xhr.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/axios.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/lib/utils.js\");\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/axios/lib/helpers/bind.js\");\n\nvar Axios = __webpack_require__(/*! ./core/Axios */ \"./node_modules/axios/lib/core/Axios.js\");\n\nvar mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ \"./node_modules/axios/lib/core/mergeConfig.js\");\n\nvar defaults = __webpack_require__(/*! ./defaults */ \"./node_modules/axios/lib/defaults.js\");\n/**\n * Create an instance of Axios\n *\n * @param {Object} defaultConfig The default config for the instance\n * @return {Axios} A new instance of Axios\n */\n\n\nfunction createInstance(defaultConfig) {\n  var context = new Axios(defaultConfig);\n  var instance = bind(Axios.prototype.request, context); // Copy axios.prototype to instance\n\n  utils.extend(instance, Axios.prototype, context); // Copy context to instance\n\n  utils.extend(instance, context);\n  return instance;\n} // Create the default instance to be exported\n\n\nvar axios = createInstance(defaults); // Expose Axios class to allow class inheritance\n\naxios.Axios = Axios; // Factory for creating new instances\n\naxios.create = function create(instanceConfig) {\n  return createInstance(mergeConfig(axios.defaults, instanceConfig));\n}; // Expose Cancel & CancelToken\n\n\naxios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\naxios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ \"./node_modules/axios/lib/cancel/CancelToken.js\");\naxios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ \"./node_modules/axios/lib/cancel/isCancel.js\"); // Expose all/spread\n\naxios.all = function all(promises) {\n  return Promise.all(promises);\n};\n\naxios.spread = __webpack_require__(/*! ./helpers/spread */ \"./node_modules/axios/lib/helpers/spread.js\"); // Expose isAxiosError\n\naxios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ \"./node_modules/axios/lib/helpers/isAxiosError.js\");\nmodule.exports = axios; // Allow use of default import syntax in TypeScript\n\nmodule.exports.default = axios;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/axios.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/Cancel.js":
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * A `Cancel` is an object that is thrown when an operation is canceled.\n *\n * @class\n * @param {string=} message The message.\n */\n\nfunction Cancel(message) {\n  this.message = message;\n}\n\nCancel.prototype.toString = function toString() {\n  return 'Cancel' + (this.message ? ': ' + this.message : '');\n};\n\nCancel.prototype.__CANCEL__ = true;\nmodule.exports = Cancel;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/cancel/Cancel.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar Cancel = __webpack_require__(/*! ./Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\n/**\n * A `CancelToken` is an object that can be used to request cancellation of an operation.\n *\n * @class\n * @param {Function} executor The executor function.\n */\n\n\nfunction CancelToken(executor) {\n  if (typeof executor !== 'function') {\n    throw new TypeError('executor must be a function.');\n  }\n\n  var resolvePromise;\n  this.promise = new Promise(function promiseExecutor(resolve) {\n    resolvePromise = resolve;\n  });\n  var token = this;\n  executor(function cancel(message) {\n    if (token.reason) {\n      // Cancellation has already been requested\n      return;\n    }\n\n    token.reason = new Cancel(message);\n    resolvePromise(token.reason);\n  });\n}\n/**\n * Throws a `Cancel` if cancellation has been requested.\n */\n\n\nCancelToken.prototype.throwIfRequested = function throwIfRequested() {\n  if (this.reason) {\n    throw this.reason;\n  }\n};\n/**\n * Returns an object that contains a new `CancelToken` and a function that, when called,\n * cancels the `CancelToken`.\n */\n\n\nCancelToken.source = function source() {\n  var cancel;\n  var token = new CancelToken(function executor(c) {\n    cancel = c;\n  });\n  return {\n    token: token,\n    cancel: cancel\n  };\n};\n\nmodule.exports = CancelToken;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/cancel/CancelToken.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/isCancel.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n\nmodule.exports = function isCancel(value) {\n  return !!(value && value.__CANCEL__);\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/cancel/isCancel.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/Axios.js":
+/*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nvar buildURL = __webpack_require__(/*! ../helpers/buildURL */ \"./node_modules/axios/lib/helpers/buildURL.js\");\n\nvar InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ \"./node_modules/axios/lib/core/InterceptorManager.js\");\n\nvar dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ \"./node_modules/axios/lib/core/dispatchRequest.js\");\n\nvar mergeConfig = __webpack_require__(/*! ./mergeConfig */ \"./node_modules/axios/lib/core/mergeConfig.js\");\n/**\n * Create a new instance of Axios\n *\n * @param {Object} instanceConfig The default config for the instance\n */\n\n\nfunction Axios(instanceConfig) {\n  this.defaults = instanceConfig;\n  this.interceptors = {\n    request: new InterceptorManager(),\n    response: new InterceptorManager()\n  };\n}\n/**\n * Dispatch a request\n *\n * @param {Object} config The config specific for this request (merged with this.defaults)\n */\n\n\nAxios.prototype.request = function request(config) {\n  /*eslint no-param-reassign:0*/\n  // Allow for axios('example/url'[, config]) a la fetch API\n  if (typeof config === 'string') {\n    config = arguments[1] || {};\n    config.url = arguments[0];\n  } else {\n    config = config || {};\n  }\n\n  config = mergeConfig(this.defaults, config); // Set config.method\n\n  if (config.method) {\n    config.method = config.method.toLowerCase();\n  } else if (this.defaults.method) {\n    config.method = this.defaults.method.toLowerCase();\n  } else {\n    config.method = 'get';\n  } // Hook up interceptors middleware\n\n\n  var chain = [dispatchRequest, undefined];\n  var promise = Promise.resolve(config);\n  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {\n    chain.unshift(interceptor.fulfilled, interceptor.rejected);\n  });\n  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {\n    chain.push(interceptor.fulfilled, interceptor.rejected);\n  });\n\n  while (chain.length) {\n    promise = promise.then(chain.shift(), chain.shift());\n  }\n\n  return promise;\n};\n\nAxios.prototype.getUri = function getUri(config) {\n  config = mergeConfig(this.defaults, config);\n  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\\?/, '');\n}; // Provide aliases for supported request methods\n\n\nutils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {\n  /*eslint func-names:0*/\n  Axios.prototype[method] = function (url, config) {\n    return this.request(mergeConfig(config || {}, {\n      method: method,\n      url: url,\n      data: (config || {}).data\n    }));\n  };\n});\nutils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {\n  /*eslint func-names:0*/\n  Axios.prototype[method] = function (url, data, config) {\n    return this.request(mergeConfig(config || {}, {\n      method: method,\n      url: url,\n      data: data\n    }));\n  };\n});\nmodule.exports = Axios;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/Axios.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nfunction InterceptorManager() {\n  this.handlers = [];\n}\n/**\n * Add a new interceptor to the stack\n *\n * @param {Function} fulfilled The function to handle `then` for a `Promise`\n * @param {Function} rejected The function to handle `reject` for a `Promise`\n *\n * @return {Number} An ID used to remove interceptor later\n */\n\n\nInterceptorManager.prototype.use = function use(fulfilled, rejected) {\n  this.handlers.push({\n    fulfilled: fulfilled,\n    rejected: rejected\n  });\n  return this.handlers.length - 1;\n};\n/**\n * Remove an interceptor from the stack\n *\n * @param {Number} id The ID that was returned by `use`\n */\n\n\nInterceptorManager.prototype.eject = function eject(id) {\n  if (this.handlers[id]) {\n    this.handlers[id] = null;\n  }\n};\n/**\n * Iterate over all the registered interceptors\n *\n * This method is particularly useful for skipping over any\n * interceptors that may have become `null` calling `eject`.\n *\n * @param {Function} fn The function to call for each interceptor\n */\n\n\nInterceptorManager.prototype.forEach = function forEach(fn) {\n  utils.forEach(this.handlers, function forEachHandler(h) {\n    if (h !== null) {\n      fn(h);\n    }\n  });\n};\n\nmodule.exports = InterceptorManager;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/InterceptorManager.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/buildFullPath.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ \"./node_modules/axios/lib/helpers/isAbsoluteURL.js\");\n\nvar combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ \"./node_modules/axios/lib/helpers/combineURLs.js\");\n/**\n * Creates a new URL by combining the baseURL with the requestedURL,\n * only when the requestedURL is not already an absolute URL.\n * If the requestURL is absolute, this function returns the requestedURL untouched.\n *\n * @param {string} baseURL The base URL\n * @param {string} requestedURL Absolute or relative URL to combine\n * @returns {string} The combined full path\n */\n\n\nmodule.exports = function buildFullPath(baseURL, requestedURL) {\n  if (baseURL && !isAbsoluteURL(requestedURL)) {\n    return combineURLs(baseURL, requestedURL);\n  }\n\n  return requestedURL;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/buildFullPath.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/createError.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/createError.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar enhanceError = __webpack_require__(/*! ./enhanceError */ \"./node_modules/axios/lib/core/enhanceError.js\");\n/**\n * Create an Error with the specified message, config, error code, request and response.\n *\n * @param {string} message The error message.\n * @param {Object} config The config.\n * @param {string} [code] The error code (for example, 'ECONNABORTED').\n * @param {Object} [request] The request.\n * @param {Object} [response] The response.\n * @returns {Error} The created error.\n */\n\n\nmodule.exports = function createError(message, config, code, request, response) {\n  var error = new Error(message);\n  return enhanceError(error, config, code, request, response);\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/createError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nvar transformData = __webpack_require__(/*! ./transformData */ \"./node_modules/axios/lib/core/transformData.js\");\n\nvar isCancel = __webpack_require__(/*! ../cancel/isCancel */ \"./node_modules/axios/lib/cancel/isCancel.js\");\n\nvar defaults = __webpack_require__(/*! ../defaults */ \"./node_modules/axios/lib/defaults.js\");\n/**\n * Throws a `Cancel` if cancellation has been requested.\n */\n\n\nfunction throwIfCancellationRequested(config) {\n  if (config.cancelToken) {\n    config.cancelToken.throwIfRequested();\n  }\n}\n/**\n * Dispatch a request to the server using the configured adapter.\n *\n * @param {object} config The config that is to be used for the request\n * @returns {Promise} The Promise to be fulfilled\n */\n\n\nmodule.exports = function dispatchRequest(config) {\n  throwIfCancellationRequested(config); // Ensure headers exist\n\n  config.headers = config.headers || {}; // Transform request data\n\n  config.data = transformData(config.data, config.headers, config.transformRequest); // Flatten headers\n\n  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers);\n  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {\n    delete config.headers[method];\n  });\n  var adapter = config.adapter || defaults.adapter;\n  return adapter(config).then(function onAdapterResolution(response) {\n    throwIfCancellationRequested(config); // Transform response data\n\n    response.data = transformData(response.data, response.headers, config.transformResponse);\n    return response;\n  }, function onAdapterRejection(reason) {\n    if (!isCancel(reason)) {\n      throwIfCancellationRequested(config); // Transform response data\n\n      if (reason && reason.response) {\n        reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);\n      }\n    }\n\n    return Promise.reject(reason);\n  });\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/dispatchRequest.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/enhanceError.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * Update an Error with the specified config, error code, and response.\n *\n * @param {Error} error The error to update.\n * @param {Object} config The config.\n * @param {string} [code] The error code (for example, 'ECONNABORTED').\n * @param {Object} [request] The request.\n * @param {Object} [response] The response.\n * @returns {Error} The error.\n */\n\nmodule.exports = function enhanceError(error, config, code, request, response) {\n  error.config = config;\n\n  if (code) {\n    error.code = code;\n  }\n\n  error.request = request;\n  error.response = response;\n  error.isAxiosError = true;\n\n  error.toJSON = function toJSON() {\n    return {\n      // Standard\n      message: this.message,\n      name: this.name,\n      // Microsoft\n      description: this.description,\n      number: this.number,\n      // Mozilla\n      fileName: this.fileName,\n      lineNumber: this.lineNumber,\n      columnNumber: this.columnNumber,\n      stack: this.stack,\n      // Axios\n      config: this.config,\n      code: this.code\n    };\n  };\n\n  return error;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/enhanceError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/mergeConfig.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios/lib/utils.js\");\n/**\n * Config-specific merge-function which creates a new config-object\n * by merging two configuration objects together.\n *\n * @param {Object} config1\n * @param {Object} config2\n * @returns {Object} New object resulting from merging config2 to config1\n */\n\n\nmodule.exports = function mergeConfig(config1, config2) {\n  // eslint-disable-next-line no-param-reassign\n  config2 = config2 || {};\n  var config = {};\n  var valueFromConfig2Keys = ['url', 'method', 'data'];\n  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy', 'params'];\n  var defaultToConfig2Keys = ['baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer', 'timeout', 'timeoutMessage', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName', 'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'decompress', 'maxContentLength', 'maxBodyLength', 'maxRedirects', 'transport', 'httpAgent', 'httpsAgent', 'cancelToken', 'socketPath', 'responseEncoding'];\n  var directMergeKeys = ['validateStatus'];\n\n  function getMergedValue(target, source) {\n    if (utils.isPlainObject(target) && utils.isPlainObject(source)) {\n      return utils.merge(target, source);\n    } else if (utils.isPlainObject(source)) {\n      return utils.merge({}, source);\n    } else if (utils.isArray(source)) {\n      return source.slice();\n    }\n\n    return source;\n  }\n\n  function mergeDeepProperties(prop) {\n    if (!utils.isUndefined(config2[prop])) {\n      config[prop] = getMergedValue(config1[prop], config2[prop]);\n    } else if (!utils.isUndefined(config1[prop])) {\n      config[prop] = getMergedValue(undefined, config1[prop]);\n    }\n  }\n\n  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {\n    if (!utils.isUndefined(config2[prop])) {\n      config[prop] = getMergedValue(undefined, config2[prop]);\n    }\n  });\n  utils.forEach(mergeDeepPropertiesKeys, mergeDeepProperties);\n  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {\n    if (!utils.isUndefined(config2[prop])) {\n      config[prop] = getMergedValue(undefined, config2[prop]);\n    } else if (!utils.isUndefined(config1[prop])) {\n      config[prop] = getMergedValue(undefined, config1[prop]);\n    }\n  });\n  utils.forEach(directMergeKeys, function merge(prop) {\n    if (prop in config2) {\n      config[prop] = getMergedValue(config1[prop], config2[prop]);\n    } else if (prop in config1) {\n      config[prop] = getMergedValue(undefined, config1[prop]);\n    }\n  });\n  var axiosKeys = valueFromConfig2Keys.concat(mergeDeepPropertiesKeys).concat(defaultToConfig2Keys).concat(directMergeKeys);\n  var otherKeys = Object.keys(config1).concat(Object.keys(config2)).filter(function filterAxiosKeys(key) {\n    return axiosKeys.indexOf(key) === -1;\n  });\n  utils.forEach(otherKeys, mergeDeepProperties);\n  return config;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/mergeConfig.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/settle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar createError = __webpack_require__(/*! ./createError */ \"./node_modules/axios/lib/core/createError.js\");\n/**\n * Resolve or reject a Promise based on response status.\n *\n * @param {Function} resolve A function that resolves the promise.\n * @param {Function} reject A function that rejects the promise.\n * @param {object} response The response.\n */\n\n\nmodule.exports = function settle(resolve, reject, response) {\n  var validateStatus = response.config.validateStatus;\n\n  if (!response.status || !validateStatus || validateStatus(response.status)) {\n    resolve(response);\n  } else {\n    reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));\n  }\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/settle.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/transformData.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n/**\n * Transform the data for a request or a response\n *\n * @param {Object|String} data The data to be transformed\n * @param {Array} headers The headers for the request or response\n * @param {Array|Function} fns A single function or Array of functions\n * @returns {*} The resulting transformed data\n */\n\n\nmodule.exports = function transformData(data, headers, fns) {\n  /*eslint no-param-reassign:0*/\n  utils.forEach(fns, function transform(fn) {\n    data = fn(data, headers);\n  });\n  return data;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/core/transformData.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/defaults.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/lib/utils.js\");\n\nvar normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ \"./node_modules/axios/lib/helpers/normalizeHeaderName.js\");\n\nvar DEFAULT_CONTENT_TYPE = {\n  'Content-Type': 'application/x-www-form-urlencoded'\n};\n\nfunction setContentTypeIfUnset(headers, value) {\n  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {\n    headers['Content-Type'] = value;\n  }\n}\n\nfunction getDefaultAdapter() {\n  var adapter;\n\n  if (typeof XMLHttpRequest !== 'undefined') {\n    // For browsers use XHR adapter\n    adapter = __webpack_require__(/*! ./adapters/xhr */ \"./node_modules/axios/lib/adapters/xhr.js\");\n  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {\n    // For node use HTTP adapter\n    adapter = __webpack_require__(/*! ./adapters/http */ \"./node_modules/axios/lib/adapters/xhr.js\");\n  }\n\n  return adapter;\n}\n\nvar defaults = {\n  adapter: getDefaultAdapter(),\n  transformRequest: [function transformRequest(data, headers) {\n    normalizeHeaderName(headers, 'Accept');\n    normalizeHeaderName(headers, 'Content-Type');\n\n    if (utils.isFormData(data) || utils.isArrayBuffer(data) || utils.isBuffer(data) || utils.isStream(data) || utils.isFile(data) || utils.isBlob(data)) {\n      return data;\n    }\n\n    if (utils.isArrayBufferView(data)) {\n      return data.buffer;\n    }\n\n    if (utils.isURLSearchParams(data)) {\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\n      return data.toString();\n    }\n\n    if (utils.isObject(data)) {\n      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');\n      return JSON.stringify(data);\n    }\n\n    return data;\n  }],\n  transformResponse: [function transformResponse(data) {\n    /*eslint no-param-reassign:0*/\n    if (typeof data === 'string') {\n      try {\n        data = JSON.parse(data);\n      } catch (e) {\n        /* Ignore */\n      }\n    }\n\n    return data;\n  }],\n\n  /**\n   * A timeout in milliseconds to abort a request. If set to 0 (default) a\n   * timeout is not created.\n   */\n  timeout: 0,\n  xsrfCookieName: 'XSRF-TOKEN',\n  xsrfHeaderName: 'X-XSRF-TOKEN',\n  maxContentLength: -1,\n  maxBodyLength: -1,\n  validateStatus: function validateStatus(status) {\n    return status >= 200 && status < 300;\n  }\n};\ndefaults.headers = {\n  common: {\n    'Accept': 'application/json, text/plain, */*'\n  }\n};\nutils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {\n  defaults.headers[method] = {};\n});\nutils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {\n  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);\n});\nmodule.exports = defaults;\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/defaults.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/bind.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n\nmodule.exports = function bind(fn, thisArg) {\n  return function wrap() {\n    var args = new Array(arguments.length);\n\n    for (var i = 0; i < args.length; i++) {\n      args[i] = arguments[i];\n    }\n\n    return fn.apply(thisArg, args);\n  };\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/bind.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/buildURL.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nfunction encode(val) {\n  return encodeURIComponent(val).replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');\n}\n/**\n * Build a URL by appending params to the end\n *\n * @param {string} url The base of the url (e.g., http://www.google.com)\n * @param {object} [params] The params to be appended\n * @returns {string} The formatted url\n */\n\n\nmodule.exports = function buildURL(url, params, paramsSerializer) {\n  /*eslint no-param-reassign:0*/\n  if (!params) {\n    return url;\n  }\n\n  var serializedParams;\n\n  if (paramsSerializer) {\n    serializedParams = paramsSerializer(params);\n  } else if (utils.isURLSearchParams(params)) {\n    serializedParams = params.toString();\n  } else {\n    var parts = [];\n    utils.forEach(params, function serialize(val, key) {\n      if (val === null || typeof val === 'undefined') {\n        return;\n      }\n\n      if (utils.isArray(val)) {\n        key = key + '[]';\n      } else {\n        val = [val];\n      }\n\n      utils.forEach(val, function parseValue(v) {\n        if (utils.isDate(v)) {\n          v = v.toISOString();\n        } else if (utils.isObject(v)) {\n          v = JSON.stringify(v);\n        }\n\n        parts.push(encode(key) + '=' + encode(v));\n      });\n    });\n    serializedParams = parts.join('&');\n  }\n\n  if (serializedParams) {\n    var hashmarkIndex = url.indexOf('#');\n\n    if (hashmarkIndex !== -1) {\n      url = url.slice(0, hashmarkIndex);\n    }\n\n    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/buildURL.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * Creates a new URL by combining the specified URLs\n *\n * @param {string} baseURL The base URL\n * @param {string} relativeURL The relative URL\n * @returns {string} The combined URL\n */\n\nmodule.exports = function combineURLs(baseURL, relativeURL) {\n  return relativeURL ? baseURL.replace(/\\/+$/, '') + '/' + relativeURL.replace(/^\\/+/, '') : baseURL;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/combineURLs.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/cookies.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nmodule.exports = utils.isStandardBrowserEnv() ? // Standard browser envs support document.cookie\nfunction standardBrowserEnv() {\n  return {\n    write: function write(name, value, expires, path, domain, secure) {\n      var cookie = [];\n      cookie.push(name + '=' + encodeURIComponent(value));\n\n      if (utils.isNumber(expires)) {\n        cookie.push('expires=' + new Date(expires).toGMTString());\n      }\n\n      if (utils.isString(path)) {\n        cookie.push('path=' + path);\n      }\n\n      if (utils.isString(domain)) {\n        cookie.push('domain=' + domain);\n      }\n\n      if (secure === true) {\n        cookie.push('secure');\n      }\n\n      document.cookie = cookie.join('; ');\n    },\n    read: function read(name) {\n      var match = document.cookie.match(new RegExp('(^|;\\\\s*)(' + name + ')=([^;]*)'));\n      return match ? decodeURIComponent(match[3]) : null;\n    },\n    remove: function remove(name) {\n      this.write(name, '', Date.now() - 86400000);\n    }\n  };\n}() : // Non standard browser env (web workers, react-native) lack needed support.\nfunction nonStandardBrowserEnv() {\n  return {\n    write: function write() {},\n    read: function read() {\n      return null;\n    },\n    remove: function remove() {}\n  };\n}();\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/cookies.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * Determines whether the specified URL is absolute\n *\n * @param {string} url The URL to test\n * @returns {boolean} True if the specified URL is absolute, otherwise false\n */\n\nmodule.exports = function isAbsoluteURL(url) {\n  // A URL is considered absolute if it begins with \"<scheme>://\" or \"//\" (protocol-relative URL).\n  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed\n  // by any combination of letters, digits, plus, period, or hyphen.\n  return /^([a-z][a-z\\d\\+\\-\\.]*:)?\\/\\//i.test(url);\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/isAbsoluteURL.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * Determines whether the payload is an error thrown by Axios\n *\n * @param {*} payload The value to test\n * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false\n */\n\nmodule.exports = function isAxiosError(payload) {\n  return typeof payload === 'object' && payload.isAxiosError === true;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/isAxiosError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\n\nmodule.exports = utils.isStandardBrowserEnv() ? // Standard browser envs have full support of the APIs needed to test\n// whether the request URL is of the same origin as current location.\nfunction standardBrowserEnv() {\n  var msie = /(msie|trident)/i.test(navigator.userAgent);\n  var urlParsingNode = document.createElement('a');\n  var originURL;\n  /**\n  * Parse a URL to discover it's components\n  *\n  * @param {String} url The URL to be parsed\n  * @returns {Object}\n  */\n\n  function resolveURL(url) {\n    var href = url;\n\n    if (msie) {\n      // IE needs attribute set twice to normalize properties\n      urlParsingNode.setAttribute('href', href);\n      href = urlParsingNode.href;\n    }\n\n    urlParsingNode.setAttribute('href', href); // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils\n\n    return {\n      href: urlParsingNode.href,\n      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',\n      host: urlParsingNode.host,\n      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\\?/, '') : '',\n      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',\n      hostname: urlParsingNode.hostname,\n      port: urlParsingNode.port,\n      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname\n    };\n  }\n\n  originURL = resolveURL(window.location.href);\n  /**\n  * Determine if a URL shares the same origin as the current location\n  *\n  * @param {String} requestURL The URL to test\n  * @returns {boolean} True if URL shares the same origin, otherwise false\n  */\n\n  return function isURLSameOrigin(requestURL) {\n    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;\n    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;\n  };\n}() : // Non standard browser envs (web workers, react-native) lack needed support.\nfunction nonStandardBrowserEnv() {\n  return function isURLSameOrigin() {\n    return true;\n  };\n}();\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/isURLSameOrigin.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios/lib/utils.js\");\n\nmodule.exports = function normalizeHeaderName(headers, normalizedName) {\n  utils.forEach(headers, function processHeader(value, name) {\n    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {\n      headers[normalizedName] = value;\n      delete headers[name];\n    }\n  });\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/normalizeHeaderName.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\"); // Headers whose duplicates are ignored by node\n// c.f. https://nodejs.org/api/http.html#http_message_headers\n\n\nvar ignoreDuplicateOf = ['age', 'authorization', 'content-length', 'content-type', 'etag', 'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since', 'last-modified', 'location', 'max-forwards', 'proxy-authorization', 'referer', 'retry-after', 'user-agent'];\n/**\n * Parse headers into an object\n *\n * ```\n * Date: Wed, 27 Aug 2014 08:58:49 GMT\n * Content-Type: application/json\n * Connection: keep-alive\n * Transfer-Encoding: chunked\n * ```\n *\n * @param {String} headers Headers needing to be parsed\n * @returns {Object} Headers parsed into an object\n */\n\nmodule.exports = function parseHeaders(headers) {\n  var parsed = {};\n  var key;\n  var val;\n  var i;\n\n  if (!headers) {\n    return parsed;\n  }\n\n  utils.forEach(headers.split('\\n'), function parser(line) {\n    i = line.indexOf(':');\n    key = utils.trim(line.substr(0, i)).toLowerCase();\n    val = utils.trim(line.substr(i + 1));\n\n    if (key) {\n      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {\n        return;\n      }\n\n      if (key === 'set-cookie') {\n        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);\n      } else {\n        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;\n      }\n    }\n  });\n  return parsed;\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/parseHeaders.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/spread.js":
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n/**\n * Syntactic sugar for invoking a function and expanding an array for arguments.\n *\n * Common use case would be to use `Function.prototype.apply`.\n *\n *  ```js\n *  function f(x, y, z) {}\n *  var args = [1, 2, 3];\n *  f.apply(null, args);\n *  ```\n *\n * With `spread` this example can be re-written.\n *\n *  ```js\n *  spread(function(x, y, z) {})([1, 2, 3]);\n *  ```\n *\n * @param {Function} callback\n * @returns {Function}\n */\n\nmodule.exports = function spread(callback) {\n  return function wrap(arr) {\n    return callback.apply(null, arr);\n  };\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/helpers/spread.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/utils.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/axios/lib/helpers/bind.js\");\n/*global toString:true*/\n// utils is a library of generic helper functions non-specific to axios\n\n\nvar toString = Object.prototype.toString;\n/**\n * Determine if a value is an Array\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is an Array, otherwise false\n */\n\nfunction isArray(val) {\n  return toString.call(val) === '[object Array]';\n}\n/**\n * Determine if a value is undefined\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if the value is undefined, otherwise false\n */\n\n\nfunction isUndefined(val) {\n  return typeof val === 'undefined';\n}\n/**\n * Determine if a value is a Buffer\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Buffer, otherwise false\n */\n\n\nfunction isBuffer(val) {\n  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor) && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);\n}\n/**\n * Determine if a value is an ArrayBuffer\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is an ArrayBuffer, otherwise false\n */\n\n\nfunction isArrayBuffer(val) {\n  return toString.call(val) === '[object ArrayBuffer]';\n}\n/**\n * Determine if a value is a FormData\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is an FormData, otherwise false\n */\n\n\nfunction isFormData(val) {\n  return typeof FormData !== 'undefined' && val instanceof FormData;\n}\n/**\n * Determine if a value is a view on an ArrayBuffer\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false\n */\n\n\nfunction isArrayBufferView(val) {\n  var result;\n\n  if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {\n    result = ArrayBuffer.isView(val);\n  } else {\n    result = val && val.buffer && val.buffer instanceof ArrayBuffer;\n  }\n\n  return result;\n}\n/**\n * Determine if a value is a String\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a String, otherwise false\n */\n\n\nfunction isString(val) {\n  return typeof val === 'string';\n}\n/**\n * Determine if a value is a Number\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Number, otherwise false\n */\n\n\nfunction isNumber(val) {\n  return typeof val === 'number';\n}\n/**\n * Determine if a value is an Object\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is an Object, otherwise false\n */\n\n\nfunction isObject(val) {\n  return val !== null && typeof val === 'object';\n}\n/**\n * Determine if a value is a plain Object\n *\n * @param {Object} val The value to test\n * @return {boolean} True if value is a plain Object, otherwise false\n */\n\n\nfunction isPlainObject(val) {\n  if (toString.call(val) !== '[object Object]') {\n    return false;\n  }\n\n  var prototype = Object.getPrototypeOf(val);\n  return prototype === null || prototype === Object.prototype;\n}\n/**\n * Determine if a value is a Date\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Date, otherwise false\n */\n\n\nfunction isDate(val) {\n  return toString.call(val) === '[object Date]';\n}\n/**\n * Determine if a value is a File\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a File, otherwise false\n */\n\n\nfunction isFile(val) {\n  return toString.call(val) === '[object File]';\n}\n/**\n * Determine if a value is a Blob\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Blob, otherwise false\n */\n\n\nfunction isBlob(val) {\n  return toString.call(val) === '[object Blob]';\n}\n/**\n * Determine if a value is a Function\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Function, otherwise false\n */\n\n\nfunction isFunction(val) {\n  return toString.call(val) === '[object Function]';\n}\n/**\n * Determine if a value is a Stream\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a Stream, otherwise false\n */\n\n\nfunction isStream(val) {\n  return isObject(val) && isFunction(val.pipe);\n}\n/**\n * Determine if a value is a URLSearchParams object\n *\n * @param {Object} val The value to test\n * @returns {boolean} True if value is a URLSearchParams object, otherwise false\n */\n\n\nfunction isURLSearchParams(val) {\n  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;\n}\n/**\n * Trim excess whitespace off the beginning and end of a string\n *\n * @param {String} str The String to trim\n * @returns {String} The String freed of excess whitespace\n */\n\n\nfunction trim(str) {\n  return str.replace(/^\\s*/, '').replace(/\\s*$/, '');\n}\n/**\n * Determine if we're running in a standard browser environment\n *\n * This allows axios to run in a web worker, and react-native.\n * Both environments support XMLHttpRequest, but not fully standard globals.\n *\n * web workers:\n *  typeof window -> undefined\n *  typeof document -> undefined\n *\n * react-native:\n *  navigator.product -> 'ReactNative'\n * nativescript\n *  navigator.product -> 'NativeScript' or 'NS'\n */\n\n\nfunction isStandardBrowserEnv() {\n  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' || navigator.product === 'NativeScript' || navigator.product === 'NS')) {\n    return false;\n  }\n\n  return typeof window !== 'undefined' && typeof document !== 'undefined';\n}\n/**\n * Iterate over an Array or an Object invoking a function for each item.\n *\n * If `obj` is an Array callback will be called passing\n * the value, index, and complete array for each item.\n *\n * If 'obj' is an Object callback will be called passing\n * the value, key, and complete object for each property.\n *\n * @param {Object|Array} obj The object to iterate\n * @param {Function} fn The callback to invoke for each item\n */\n\n\nfunction forEach(obj, fn) {\n  // Don't bother if no value provided\n  if (obj === null || typeof obj === 'undefined') {\n    return;\n  } // Force an array if not already something iterable\n\n\n  if (typeof obj !== 'object') {\n    /*eslint no-param-reassign:0*/\n    obj = [obj];\n  }\n\n  if (isArray(obj)) {\n    // Iterate over array values\n    for (var i = 0, l = obj.length; i < l; i++) {\n      fn.call(null, obj[i], i, obj);\n    }\n  } else {\n    // Iterate over object keys\n    for (var key in obj) {\n      if (Object.prototype.hasOwnProperty.call(obj, key)) {\n        fn.call(null, obj[key], key, obj);\n      }\n    }\n  }\n}\n/**\n * Accepts varargs expecting each argument to be an object, then\n * immutably merges the properties of each object and returns result.\n *\n * When multiple objects contain the same key the later object in\n * the arguments list will take precedence.\n *\n * Example:\n *\n * ```js\n * var result = merge({foo: 123}, {foo: 456});\n * console.log(result.foo); // outputs 456\n * ```\n *\n * @param {Object} obj1 Object to merge\n * @returns {Object} Result of all merge properties\n */\n\n\nfunction merge()\n/* obj1, obj2, obj3, ... */\n{\n  var result = {};\n\n  function assignValue(val, key) {\n    if (isPlainObject(result[key]) && isPlainObject(val)) {\n      result[key] = merge(result[key], val);\n    } else if (isPlainObject(val)) {\n      result[key] = merge({}, val);\n    } else if (isArray(val)) {\n      result[key] = val.slice();\n    } else {\n      result[key] = val;\n    }\n  }\n\n  for (var i = 0, l = arguments.length; i < l; i++) {\n    forEach(arguments[i], assignValue);\n  }\n\n  return result;\n}\n/**\n * Extends object a by mutably adding to it the properties of object b.\n *\n * @param {Object} a The object to be extended\n * @param {Object} b The object to copy properties from\n * @param {Object} thisArg The object to bind function to\n * @return {Object} The resulting value of object a\n */\n\n\nfunction extend(a, b, thisArg) {\n  forEach(b, function assignValue(val, key) {\n    if (thisArg && typeof val === 'function') {\n      a[key] = bind(val, thisArg);\n    } else {\n      a[key] = val;\n    }\n  });\n  return a;\n}\n/**\n * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)\n *\n * @param {string} content with BOM\n * @return {string} content value without BOM\n */\n\n\nfunction stripBOM(content) {\n  if (content.charCodeAt(0) === 0xFEFF) {\n    content = content.slice(1);\n  }\n\n  return content;\n}\n\nmodule.exports = {\n  isArray: isArray,\n  isArrayBuffer: isArrayBuffer,\n  isBuffer: isBuffer,\n  isFormData: isFormData,\n  isArrayBufferView: isArrayBufferView,\n  isString: isString,\n  isNumber: isNumber,\n  isObject: isObject,\n  isPlainObject: isPlainObject,\n  isUndefined: isUndefined,\n  isDate: isDate,\n  isFile: isFile,\n  isBlob: isBlob,\n  isFunction: isFunction,\n  isStream: isStream,\n  isURLSearchParams: isURLSearchParams,\n  isStandardBrowserEnv: isStandardBrowserEnv,\n  forEach: forEach,\n  merge: merge,\n  extend: extend,\n  trim: trim,\n  stripBOM: stripBOM\n};\n\n//# sourceURL=webpack://tempfe/./node_modules/axios/lib/utils.js?");
 
 /***/ }),
 
@@ -425,6 +1700,50 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./utils/ImageLoader/ImageLoader.jsx":
+/*!*******************************************!*\
+  !*** ./utils/ImageLoader/ImageLoader.jsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst ImageLoader = [{\n  image: \"./media/product_img_1.png\"\n}, {\n  image: \"./media/product_img_2.png\"\n}, {\n  image: \"./media/product_img_3.png\"\n}];\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageLoader);\n\n//# sourceURL=webpack://tempfe/./utils/ImageLoader/ImageLoader.jsx?");
+
+/***/ }),
+
+/***/ "./utils/ImageLoader/index.js":
+/*!************************************!*\
+  !*** ./utils/ImageLoader/index.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _ImageLoader__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _ImageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageLoader */ \"./utils/ImageLoader/ImageLoader.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./utils/ImageLoader/index.js?");
+
+/***/ }),
+
+/***/ "./utils/LocalHostMap/LocalHostMap.jsx":
+/*!*********************************************!*\
+  !*** ./utils/LocalHostMap/LocalHostMap.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\nconst basePath = \"http://localhost:8080\";\nconst LocalHostMap = axios__WEBPACK_IMPORTED_MODULE_0___default().create({\n  baseURL: basePath\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LocalHostMap);\n\n//# sourceURL=webpack://tempfe/./utils/LocalHostMap/LocalHostMap.jsx?");
+
+/***/ }),
+
+/***/ "./utils/LocalHostMap/index.js":
+/*!*************************************!*\
+  !*** ./utils/LocalHostMap/index.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _LocalHostMap__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _LocalHostMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LocalHostMap */ \"./utils/LocalHostMap/LocalHostMap.jsx\");\n\n\n//# sourceURL=webpack://tempfe/./utils/LocalHostMap/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./main.css":
 /*!********************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./main.css ***!
@@ -432,95 +1751,73 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\r\\n    margin: 0;\\r\\n}\\r\\n  \\r\\n\\r\\n.main {\\r\\n    background-color: #ffffff;\\r\\n    flex-shrink: 0;\\r\\n    margin: 0;\\r\\n    padding: 0;\\r\\n    border: 0;\\r\\n    position: relative;\\r\\n}\\r\\n\\r\\n.container {\\r\\n    margin: auto;\\r\\n    min-height: 100%;\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    justify-content: space-between;\\r\\n}\\r\\n\\r\\n.pages {\\r\\n    padding: 45px 0 49px 0;\\r\\n    position: relative;\\r\\n    flex: 1;\\r\\n  }\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://tempfe/./main.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\r\\n    margin: 0 auto;\\r\\n\\r\\n    font-family: \\\"Montserrat\\\",-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",\\\"Roboto\\\",\\\"Oxygen\\\",\\\"Ubuntu\\\",\\\"Cantarell\\\",\\\"Fira Sans\\\",\\\"Droid Sans\\\",\\\"Helvetica Neue\\\",sans-serif;\\r\\n}\\r\\n  \\r\\n\\r\\n.main {\\r\\n    background-color: #ffffff;\\r\\n    flex-shrink: 0;\\r\\n    margin: 0;\\r\\n    padding: 0;\\r\\n    border: 0;\\r\\n    position: relative;\\r\\n}\\r\\n\\r\\n.container {\\r\\n    margin: auto;\\r\\n    min-height: 100%;\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    justify-content: space-between;\\r\\n}\\r\\n\\r\\n.pages {\\r\\n    padding: 45px 0 49px 0;\\r\\n    position: relative;\\r\\n    flex: 1;\\r\\n}\\r\\n\\r\\n::-webkit-scrollbar {\\r\\n    width: 5px;\\r\\n  }\\r\\n\\r\\n::-webkit-scrollbar-track {\\r\\n    background: rgba(0, 0, 0, 0);\\r\\n}\\r\\n\\r\\n::-webkit-scrollbar-thumb {\\r\\n    background: rgb(197, 137, 136);\\r\\n    border-radius: 2px;\\r\\n  }\\r\\n\\r\\n::-webkit-scrollbar-thumb:hover {\\r\\n    background: rgb(159, 111, 110);\\r\\n    border-radius: 2px;\\r\\n  }\\r\\n\\r\\n::-webkit-scrollbar-thumb:active {\\r\\n    background: rgb(159, 111, 110);\\r\\n    border-radius: 2px;\\r\\n  }\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://tempfe/./main.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
-/***/ "./build/static/media/Account_icon.png":
-/*!*********************************************!*\
-  !*** ./build/static/media/Account_icon.png ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"b3f262a9ebadec8319f340659ca8059b.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/Account_icon.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/collection_icon.png":
-/*!************************************************!*\
-  !*** ./build/static/media/collection_icon.png ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"71b8b990aeed635ff50432e5c4cb082e.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/collection_icon.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/createnote_icon.png":
-/*!************************************************!*\
-  !*** ./build/static/media/createnote_icon.png ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"2a0b02d3c92e6bac5773073b234fd9ca.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/createnote_icon.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/home_icon.png":
-/*!******************************************!*\
-  !*** ./build/static/media/home_icon.png ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"da990bbe8a1f91b844caa6dc8072ab32.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/home_icon.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/like_icon.png":
-/*!******************************************!*\
-  !*** ./build/static/media/like_icon.png ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"39e64322ec5eedae03d597be39ee0e79.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/like_icon.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/logo.png":
-/*!*************************************!*\
-  !*** ./build/static/media/logo.png ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"bba56da3e4ac4b6c4a38b1a50c245d5b.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/logo.png?");
-
-/***/ }),
-
-/***/ "./build/static/media/product_image.png":
+/***/ "./components/Image/HeaderLogo/logo.png":
 /*!**********************************************!*\
-  !*** ./build/static/media/product_image.png ***!
+  !*** ./components/Image/HeaderLogo/logo.png ***!
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"fd972fdd30e7f2993915ea9fbfaab5c8.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/product_image.png?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"bba56da3e4ac4b6c4a38b1a50c245d5b.png\");\n\n//# sourceURL=webpack://tempfe/./components/Image/HeaderLogo/logo.png?");
 
 /***/ }),
 
-/***/ "./build/static/media/user_avatar.png":
-/*!********************************************!*\
-  !*** ./build/static/media/user_avatar.png ***!
-  \********************************************/
+/***/ "./media/product_img1_sml.png":
+/*!************************************!*\
+  !*** ./media/product_img1_sml.png ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"8f974ef383fd97b4acb59ba388f71208.png\");\n\n//# sourceURL=webpack://tempfe/./build/static/media/user_avatar.png?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"85879aee3b877eb8f57fb2590b4c09fb.png\");\n\n//# sourceURL=webpack://tempfe/./media/product_img1_sml.png?");
+
+/***/ }),
+
+/***/ "./media/rating_smp_sml.png":
+/*!**********************************!*\
+  !*** ./media/rating_smp_sml.png ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"09afbe6ecdbe2bc18036df22aa746df1.png\");\n\n//# sourceURL=webpack://tempfe/./media/rating_smp_sml.png?");
+
+/***/ }),
+
+/***/ "./media/user_avatar.png":
+/*!*******************************!*\
+  !*** ./media/user_avatar.png ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"8f974ef383fd97b4acb59ba388f71208.png\");\n\n//# sourceURL=webpack://tempfe/./media/user_avatar.png?");
+
+/***/ }),
+
+/***/ "./media/user_avatar2_sml.png":
+/*!************************************!*\
+  !*** ./media/user_avatar2_sml.png ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"cae0ad5862be8afc7ba820659163b9bd.png\");\n\n//# sourceURL=webpack://tempfe/./media/user_avatar2_sml.png?");
+
+/***/ }),
+
+/***/ "./media/user_avatar3_sml.png":
+/*!************************************!*\
+  !*** ./media/user_avatar3_sml.png ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"0b9b488aeb8eec1a2e721a665f55691a.png\");\n\n//# sourceURL=webpack://tempfe/./media/user_avatar3_sml.png?");
 
 /***/ }),
 
