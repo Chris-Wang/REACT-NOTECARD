@@ -23,12 +23,8 @@ import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FlexBox from "../Layout/FlexBox";
 import NoteLikeMenu from "../Menu/NoteLikeMenu";
 import NoteCollectMenu from "../Menu/NoteCollectMenu";
-
-import getNoteLikedUsers from "../../apis/getNoteLikedUsers";
-
 
 const Container = styled.div`
   display: inline-block;
@@ -60,17 +56,15 @@ class Button extends React.Component {
         seen: !state.seen
     }))
 
-    console.log("callback father");
-  
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("mousedown", this.handleClickOutside);
-  // }
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener("mousedown", this.handleClickOutside);
-  // }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
 
   handleClickOutside = (event) => {
     if (
@@ -80,7 +74,6 @@ class Button extends React.Component {
       this.setState({
         seen: false,
       });
-      console.log("callback father");
     }
   };
 
@@ -181,16 +174,15 @@ class Button extends React.Component {
   render() {
     return (
       <div>
+        <Container ref={this.container}>
         {this.renderButton(this.props.type)}
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
-            
-             <NoteLikeMenu noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>
-          
+             <NoteLikeMenu   noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>         
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
             <NoteCollectMenu></NoteCollectMenu>
           )}
-        
+        </Container>
       </div>
     );
   }

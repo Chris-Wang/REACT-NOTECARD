@@ -46,11 +46,11 @@ class NoteLikeMenu extends React.Component {
 
   componentDidMount() {
     getNoteLikedUsers(this.props.noteId).then(this.handleUsersDataChange);
-    document.addEventListener("mousedown", this.handleClickOutside);
+    // document.addEventListener("mousedown", this.handleClickOutside);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
+    // document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
 
