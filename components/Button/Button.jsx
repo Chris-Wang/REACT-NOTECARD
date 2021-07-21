@@ -27,6 +27,8 @@ import FlexBox from "../Layout/FlexBox";
 import NoteLikeMenu from "../Menu/NoteLikeMenu";
 import NoteCollectMenu from "../Menu/NoteCollectMenu";
 
+import getNoteLikedUsers from "../../apis/getNoteLikedUsers";
+
 
 const Container = styled.div`
   display: inline-block;
@@ -38,7 +40,9 @@ class Button extends React.Component {
     super(props);
     this.state = {
       seen: false,
-      isUserFollow: true
+      isUserFollow: true,
+      likeUsersData: null,
+      collectUsersData: null,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -51,27 +55,32 @@ class Button extends React.Component {
   }
 
   handleButtonClick() {
+    
     this.setState(state => ({
         seen: !state.seen
     }))
+
+    console.log("callback father");
+  
   }
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentDidMount() {
+  //   document.addEventListener("mousedown", this.handleClickOutside);
+  // }
 
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener("mousedown", this.handleClickOutside);
+  // }
 
   handleClickOutside = (event) => {
     if (
       this.container.current &&
-      !this.container.current.contains(event.target)
+      !this.container.current.contains(event.target) 
     ) {
       this.setState({
         seen: false,
       });
+      console.log("callback father");
     }
   };
 
@@ -173,14 +182,15 @@ class Button extends React.Component {
     return (
       <div>
         {this.renderButton(this.props.type)}
-        <Container ref={this.container}>
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
-            <NoteLikeMenu></NoteLikeMenu>
+            
+             <NoteLikeMenu noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>
+          
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
             <NoteCollectMenu></NoteCollectMenu>
           )}
-        </Container>
+        
       </div>
     );
   }

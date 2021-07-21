@@ -42,7 +42,6 @@ const CommentAuthorContainer = styled.div`
 
   // padding: 6px 0px 6px 0px;
   width: 80px;
-  height: 50px;
   padding: 0px;
 
   margin: 7px 0px 10px 0px;
@@ -126,6 +125,10 @@ class CommentMiniCard extends React.Component {
 
   render() {
     const { comments } = this.props;
+
+    if (!comments) {
+      return "Loading";
+    }
 
     return (
       <div>

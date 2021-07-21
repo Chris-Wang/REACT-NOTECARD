@@ -133,7 +133,7 @@ class Accordion extends React.Component {
     return (
       <AccordionContainer>
         {this.state.itemFirOn && (
-          <div>
+          <>
             <DescriptionContainer>
               <DescriptionLabel>{this.props.noteData.content}</DescriptionLabel>
             </DescriptionContainer>
@@ -149,11 +149,11 @@ class Accordion extends React.Component {
                 <FontAwesomeIcon icon={faChevronUp} />
               </ItemsTabArrow>
             </ItemsTabOff>
-          </div>
+          </>
         )}
 
         {this.state.itemSecOn && (
-          <div>
+          <>
             <ItemsTabOn onClick={this.handleTabTwoClick}>
               Linked Product
               <ItemsTabArrow>
@@ -169,11 +169,11 @@ class Accordion extends React.Component {
                 <FontAwesomeIcon icon={faChevronUp} />
               </ItemsTabArrow>
             </ItemsTabOff>
-          </div>
+          </>
         )}
 
         {this.state.itemThdOn && (
-          <div>
+          <>
             <ItemsTabOn onClick={this.handleTabThreeOnClick}>
               View Comments
               <ItemsTabArrow>
@@ -183,7 +183,7 @@ class Accordion extends React.Component {
             <CommentsContainer>
               <CommentMiniCard comments={commentData} />
             </CommentsContainer>
-          </div>
+          </>
         )}
       </AccordionContainer>
     );

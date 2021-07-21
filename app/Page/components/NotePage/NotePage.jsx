@@ -148,9 +148,9 @@ class NotePage extends React.Component {
             <Accordion noteData = {noteData} />
             <FunctionSetContainer>
               <Button type={"LIKENOTE"} />
-              <Button number={noteData.likeNum} type={"LIKENOTEUSERS"} />
+              <Button number={noteData.likeNum} noteId = {noteData.noteId} type={"LIKENOTEUSERS"} />
               <Button type={"COLLECTNOTE"} />
-              <Button number={noteData.collectNum} type={"COLLECTNOTEUSERS"} />
+              <Button number={noteData.collectNum} noteId = {noteData.noteId} type={"COLLECTNOTEUSERS"} />
               <Button type={"FORWARDNOTE"} />
             </FunctionSetContainer>
             <QuickCommentContainer>
