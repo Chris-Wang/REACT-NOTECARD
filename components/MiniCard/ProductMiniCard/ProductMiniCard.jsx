@@ -148,6 +148,10 @@ class ProductMiniCard extends React.Component {
 
   render() {
     const { products } = this.props;
+    
+    if (!products) {
+      return "Loading...";
+    }
 
     return (
       <div>

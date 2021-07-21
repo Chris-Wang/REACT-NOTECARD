@@ -127,7 +127,7 @@ class CommentMiniCard extends React.Component {
     const { comments } = this.props;
 
     if (!comments) {
-      return "Loading";
+      return "Loading...";
     }
 
     return (

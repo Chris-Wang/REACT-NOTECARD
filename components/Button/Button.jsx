@@ -30,6 +30,12 @@ const Container = styled.div`
   display: inline-block;
 `;
 
+const MenuOn = styled.span`
+color: #a86c6d;
+
+`;
+
+
 class Button extends React.Component {
   container = React.createRef();
   constructor(props) {
@@ -39,12 +45,18 @@ class Button extends React.Component {
       isUserFollow: true,
       likeUsersData: null,
       collectUsersData: null,
+      like: this.props.number,
+      collect: this.props.number,
+      likeActive: false,
+      collectActive: false,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleUserFollowClick = this.handleUserFollowClick.bind(this);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.handleCollectClick = this.handleCollectClick.bind(this);
   }
 
-  handleClick() {
+  handleUserFollowClick() {
     this.setState(state =>({
       isUserFollow: !state.isUserFollow
     }))
@@ -56,6 +68,20 @@ class Button extends React.Component {
         seen: !state.seen
     }))
 
+  }
+
+  handleCollectClick() {
+    this.setState({
+      collectActive: !this.state.collectActive,
+      collect: this.state.collectActive ? this.state.collect - 1 : this.state.collect + 1
+    });
+  }
+  
+  handleLikeClick() {
+    this.setState({
+      likeActive: !this.state.likeActive,
+      like: this.state.likeActive ? this.state.like - 1 : this.state.like + 1
+    });
   }
 
   componentDidMount() {
@@ -130,35 +156,41 @@ class Button extends React.Component {
 
       case "AUTHORFOLLOW":
         return (
-        <NoteFollowBtn onClick={this.handleClick}>
+        <NoteFollowBtn onClick={this.handleUserFollowClick}>
           {this.state.isUserFollow ? "Follow" : "Following"}
         </NoteFollowBtn>
         )
       case "LIKENOTE":
         return (
-          <NoteFunctionBtn>
+          <NoteFunctionBtn onClick={this.handleLikeClick}>            
             <FontAwesomeIcon icon={faHeart} />
+            {this.state.like}
           </NoteFunctionBtn>
         );
 
       case "LIKENOTEUSERS":
         return (
-          <NoteNumsBtn onClick={this.handleButtonClick}>
-            {this.props.number}
+          <NoteNumsBtn onClick={this.handleButtonClick} >
+            {this.state.seen ? 
+            (<MenuOn>{this.state.like}</MenuOn>):`${this.state.like}`
+            }
           </NoteNumsBtn>
         );
 
       case "COLLECTNOTE":
         return (
-          <NoteFunctionBtn>
+          <NoteFunctionBtn onClick={this.handleCollectClick}>
             <FontAwesomeIcon icon={faBookmark} />
+            {this.state.collect}
           </NoteFunctionBtn>
         );
 
       case "COLLECTNOTEUSERS":
         return (
           <NoteNumsBtn onClick={this.handleButtonClick}>
-            {this.props.number}
+            {this.state.seen ? 
+            (<MenuOn>{this.state.collect}</MenuOn>):`${this.state.collect}`
+            }
           </NoteNumsBtn>
         );
 
@@ -172,15 +204,16 @@ class Button extends React.Component {
   }
 
   render() {
+    // const changeNumber = this.state.liked ? this.state.like - 1 : this.state.like + 1
     return (
       <div>
         <Container ref={this.container}>
         {this.renderButton(this.props.type)}
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
-             <NoteLikeMenu   noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>         
+             <NoteLikeMenu noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>         
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
-            <NoteCollectMenu></NoteCollectMenu>
+            <NoteCollectMenu noteId={this.props.noteId} seenChange = {this.handleButtonClick}/>
           )}
         </Container>
       </div>

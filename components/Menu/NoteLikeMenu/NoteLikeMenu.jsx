@@ -1,17 +1,19 @@
 import React from "react";
-
 import styled from "styled-components";
 import NoteMenu from "../components/NoteMenu";
 import MenuTitle from "../components/MenuTitle";
 import MenuItems from "../components/MenuItems";
 import UserMiniCard from "../../MiniCard/UserMiniCard";
 import getNoteLikedUsers from "../../../apis/getNoteLikedUsers";
-import getCommentMini from "../../../apis/getCommentMini";
-import { faSleigh } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   display: inline-block;
 `;
+
+const LikeMenu = styled(NoteMenu)`
+  right: 100px;
+`;
+
 class NoteLikeMenu extends React.Component {
 
   container = React.createRef();
@@ -61,21 +63,21 @@ class NoteLikeMenu extends React.Component {
     if (!usersData) {
       return (
         <Container ref={this.container}>
-        <NoteMenu>
+        <LikeMenu>
           <MenuTitle type="Likes" />
           <MenuItems>Loading...</MenuItems>
-        </NoteMenu>
+        </LikeMenu>
         </Container>
       );
     }
     return (
       <Container ref={this.container}>
-      <NoteMenu>
+      <LikeMenu>
         <MenuTitle type="Likes" />
         <MenuItems>
-          <UserMiniCard users={usersData} />
+          <UserMiniCard users={usersData} type="LIKES"/>
         </MenuItems>
-      </NoteMenu>
+      </LikeMenu>
       </Container>
     );
   }

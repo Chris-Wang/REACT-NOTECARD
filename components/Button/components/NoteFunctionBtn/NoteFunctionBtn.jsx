@@ -11,7 +11,7 @@ const NoteFunctionBtn = styled.button`
     background: transparent;
 
     &:hover{
-        transform: translateZ(-2px);=
+        transform: translateZ(-2px);
         transition: width 0.3s ease-in-out;
     }
 

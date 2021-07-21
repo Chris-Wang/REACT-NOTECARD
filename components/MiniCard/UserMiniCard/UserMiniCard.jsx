@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
-import userAvator from "../../../media/user_avatar2_sml.png"
-import ContentLabel from "../../TextLabel/components/MiniCardUserContentLabel"
+import userAvator from "../../../media/user_avatar2_sml.png";
+import ContentLabel from "../../TextLabel/components/MiniCardUserContentLabel";
 
 const MiniCard = styled.div`
   position: relative;
@@ -56,23 +56,32 @@ const Content = styled.div`
   height: 40px;
 `;
 
-
 class UserMiniCard extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const { users,type } = this.props;
 
     return (
-      <MiniCard>
-        <UserAvatar>
-          <AvatarImg src = {userAvator} />
-        </UserAvatar>
-        <Content>
-          <ContentLabel>ThompsonCamille like this note</ContentLabel>
-        </Content>
-      </MiniCard>
+      <>
+        {users.map((user) => (
+          <MiniCard>
+            <UserAvatar>
+              <AvatarImg src={userAvator} />
+            </UserAvatar>
+            <Content>
+              { type === 'LIKES' && (
+              <ContentLabel>{user} likes this note</ContentLabel>
+              )}
+              { type === 'COLLECT' && (
+              <ContentLabel>{user} collects this note</ContentLabel>
+              )}
+            </Content>
+          </MiniCard>
+        ))}
+      </>
     );
   }
 }

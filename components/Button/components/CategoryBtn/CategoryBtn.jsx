@@ -10,7 +10,7 @@ const CategoryButton = styled.button`
     background-color: #f4ded7; 
 
     &:hover{
-        transform: translateZ(-2px);=
+        transform: translateZ(-2px);
         transition: width 0.3s ease-in-out;
     }
     
