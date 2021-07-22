@@ -39,27 +39,51 @@ const SearchContainer = styled.div`
   background-color: #ffffff;
 `;
 
-const Header = () => (
-  <HeadBar>
-    <HeadBarContainer>
-      <LeftContainer>
-        <Button type={"HEADERLOGO"} />
-      </LeftContainer>
-      <MiddleContainer>
-        <Button type={"CATEGORY"} />
-        <SearchContainer>
-          <InputBox type={"SEARCH"} />
-        </SearchContainer>
-      </MiddleContainer>
-      <RightContainer>
-        <Button type={"HOME"} />
-        <Button type={"CREATENOTE"} />
-        <Button type={"LIKEHISTORY"} />
-        <Button type={"COLLECTEDNOTE"} />
-        <Button type={"USERPROFILE"} />
-      </RightContainer>
-    </HeadBarContainer>
-  </HeadBar>
-);
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: "",
+    };
+  }
+
+  handleGetInputValue = (event) => {
+    this.setState({
+      inputValue: event.target.value,
+    });
+  };
+
+  handlePost = () => {
+    const { InputValue } = this.state;
+    console.log(inputValue, "------InputValue");
+  };
+
+  render() {
+    const { handeleIdChange } = this.props;
+
+    return (
+      <HeadBar>
+        <HeadBarContainer>
+          <LeftContainer>
+            <Button type={"HEADERLOGO"} />
+          </LeftContainer>
+          <MiddleContainer>
+            <Button type={"CATEGORY"} />
+            <SearchContainer>
+              <InputBox updateId={handeleIdChange} type={"SEARCH"} />
+            </SearchContainer>
+          </MiddleContainer>
+          <RightContainer>
+            <Button type={"HOME"} />
+            <Button type={"CREATENOTE"} />
+            <Button type={"LIKEHISTORY"} />
+            <Button type={"COLLECTEDNOTE"} />
+            <Button type={"USERPROFILE"} />
+          </RightContainer>
+        </HeadBarContainer>
+      </HeadBar>
+    );
+  }
+}
 
 export default Header;

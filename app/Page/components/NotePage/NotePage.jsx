@@ -103,6 +103,9 @@ class NotePage extends React.Component {
 
     this.state = {
       noteData: null,
+      noteid: 0,
+      noteLikes: 0,
+      noteCollects: 0,
     };
 
     this.handleNoteChange = this.handleNoteChange.bind(this);
@@ -111,19 +114,39 @@ class NotePage extends React.Component {
   handleNoteChange(newNote) {
     this.setState({
       noteData: newNote,
+      noteLikes: newNote.likeNum,
+      noteCollects: newNote.collectNum,
+    });
+  }
+
+  handleNoteidChange(newId) {
+    this.setState({
+      noteid: newId,
     });
   }
 
   componentDidMount() {
-    getNoteInfo().then(this.handleNoteChange);
+    const note = this.props.noteId;
+    getNote(note.noteId).then(this.handleNoteChange);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.noteId.noteId !== this.props.noteId.noteId) {
+      getNote(this.props.noteId.noteId).then(this.handleNoteChange);
+    }
   }
 
   render() {
-    const { noteData } = this.state;
+    const { noteData, noteLikes, noteCollects } = this.state;
 
     if (!noteData) {
       return "Loading";
     }
+
+    console.log(noteData.noteId, "is id in notepage");
+    console.log(noteLikes, "likes in notepage");
+    console.log(noteCollects, "collects in notepage");
+    const { noteId } = this.props;
 
     return (
       <NoteCard>
@@ -145,12 +168,20 @@ class NotePage extends React.Component {
                 <Button type={"AUTHORFOLLOW"} />
               </AuthorButtonContainer>
             </AuthorContainer>
-            <Accordion noteData = {noteData} />
+            <Accordion noteData={noteData} />
             <FunctionSetContainer>
-              <Button number={noteData.likeNum} type={"LIKENOTE"} />
-              <Button number={noteData.likeNum} noteId = {noteData.noteId} type={"LIKENOTEUSERS"} />
-              <Button number={noteData.collectNum} type={"COLLECTNOTE"} />
-              <Button number={noteData.collectNum} noteId = {noteData.noteId} type={"COLLECTNOTEUSERS"} />
+              <Button number={noteLikes} type={"LIKENOTE"} />
+              <Button
+                number={noteLikes}
+                noteId={noteData.noteId}
+                type={"LIKENOTEUSERS"}
+              />
+              <Button number={noteCollects} type={"COLLECTNOTE"} />
+              <Button
+                number={noteCollects}
+                noteId={noteData.noteId}
+                type={"COLLECTNOTEUSERS"}
+              />
               <Button type={"FORWARDNOTE"} />
             </FunctionSetContainer>
             <QuickCommentContainer>

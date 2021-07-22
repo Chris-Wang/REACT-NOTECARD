@@ -62,21 +62,21 @@ class UserMiniCard extends React.Component {
   }
 
   render() {
-    const { users,type } = this.props;
+    const { users, type } = this.props;
 
     return (
       <>
         {users.map((user) => (
-          <MiniCard>
+          <MiniCard key={user.id}>
             <UserAvatar>
               <AvatarImg src={userAvator} />
             </UserAvatar>
             <Content>
-              { type === 'LIKES' && (
-              <ContentLabel>{user} likes this note</ContentLabel>
+              {type === "LIKES" && (
+                <ContentLabel>{user.nickName} likes this note</ContentLabel>
               )}
-              { type === 'COLLECT' && (
-              <ContentLabel>{user} collects this note</ContentLabel>
+              {type === "COLLECT" && (
+                <ContentLabel>{user.nickName} collects this note</ContentLabel>
               )}
             </Content>
           </MiniCard>

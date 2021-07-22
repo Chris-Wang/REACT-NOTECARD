@@ -127,6 +127,16 @@ class Accordion extends React.Component {
     getCommentMini(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
+      // console.log(this.props.noteData.noteId, "new note in accordion");
+      getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+      getCommentMini(this.props.noteData.noteId).then(
+        this.handleCommentsChange
+      );
+    }
+  }
+
   render() {
     const { productData, commentData } = this.state;
 
