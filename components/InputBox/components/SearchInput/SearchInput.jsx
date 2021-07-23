@@ -8,6 +8,7 @@ const SearchInput = styled(InputField)`
   //color: ${(props) => props.inputColor || "black"};
   border: none;
   border-radius: 3px;
+  width: 300px;
 `;
 
 export default SearchInput;

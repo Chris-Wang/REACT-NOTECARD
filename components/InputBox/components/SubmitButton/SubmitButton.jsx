@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 const SubmitButton = styled.button`
-  width: 30px;
-  font-size: 1.1em;
-  margin: 0;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-size: 0.9em;
+  margin-right: 0;
   padding: 0;
   border: none;
-  color: white;
-  background-color: #f4ded7;
+  color: #a86c6d;
+  background-color: white;
 
   &:hover {
     transform: translateZ(-2px);
@@ -15,7 +17,7 @@ const SubmitButton = styled.button`
   }
 
   &:active {
-    color: #9f6f6e;
+    color: black;
   }
 `;
 

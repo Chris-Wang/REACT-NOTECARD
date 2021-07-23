@@ -7,7 +7,7 @@ class InputBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seen: false,
+      seenButton: false,
       inputValue: "",
     };
 
@@ -18,24 +18,38 @@ class InputBox extends React.Component {
   handleGetInputValue = (event) => {
     this.setState({
       inputValue: event.target.value,
+      seenButton: true,
     });
   };
 
   handlePost = () => {
     const { inputValue } = this.state;
-    console.log(inputValue, "------InputValue");
+    //console.log(inputValue, "------InputValue");
     this.props.updateId(inputValue);
+
+    this.setState({
+      seenButton: false,
+    });
+  };
+
+  handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      this.handlePost();
+      console.log("enter press here! ");
+    }
   };
 
   renderInputBox(type) {
     switch (type) {
       case "SEARCH":
+        // console.log("input render now");
         return (
           <SearchInput
-            defaultValue="Search"
+            placeholder="Search"
             type="text"
             inputColor="black"
             value={this.state.InputValue}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleGetInputValue}
           />
         );
@@ -48,8 +62,9 @@ class InputBox extends React.Component {
     return (
       <>
         {this.renderInputBox(this.props.type)}
-
-        <SubmitButton onClick={this.handlePost}>search</SubmitButton>
+        {this.state.seenButton && (
+          <SubmitButton onClick={this.handlePost}>Search</SubmitButton>
+        )}
       </>
     );
   }

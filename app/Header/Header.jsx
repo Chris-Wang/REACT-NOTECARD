@@ -30,6 +30,7 @@ const RightContainer = styled(HeaderDiv)`
 `;
 
 const SearchContainer = styled.div`
+  position: relative;
   width: 330px;
   height: 26px;
   flex-grow: 0;
