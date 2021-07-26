@@ -5,17 +5,27 @@ import TextLabel from "../../components/TextLabel";
 
 const FooterContainer = styled(Flex)`
   margin: 0;
-  min-width: 1008px;
-  padding: 4px;
+  min-width: 99.9vw;
+  padding: 2px 0px;
   max-height: 20px;
   background-color: #f4ded7;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+`;
+
+const FooterLabelContainer = styled(Flex)`
+  margin: 0 auto;
+  width: 1000px;
   justify-content: center;
 `;
 
 const Footer = () => (
   <FooterContainer>
-    <TextLabel type={"COPYRIGHT"} />
+    <FooterLabelContainer>
+      <TextLabel type={"COPYRIGHT"} />
+    </FooterLabelContainer>
   </FooterContainer>
 );
 

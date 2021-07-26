@@ -4,8 +4,8 @@ const NoteMenuTitleLabel = styled.div`
   width: 100%;
   height: 100%;
 
-  font-size: 1em;
-  font-family: sans-serif;
+  font-size: 0.9em;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
@@ -13,7 +13,6 @@ const NoteMenuTitleLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
-
 `;
 
 export default NoteMenuTitleLabel;

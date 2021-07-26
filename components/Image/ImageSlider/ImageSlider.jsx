@@ -43,7 +43,7 @@ const ImageSlider = ({ slides }) => {
       <ImageRightArrowBtn onClick={nextSlide}>
         <FontAwesomeIcon icon={faAngleRight} />
       </ImageRightArrowBtn>
-      {ImageLoader.map((slide, index) => {
+      {slides.map((slide, index) => {
         return (
           <div
             className={index === current ? "slide active" : "slide"}

@@ -9,8 +9,9 @@ const ItemsTab = styled.div`
   width: 352px;
   height: 50px;
 
-  font-size: 1.1em;
-  font-family: "Segoe UI", sans-serif;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 `;
 
 export default ItemsTab;

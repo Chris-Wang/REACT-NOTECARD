@@ -69,7 +69,8 @@ const CommentLabelContainer = styled.div`
 const CommentAvatarImg = styled.img`
   flex-grow: 0;
   margin: 0 auto;
-
+  object-fit: cover;
+  width: 45px;
   // border: solid 1px #a86c6d;
   border-radius: 22px;
   transition-property: transform, box-shadow;
@@ -88,7 +89,7 @@ const CommentAuthorNameLabel = styled.div`
   height: 100%;
 
   font-size: 0.85em;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
@@ -106,7 +107,7 @@ const CommentContentLabel = styled.div`
   height: 80%;
 
   font-size: 0.85em;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -125,6 +126,7 @@ class CommentMiniCard extends React.Component {
 
   render() {
     const { comments } = this.props;
+    const backend = "http://localhost:8080";
 
     if (!comments) {
       return "Loading...";
@@ -135,7 +137,9 @@ class CommentMiniCard extends React.Component {
         {comments.map((comment) => (
           <CommentsListCard key={comment.commentId}>
             <CommentAvatorContainer>
-              <CommentAvatarImg src={authorAvatar} />
+              <CommentAvatarImg
+                src={`${backend}/${comment.commentAuthorAvatar}`}
+              />
             </CommentAvatorContainer>
             <CommentAuthorContainer>
               <CommentAuthorNameLabel>

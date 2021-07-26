@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import avatarImage from "../../../../media/user_avatar.png";
 import getNote from "../../../../apis/getNote";
+import postNoteComment from "../../../../apis/postNoteComment";
 
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageLoader from "../../../../utils/ImageLoader";
@@ -12,6 +12,7 @@ import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAut
 import Button from "../../../../components/Button";
 import CommentInput from "../../../../components/InputBox/components/CommentInput";
 import Accordion from "../../../../components/Accordion";
+import imgNotFound from "../../../../media/empty_data_set.png";
 
 const NoteCard = styled(FlexBox)`
   flex-direction: row;
@@ -94,9 +95,6 @@ const QuickCommentContainer = styled(FlexBox)`
   height: 50px;
 `;
 
-const noteid = "2";
-const getNoteInfo = () => getNote(noteid);
-
 class NotePage extends React.Component {
   constructor(props) {
     super(props);
@@ -106,17 +104,44 @@ class NotePage extends React.Component {
       noteid: 0,
       noteLikes: 0,
       noteCollects: 0,
+      noteImages: null,
+      // like: 2,
+      // collect: 3,
+      likeActive: false,
+      collectActive: false,
     };
 
     this.handleNoteChange = this.handleNoteChange.bind(this);
   }
 
+  handleCollectClick() {
+    this.setState({
+      collectActive: !this.state.collectActive,
+      noteCollects: this.state.collectActive
+        ? this.state.noteCollects - 1
+        : this.state.noteCollects + 1,
+    });
+  }
+
+  handleLikeClick() {
+    this.setState({
+      likeActive: !this.state.likeActive,
+      noteLikes: this.state.likeActive
+        ? this.state.noteLikes - 1
+        : this.state.noteLikes + 1,
+    });
+  }
+
   handleNoteChange(newNote) {
+    // const newImages = this.imageLoad(newNote.imageUrl);
     this.setState({
       noteData: newNote,
       noteLikes: newNote.likeNum,
       noteCollects: newNote.collectNum,
+      noteImages: this.imageLoad(newNote.imageUrl),
     });
+
+    // this.imageLoad(this.state.noteImages);
   }
 
   handleNoteidChange(newId) {
@@ -125,9 +150,31 @@ class NotePage extends React.Component {
     });
   }
 
+  imageLoad(images) {
+    const prefix = "http://localhost:8080";
+    let newImages = images.map(function (img) {
+      let imgData = { image: "" };
+      imgData.image = `${prefix}/${img}`;
+      if (img === null) imgData.image = imgNotFound;
+      return imgData;
+    });
+
+    return newImages;
+    //console.log(dt, "loading images");
+  }
+
   componentDidMount() {
     const note = this.props.noteId;
     getNote(note.noteId).then(this.handleNoteChange);
+
+    const postBody = {
+      noteId: this.props.noteId.noteId,
+      authorId: "c302beee-0d71-4c2b-becc-950318e51d42",
+      content: "Test a post",
+    };
+    console.log(postBody, "is postBody");
+    const rt = postNoteComment(postBody);
+    console.log(rt, "is a return");
   }
 
   componentDidUpdate(prevProps) {
@@ -137,29 +184,34 @@ class NotePage extends React.Component {
   }
 
   render() {
-    const { noteData, noteLikes, noteCollects } = this.state;
+    const { noteData, noteLikes, noteCollects, noteImages } = this.state;
 
     if (!noteData) {
       return "Loading";
     }
 
-    console.log(noteData.noteId, "is id in notepage");
-    console.log(noteLikes, "likes in notepage");
-    console.log(noteCollects, "collects in notepage");
+    // console.log(noteData.noteId, "is id in notepage");
+    // console.log(noteLikes, "likes in notepage");
+    // console.log(noteCollects, "collects in notepage");
     const { noteId } = this.props;
+    const backend = "http://localhost:8080";
+
+    // console.log(noteImages);
+
+    console.log(ImageLoader);
 
     return (
       <NoteCard>
         <CardContainer>
           <ImageContainer>
-            <ImageSlider slides={ImageLoader} />
+            <ImageSlider slides={noteImages} />
           </ImageContainer>
         </CardContainer>
         <CardContainer>
           <RightBox>
             <AuthorContainer>
               <AuthorAvatarContainer>
-                <NoteAuthorImage src={avatarImage} />
+                <NoteAuthorImage src={`${backend}/${noteData.authorAvatar}`} />
               </AuthorAvatarContainer>
               <AuthorNameContainer>
                 <NoteAuthorLabel>{noteData.author}</NoteAuthorLabel>
@@ -170,17 +222,35 @@ class NotePage extends React.Component {
             </AuthorContainer>
             <Accordion noteData={noteData} />
             <FunctionSetContainer>
-              <Button number={noteLikes} type={"LIKENOTE"} />
+              <Button
+                // number={noteLikes}
+                type={"LIKENOTE"}
+                data={{
+                  handleLikeClick: this.handleLikeClick.bind(this),
+                }}
+              />
               <Button
                 number={noteLikes}
                 noteId={noteData.noteId}
                 type={"LIKENOTEUSERS"}
+                // data={{
+                //   like: this.state.like,
+                // }}
               />
-              <Button number={noteCollects} type={"COLLECTNOTE"} />
+              <Button
+                number={noteCollects}
+                type={"COLLECTNOTE"}
+                data={{
+                  handleCollectClick: this.handleCollectClick.bind(this),
+                }}
+              />
               <Button
                 number={noteCollects}
                 noteId={noteData.noteId}
                 type={"COLLECTNOTEUSERS"}
+                // data={{
+                //   collect: this.state.collect,
+                // }}
               />
               <Button type={"FORWARDNOTE"} />
             </FunctionSetContainer>

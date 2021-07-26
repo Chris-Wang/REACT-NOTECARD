@@ -7,7 +7,7 @@ const MiniCardUserContentLabel = styled.div`
 
   margin-left: 5px;
   font-size: 0.8em;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;

@@ -35,7 +35,8 @@ const UserAvatar = styled.div`
 const AvatarImg = styled.img`
   flex-grow: 0;
   margin: 0 auto;
-
+  width: 30px;
+  object-fit: cover;
   border-radius: 20px;
   transition-property: transform, box-shadow;
   transition-duration: 0.3s;
@@ -63,13 +64,14 @@ class UserMiniCard extends React.Component {
 
   render() {
     const { users, type } = this.props;
+    const backend = "http://localhost:8080";
 
     return (
       <>
         {users.map((user) => (
           <MiniCard key={user.id}>
             <UserAvatar>
-              <AvatarImg src={userAvator} />
+              <AvatarImg src={`${backend}/${user.avatar}`} />
             </UserAvatar>
             <Content>
               {type === "LIKES" && (

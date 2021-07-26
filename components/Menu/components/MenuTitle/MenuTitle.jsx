@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MenuTitleLabel from "../../../TextLabel/components/NoteMenuTitleLabel"
+import MenuTitleLabel from "../../../TextLabel/components/NoteMenuTitleLabel";
 
 const MenuTitleContainer = styled.div`
   position: relative;
@@ -11,8 +11,7 @@ const MenuTitleContainer = styled.div`
   height: 40px;
 
   font-size: 1.1em;
-  font-family: "Segoe UI", sans-serif;
-
+  font-family: "Poppins", sans-serif;
 `;
 
 class MenuTitle extends React.Component {
@@ -27,9 +26,8 @@ class MenuTitle extends React.Component {
       <MenuTitleContainer>
         <MenuTitleLabel>{this.props.type}</MenuTitleLabel>
       </MenuTitleContainer>
-
     );
-    }
+  }
 }
 
 export default MenuTitle;

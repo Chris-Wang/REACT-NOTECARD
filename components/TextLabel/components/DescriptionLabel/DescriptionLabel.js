@@ -9,7 +9,7 @@ const DescriptionLabel = styled.div`
   width: 100%;
 
   font-size: 0.9em;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

@@ -15,7 +15,6 @@ const LikeMenu = styled(NoteMenu)`
 `;
 
 class NoteLikeMenu extends React.Component {
-
   container = React.createRef();
   constructor(props) {
     super(props);
@@ -39,7 +38,7 @@ class NoteLikeMenu extends React.Component {
   handleClickOutside = (event) => {
     if (
       this.container.current &&
-      !this.container.current.contains(event.target) 
+      !this.container.current.contains(event.target)
     ) {
       this.props.seenChange;
       console.log("callback");
@@ -55,29 +54,27 @@ class NoteLikeMenu extends React.Component {
     // document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
-
-
   render() {
     const { usersData } = this.state;
 
     if (!usersData) {
       return (
         <Container ref={this.container}>
-        <LikeMenu>
-          <MenuTitle type="Likes" />
-          <MenuItems>Loading...</MenuItems>
-        </LikeMenu>
+          <LikeMenu>
+            <MenuTitle type="Likes" />
+            <MenuItems>Loading...</MenuItems>
+          </LikeMenu>
         </Container>
       );
     }
     return (
       <Container ref={this.container}>
-      <LikeMenu>
-        <MenuTitle type="Likes" />
-        <MenuItems>
-          <UserMiniCard users={usersData} type="LIKES"/>
-        </MenuItems>
-      </LikeMenu>
+        <LikeMenu>
+          <MenuTitle type="Likes" />
+          <MenuItems>
+            <UserMiniCard users={usersData} type="LIKES" />
+          </MenuItems>
+        </LikeMenu>
       </Container>
     );
   }

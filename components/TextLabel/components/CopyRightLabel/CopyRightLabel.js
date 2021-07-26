@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CopyRightLabel = styled.div`
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;

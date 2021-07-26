@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Flex from "../../Flex";
 
-const HeaderDiv = styled(Flex)`
+const HeaderDiv = styled.div`
   display: flex;
   align-items: center;
   background-color: #f4ded7;

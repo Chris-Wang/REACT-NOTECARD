@@ -3,8 +3,6 @@ import React from "react";
 import productMiniImage1 from "../../../media/product_img1_sml.png";
 import ratingMiniImage from "../../../media/rating_smp_sml.png";
 import ProductCardMini from "./components/ProductCardMini";
-
-
 const ProductCardMiniLeftContainer = styled.div`
   position: relative;
   display: flex;
@@ -21,6 +19,8 @@ const ProductCardMiniLeftContainer = styled.div`
 const ProductImageMini = styled.img`
   flex-grow: 0;
   margin: 0 auto;
+  width: 95px;
+  object-fit: cover;
 
   border-radius: 4px;
   transition-property: transform, box-shadow;
@@ -62,7 +62,9 @@ const ProductMiniNameLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
-  word-wrap:break-word;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 const ProductMiniBrandLabel = styled.div`
@@ -79,7 +81,7 @@ const ProductMiniBrandLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
-  word-wrap:break-word;
+  word-wrap: break-word;
 `;
 
 const ProductMiniPriceContainer = styled.div`
@@ -89,7 +91,7 @@ const ProductMiniPriceContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 30%;
+  height: 26%;
 
   font-size: 0.9em;
   font-family: sans-serif;
@@ -148,7 +150,7 @@ class ProductMiniCard extends React.Component {
 
   render() {
     const { products } = this.props;
-    
+    const backend = "http://localhost:8080";
     if (!products) {
       return "Loading...";
     }
@@ -158,11 +160,13 @@ class ProductMiniCard extends React.Component {
         {products.map((product) => (
           <ProductCardMini key={product.productId}>
             <ProductCardMiniLeftContainer>
-              <ProductImageMini src={productMiniImage1} />
+              <ProductImageMini src={`${backend}/${product.imageAddress}`} />
             </ProductCardMiniLeftContainer>
             <ProductCardMiniRightContainer>
               <ProductMiniNameLabel>{product.productName}</ProductMiniNameLabel>
-              <ProductMiniBrandLabel>Artimes</ProductMiniBrandLabel>
+              <ProductMiniBrandLabel>
+                {product.productBrands}
+              </ProductMiniBrandLabel>
               <ProductMiniPriceContainer>
                 <ProductMiniPriceLabel>
                   ${product.productPrice}
