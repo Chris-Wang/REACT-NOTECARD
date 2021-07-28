@@ -48,17 +48,6 @@ class Header extends React.Component {
     };
   }
 
-  handleGetInputValue = (event) => {
-    this.setState({
-      inputValue: event.target.value,
-    });
-  };
-
-  handlePost = () => {
-    const { InputValue } = this.state;
-    console.log(inputValue, "------InputValue");
-  };
-
   render() {
     const { handeleIdChange } = this.props;
 

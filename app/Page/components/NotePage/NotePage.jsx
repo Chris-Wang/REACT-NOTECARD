@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import getNote from "../../../../apis/getNote";
 import postNoteComment from "../../../../apis/postNoteComment";
+import getCommentMini from "../../../../apis/getCommentMini";
+import getNoteLikedUsers from "../../../../apis/getNoteLikedUsers";
+import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
 
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageLoader from "../../../../utils/ImageLoader";
@@ -10,9 +13,12 @@ import FlexBox from "../../../../components/Layout/FlexBox";
 import NoteAuthorImage from "../../../../components/Image/NoteAuthorImage";
 import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAuthorLabel";
 import Button from "../../../../components/Button";
+import InputBox from "../../../../components/InputBox";
 import CommentInput from "../../../../components/InputBox/components/CommentInput";
 import Accordion from "../../../../components/Accordion";
 import imgNotFound from "../../../../media/empty_data_set.png";
+import collectNote from "../../../../apis/collectNote";
+import likeNote from "../../../../apis/likeNote";
 
 const NoteCard = styled(FlexBox)`
   flex-direction: row;
@@ -84,6 +90,7 @@ const FunctionSetContainer = styled(FlexBox)`
 `;
 
 const QuickCommentContainer = styled(FlexBox)`
+  position: relative;
   flex-direction: row;
   justify-content: center;
   border-radius: 5px;
@@ -101,34 +108,79 @@ class NotePage extends React.Component {
 
     this.state = {
       noteData: null,
-      noteid: 0,
       noteLikes: 0,
       noteCollects: 0,
       noteImages: null,
-      // like: 2,
-      // collect: 3,
       likeActive: false,
       collectActive: false,
+      commentData: null,
+      likeUsersData: null,
+      collectUsersData: null,
     };
 
     this.handleNoteChange = this.handleNoteChange.bind(this);
+    this.handleCommentsChange = this.handleCommentsChange.bind(this);
+    this.handleCollectChange = this.handleCollectChange.bind(this);
+    this.handleLikeChange = this.handleLikeChange.bind(this);
+    this.handleLikeActiveChange = this.handleLikeActiveChange.bind(this);
+    this.handleCollectActiveChange = this.handleCollectActiveChange.bind(this);
+    this.handleLikeInit = this.handleLikeInit.bind(this);
+    this.handleCollectInit = this.handleCollectInit.bind(this);
+    this.initActiveLike = this.initActiveLike.bind(this);
+    this.initActiveCollect = this.initActiveCollect.bind(this);
+  }
+
+  handleLikeInit(active) {
+    this.setState({
+      likeActive: active,
+    });
+  }
+
+  handleCollectInit(active) {
+    this.setState({
+      collectActive: active,
+    });
+  }
+
+  handleLikeActiveChange() {
+    this.setState({
+      likeActive: !this.state.likeActive,
+    });
+  }
+
+  handleCollectActiveChange() {
+    this.setState({
+      collectActive: !this.state.collectActive,
+    });
   }
 
   handleCollectClick() {
+    const collectBody = {
+      userId: this.props.userId,
+      noteId: this.props.noteId,
+    };
+    collectNote(collectBody).then(this.handleCollectChange);
+    this.handleCollectActiveChange();
+  }
+
+  handleCollectChange(newCollect) {
     this.setState({
-      collectActive: !this.state.collectActive,
-      noteCollects: this.state.collectActive
-        ? this.state.noteCollects - 1
-        : this.state.noteCollects + 1,
+      noteCollects: newCollect.collectCount,
     });
   }
 
   handleLikeClick() {
+    const likeBody = {
+      userId: this.props.userId,
+      noteId: this.props.noteId,
+    };
+    likeNote(likeBody).then(this.handleLikeChange);
+    this.handleLikeActiveChange();
+  }
+
+  handleLikeChange(newLike) {
     this.setState({
-      likeActive: !this.state.likeActive,
-      noteLikes: this.state.likeActive
-        ? this.state.noteLikes - 1
-        : this.state.noteLikes + 1,
+      noteLikes: newLike.likeCount,
     });
   }
 
@@ -150,6 +202,12 @@ class NotePage extends React.Component {
     });
   }
 
+  handleCommentsChange(newComments) {
+    this.setState({
+      commentData: newComments,
+    });
+  }
+
   imageLoad(images) {
     const prefix = "http://localhost:8080";
     let newImages = images.map(function (img) {
@@ -163,28 +221,66 @@ class NotePage extends React.Component {
     //console.log(dt, "loading images");
   }
 
+  initActiveLike(users) {
+    const userId = this.props.userId;
+    let active = false;
+    users.map(function (user) {
+      //console.log(user.id, "in active");
+      if (user.id === userId) {
+        // console.log(user.id, "in active");
+        active = true;
+      }
+    });
+    this.handleLikeInit(active);
+  }
+
+  initActiveCollect(users) {
+    const userId = this.props.userId;
+    let active = false;
+    users.map(function (user) {
+      //console.log(user.id, "in active");
+      if (user.id === userId) {
+        // console.log(user.id, "in active");
+        active = true;
+      }
+    });
+    this.handleCollectInit(active);
+  }
+
   componentDidMount() {
     const note = this.props.noteId;
-    getNote(note.noteId).then(this.handleNoteChange);
+    getNote(note).then(this.handleNoteChange);
+    getCommentMini(note).then(this.handleCommentsChange);
+    getNoteLikedUsers(note).then(this.initActiveLike);
+    getNoteCollectedUsers(note).then(this.initActiveCollect);
 
-    const postBody = {
-      noteId: this.props.noteId.noteId,
-      authorId: "c302beee-0d71-4c2b-becc-950318e51d42",
-      content: "Test a post",
-    };
-    console.log(postBody, "is postBody");
-    const rt = postNoteComment(postBody);
-    console.log(rt, "is a return");
+    // console.log(this.state, "state in didMount");
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.noteId.noteId !== this.props.noteId.noteId) {
-      getNote(this.props.noteId.noteId).then(this.handleNoteChange);
+    if (prevProps.noteId !== this.props.noteId) {
+      getNote(this.props.noteId).then(this.handleNoteChange);
+      getCommentMini(this.props.noteId).then(this.handleCommentsChange);
+      getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
+      getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
+      // const active = getNoteLikedUsers(this.props.noteId).then(
+      //   this.initActiveLike
+      // );
+      // active.then(this.handleLikeInit);
     }
   }
 
   render() {
-    const { noteData, noteLikes, noteCollects, noteImages } = this.state;
+    const {
+      noteData,
+      noteLikes,
+      noteCollects,
+      noteImages,
+      commentData,
+      commentUpdate,
+      likeActive,
+      collectActive,
+    } = this.state;
 
     if (!noteData) {
       return "Loading";
@@ -193,12 +289,15 @@ class NotePage extends React.Component {
     // console.log(noteData.noteId, "is id in notepage");
     // console.log(noteLikes, "likes in notepage");
     // console.log(noteCollects, "collects in notepage");
-    const { noteId } = this.props;
+    // const { userId } = this.props;
     const backend = "http://localhost:8080";
 
     // console.log(noteImages);
+    console.log(this.state, "this is state in render");
 
-    console.log(ImageLoader);
+    // console.log(ImageLoader);
+
+    //console.log(this.props, "props in notepage");
 
     return (
       <NoteCard>
@@ -220,45 +319,47 @@ class NotePage extends React.Component {
                 <Button type={"AUTHORFOLLOW"} />
               </AuthorButtonContainer>
             </AuthorContainer>
-            <Accordion noteData={noteData} />
+            <Accordion noteData={noteData} commentData={commentData} />
             <FunctionSetContainer>
               <Button
                 // number={noteLikes}
+                likeActive={likeActive}
                 type={"LIKENOTE"}
                 data={{
                   handleLikeClick: this.handleLikeClick.bind(this),
+                  handleLikeActiveChange:
+                    this.handleLikeActiveChange.bind(this),
                 }}
               />
               <Button
                 number={noteLikes}
                 noteId={noteData.noteId}
                 type={"LIKENOTEUSERS"}
-                // data={{
-                //   like: this.state.like,
-                // }}
               />
               <Button
+                collectActive={collectActive}
                 number={noteCollects}
                 type={"COLLECTNOTE"}
                 data={{
                   handleCollectClick: this.handleCollectClick.bind(this),
+                  handleCollectActiveChange:
+                    this.handleCollectActiveChange.bind(this),
                 }}
               />
               <Button
                 number={noteCollects}
                 noteId={noteData.noteId}
                 type={"COLLECTNOTEUSERS"}
-                // data={{
-                //   collect: this.state.collect,
-                // }}
               />
               <Button type={"FORWARDNOTE"} />
             </FunctionSetContainer>
             <QuickCommentContainer>
-              <CommentInput
-                defaultValue="Say Something..."
-                type="text"
-                inputColor="black"
+              <InputBox
+                userId={this.props.userId}
+                noteId={noteData.noteId}
+                type={"COMMENT"}
+                handleCommentsChange={this.handleCommentsChange.bind(this)}
+                commentUpdat={commentUpdate}
               />
             </QuickCommentContainer>
           </RightBox>

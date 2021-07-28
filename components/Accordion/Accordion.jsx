@@ -124,21 +124,19 @@ class Accordion extends React.Component {
 
   componentDidMount() {
     getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
-    getCommentMini(this.props.noteData.noteId).then(this.handleCommentsChange);
+    //getCommentMini(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
       // console.log(this.props.noteData.noteId, "new note in accordion");
       getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
-      getCommentMini(this.props.noteData.noteId).then(
-        this.handleCommentsChange
-      );
     }
   }
 
   render() {
-    const { productData, commentData } = this.state;
+    // console.log(this.props.commentData, "comments in render <Accordion>");
+    const { productData } = this.state;
 
     return (
       <AccordionContainer>
@@ -191,7 +189,7 @@ class Accordion extends React.Component {
               </ItemsTabArrow>
             </ItemsTabOn>
             <CommentsContainer>
-              <CommentMiniCard comments={commentData} />
+              <CommentMiniCard comments={this.props.commentData} />
             </CommentsContainer>
           </>
         )}

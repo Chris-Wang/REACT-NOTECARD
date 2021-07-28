@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 1,
+      userId: "9ff24091-a6bb-41fd-9d09-d7129f18e9f2",
       noteId: "1",
     };
 
@@ -19,18 +19,18 @@ class App extends React.Component {
       noteId: newId,
     });
 
-    //？为什么这里会延后
-    //    console.log(this.state.noteId, "noteid");
+    // console.log(this.state.noteId, "noteid in app handle");
   }
 
   render() {
-    const noteId = this.state.noteId;
+    const { noteId, userId } = this.state;
     console.log(this.state.noteId, "noteid in app");
+    console.log(this.state.userId, "userid in app");
     return (
       <div className="main">
         <div className="container">
           <Header handeleIdChange={this.handleIdChange} />
-          <Page noteId={noteId} />
+          <Page noteId={noteId} userId={userId} />
           <Footer />
         </div>
       </div>

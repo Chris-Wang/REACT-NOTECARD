@@ -1,9 +1,9 @@
 import React from "react";
 import NotePage from "./components/NotePage";
 
-const Page = (noteId) => (
+const Page = (data) => (
   <div className="pages">
-    <NotePage noteId={noteId} />
+    <NotePage noteId={data.noteId} userId={data.userId} />
   </div>
 );
 

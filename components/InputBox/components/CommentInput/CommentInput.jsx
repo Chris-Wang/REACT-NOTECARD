@@ -12,7 +12,6 @@ const CommentInput = styled.input`
   width: 350px;
 
   font-size: 0.9em;
-  font-family: sans-serif;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -20,6 +19,7 @@ const CommentInput = styled.input`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
+  font-family: "Poppins", sans-serif;
 `;
 
 export default CommentInput;

@@ -34,6 +34,10 @@ const MenuOn = styled.span`
   color: #a86c6d;
 `;
 
+const ActiveFunctionBtn = styled(NoteFunctionBtn)`
+  color: #a86c6d;
+`;
+
 class Button extends React.Component {
   container = React.createRef();
   constructor(props) {
@@ -180,7 +184,13 @@ class Button extends React.Component {
       case "LIKENOTE":
         return (
           <NoteFunctionBtn onClick={this.props.data.handleLikeClick}>
-            <FontAwesomeIcon icon={faHeart} />
+            {this.props.likeActive ? (
+              <MenuOn>
+                <FontAwesomeIcon icon={faHeart} />
+              </MenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faHeart} />
+            )}
           </NoteFunctionBtn>
         );
 
@@ -197,7 +207,13 @@ class Button extends React.Component {
       case "COLLECTNOTE":
         return (
           <NoteFunctionBtn onClick={this.props.data.handleCollectClick}>
-            <FontAwesomeIcon icon={faBookmark} />
+            {this.props.collectActive ? (
+              <MenuOn>
+                <FontAwesomeIcon icon={faBookmark} />
+              </MenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faBookmark} />
+            )}
           </NoteFunctionBtn>
         );
 
