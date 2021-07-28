@@ -25,6 +25,7 @@ const MiddleContainer = styled(HeaderDiv)`
 `;
 
 const RightContainer = styled(HeaderDiv)`
+  position: relative;
   width: 260px;
   justify-content: flex-end;
 `;

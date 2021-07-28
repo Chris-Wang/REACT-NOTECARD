@@ -10,7 +10,7 @@ const MenuTitleContainer = styled.div`
   width: 264px;
   height: 40px;
 
-  font-size: 1.1em;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
 `;
 

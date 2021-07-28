@@ -25,6 +25,9 @@ import { faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NoteLikeMenu from "../Menu/NoteLikeMenu";
 import NoteCollectMenu from "../Menu/NoteCollectMenu";
+import HeaderLikeMenu from "../Menu/HeaderLikeMenu";
+import HeaderCollectMenu from "../Menu/HeaderCollectMenu";
+import HeaderUserMenu from "../Menu/HeaderUserMenu";
 
 const Container = styled.div`
   display: inline-block;
@@ -32,6 +35,10 @@ const Container = styled.div`
 
 const MenuOn = styled.span`
   color: #a86c6d;
+`;
+
+const HeaderMenuOn = styled.span`
+  color: #ffffff;
 `;
 
 const ActiveFunctionBtn = styled(NoteFunctionBtn)`
@@ -156,22 +163,40 @@ class Button extends React.Component {
 
       case "COLLECTEDNOTE":
         return (
-          <HeaderBtn>
-            <FontAwesomeIcon icon={faBook} />
+          <HeaderBtn onClick={this.handleButtonClick}>
+            {this.state.seen ? (
+              <HeaderMenuOn>
+                <FontAwesomeIcon icon={faBook} />
+              </HeaderMenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faBook} />
+            )}
           </HeaderBtn>
         );
 
       case "LIKEHISTORY":
         return (
-          <HeaderBtn>
-            <FontAwesomeIcon icon={faHeart} />
+          <HeaderBtn onClick={this.handleButtonClick}>
+            {this.state.seen ? (
+              <HeaderMenuOn>
+                <FontAwesomeIcon icon={faHeart} />
+              </HeaderMenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faHeart} />
+            )}
           </HeaderBtn>
         );
 
       case "USERPROFILE":
         return (
-          <HeaderLastBtn>
-            <FontAwesomeIcon icon={faUserAlt} />
+          <HeaderLastBtn onClick={this.handleButtonClick}>
+            {this.state.seen ? (
+              <HeaderMenuOn>
+                <FontAwesomeIcon icon={faUserAlt} />
+              </HeaderMenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faUserAlt} />
+            )}
           </HeaderLastBtn>
         );
 
@@ -244,6 +269,27 @@ class Button extends React.Component {
       <div>
         <Container ref={this.container}>
           {this.renderButton(this.props.type)}
+          {this.state.seen && this.props.type === "COLLECTEDNOTE" && (
+            <HeaderCollectMenu
+              noteId={this.props.noteId}
+              number={this.props.number}
+              seenChange={this.handleButtonClick}
+            />
+          )}
+          {this.state.seen && this.props.type === "LIKEHISTORY" && (
+            <HeaderLikeMenu
+              noteId={this.props.noteId}
+              number={this.props.number}
+              seenChange={this.handleButtonClick}
+            />
+          )}
+          {this.state.seen && this.props.type === "USERPROFILE" && (
+            <HeaderUserMenu
+              noteId={this.props.noteId}
+              number={this.props.number}
+              seenChange={this.handleButtonClick}
+            />
+          )}
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
             <NoteLikeMenu
               noteId={this.props.noteId}
