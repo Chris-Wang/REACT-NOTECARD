@@ -285,7 +285,8 @@ class NotePage extends React.Component {
   }
 
   async componentDidMount() {
-    const note = this.props.noteId;
+    // const note = this.props.noteId;
+    const note = this.props.match.params.id;
     await getNote(note).then(this.handleNoteChange);
     getCommentMini(note).then(this.handleCommentsChange);
     getNoteLikedUsers(note).then(this.initActiveLike);
@@ -321,6 +322,10 @@ class NotePage extends React.Component {
       collectActive,
       followActive,
     } = this.state;
+
+    const { params } = this.props.match;
+
+    console.log(params.id, "in notepage");
 
     if (!noteData) {
       return "Loading";

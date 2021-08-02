@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import FlexBox from "../../../../components/Layout/FlexBox";
+import { Route, Link } from "react-router-dom";
+import NotePage from "../NotePage";
+import ProductPage from "../ProductPage";
 
 const ExploreCard = styled.div`
   box-sizing: border-box;
@@ -120,9 +123,15 @@ class ExplorePage extends React.Component {
     return (
       <ExploreCard>
         <MidCardsBox>
-          <SmlTopCard></SmlTopCard>
-          <SmlBtmCard></SmlBtmCard>
-          <LgCard></LgCard>
+          <SmlTopCard>
+            <Link to="/notes/1">Note 1 </Link>
+          </SmlTopCard>
+          <SmlBtmCard>
+            <Link to="/notes/2">Note 2 </Link>
+          </SmlBtmCard>
+          <LgCard>
+            <Link to="/products/1">Product 1 </Link>
+          </LgCard>
         </MidCardsBox>
         <SmlCardsBox>
           <SmlCard></SmlCard>
@@ -132,6 +141,8 @@ class ExplorePage extends React.Component {
           <SmlCard></SmlCard>
           <SmlCard></SmlCard>
         </SmlCardsBox>
+        <Route path="/notes/:id" component={NotePage} />
+        <Route path="/products/:id" component={ProductPage} />
       </ExploreCard>
     );
   }

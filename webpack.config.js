@@ -1,42 +1,43 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
-  entry: './index.js',
+  mode: "development",
+  entry: "./index.js",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-react']
-          }
-        }
+            presets: ["@babel/preset-react"],
+          },
+        },
       },
       {
-          test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
     port: 9000,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: "index.html",
     }),
   ],
-}
+};

@@ -293,7 +293,7 @@ class ProductPage extends React.Component {
   }
 
   componentDidMount() {
-    const note = this.props.noteId;
+    const note = this.props.match.params.id;
     getNote(note).then(this.handleNoteChange);
     getCommentMini(note).then(this.handleCommentsChange);
     getNoteLikedUsers(note).then(this.initActiveLike);

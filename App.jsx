@@ -30,14 +30,16 @@ class App extends React.Component {
     console.log(this.state.noteId, "noteid in app");
     console.log(this.state.userId, "userid in app");
     return (
-      <div className="main">
-        <div className="container">
-          <Header handeleIdChange={this.handleIdChange} />
-          {/* <Root noteId={noteId} userId={userId} /> */}
-          <Page noteId={noteId} userId={userId} />
-          <Footer />
+      <BrowserRouter>
+        <div className="main">
+          <div className="container">
+            <Header handeleIdChange={this.handleIdChange} />
+            <Root noteId={noteId} userId={userId} />
+            {/* <Page noteId={noteId} userId={userId} /> */}
+            <Footer />
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }
