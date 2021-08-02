@@ -5,7 +5,7 @@ import TextLabel from "../../components/TextLabel";
 
 const FooterContainer = styled(Flex)`
   margin: 0;
-  min-width: 99.9vw;
+  min-width: 99.6vw;
   padding: 2px 0px;
   max-height: 20px;
   background-color: #f4ded7;

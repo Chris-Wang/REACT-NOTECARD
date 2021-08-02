@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const NoteFollowBtn = styled.button`
-  width: 80px;
+const BrandFollowBtn = styled.button`
+  width: 60px;
   height: 20px;
   font-size: 0.75em;
   margin: 0;
@@ -11,7 +11,7 @@ const NoteFollowBtn = styled.button`
   border: none;
 
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.6;
@@ -19,13 +19,12 @@ const NoteFollowBtn = styled.button`
 
   &:hover {
     transform: translateZ(-2px);
-    transition: width 0.8s ease-in-out;
-    color: #f4ded7;
+    transition: width 0.3s ease-in-out;
   }
 
   &:active {
-    color: grey;
+    color: black;
   }
 `;
 
-export default NoteFollowBtn;
+export default BrandFollowBtn;

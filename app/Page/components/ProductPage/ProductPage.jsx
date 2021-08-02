@@ -4,22 +4,23 @@ import getNote from "../../../../apis/getNote";
 import getCommentMini from "../../../../apis/getCommentMini";
 import getNoteLikedUsers from "../../../../apis/getNoteLikedUsers";
 import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
+
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageSlider from "../../../../components/Image/ImageSlider/ImageSlider";
 import FlexBox from "../../../../components/Layout/FlexBox";
 import NoteAuthorImage from "../../../../components/Image/NoteAuthorImage";
 import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAuthorLabel";
+import ProductNameLabel from "../../../../components/TextLabel/components/ProductNameLabel";
+import BrandNameLabel from "../../../../components/TextLabel/components/BrandNameLabel";
 import Button from "../../../../components/Button";
 import InputBox from "../../../../components/InputBox";
 import Accordion from "../../../../components/Accordion";
 import imgNotFound from "../../../../media/empty_data_set.png";
+import ratingMiniImage from "../../../../media/rating_smp_sml.png";
 import collectNote from "../../../../apis/collectNote";
 import likeNote from "../../../../apis/likeNote";
-import getUserRelationship from "../../../../apis/getUserRelationship";
-import followUser from "../../../../apis/followUser";
-import unFollowUser from "../../../../apis/unFollowUser";
 
-const NoteCard = styled(FlexBox)`
+const ProductCard = styled(FlexBox)`
   flex-direction: row;
   flex-shrink: 0;
   width: 1000px;
@@ -40,53 +41,97 @@ const RightBox = styled(FlexBox)`
   flex-direction: column;
   justify-content: center;
   padding: 20px 25px 20px 15px;
+  margin: 0;
 `;
 
-const AuthorContainer = styled(FlexBox)`
+const ProductSummary = styled(FlexBox)`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   padding: 0;
-  width: 358px;
+  margin: 0;
+  // width: 400px;
   height: 80px;
 `;
 
-const AuthorAvatarContainer = styled(FlexBox)`
+const BrandImageContainer = styled(FlexBox)`
   justify-content: center;
   align-items: center;
 
   padding: 5px;
   width: 80px;
   height: 80px;
+  margin: 0;
 `;
 
-const AuthorNameContainer = styled(FlexBox)`
+const BrandInfoContainer = styled(FlexBox)`
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
+  margin: 0;
   padding-left: 5px;
   padding-right: 5px;
-  width: 170px;
+  width: 275px;
   height: 80px;
 `;
 
-const AuthorButtonContainer = styled(FlexBox)`
+const BrandRating = styled.div`
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+
+  width: 270px;
+  height: 23px;
+
+  font-size: 1em;
+  font-family: New Paris;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: 0.18px;
+  text-align: left;
+  color: black;
+`;
+
+const BrandRatingImg = styled.img`
+  flex-grow: 0;
+  margin: 0 auto;
+
+  border-radius: 4px;
+`;
+
+const BrandButtonContainer = styled(FlexBox)`
   justify-content: center;
   align-items: center;
 
-  padding: 5px;
-  width: 100px;
+  padding: 2px;
+  width: 80px;
   height: 80px;
+  margin: 0;
 `;
 
 const FunctionSetContainer = styled(FlexBox)`
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
 
-  padding: 0;
+  padding: 0 15px 0 0;
   width: 358px;
   height: 50px;
+`;
+
+const CollectionButtons = styled(FlexBox)`
+  flex-direction: row;
+  padding: 0;
+  // justify-content: flex-start;
+
+  // padding: 0;
+  // width: 358px;
+  // height: 50px;
 `;
 
 const QuickCommentContainer = styled(FlexBox)`
@@ -102,9 +147,10 @@ const QuickCommentContainer = styled(FlexBox)`
   height: 50px;
 `;
 
-class NotePage extends React.Component {
+class ProductPage extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       noteData: null,
       noteLikes: 0,
@@ -112,12 +158,9 @@ class NotePage extends React.Component {
       noteImages: null,
       likeActive: false,
       collectActive: false,
-      followActive: false,
-      isFollowActive: false,
       commentData: null,
       likeUsersData: null,
       collectUsersData: null,
-      followedUserId: null,
     };
 
     this.handleNoteChange = this.handleNoteChange.bind(this);
@@ -126,35 +169,10 @@ class NotePage extends React.Component {
     this.handleLikeChange = this.handleLikeChange.bind(this);
     this.handleLikeActiveChange = this.handleLikeActiveChange.bind(this);
     this.handleCollectActiveChange = this.handleCollectActiveChange.bind(this);
-    this.handleFollowActiveChange = this.handleFollowActiveChange.bind(this);
     this.handleLikeInit = this.handleLikeInit.bind(this);
     this.handleCollectInit = this.handleCollectInit.bind(this);
-    this.handleFollowInit = this.handleFollowInit.bind(this);
     this.initActiveLike = this.initActiveLike.bind(this);
     this.initActiveCollect = this.initActiveCollect.bind(this);
-    this.initActiveFollow = this.initActiveFollow.bind(this);
-  }
-
-  handleFollowClick() {
-    const followBody = {
-      userId: this.props.userId,
-      followedUserId: this.state.followedUserId,
-    };
-    {
-      this.state.isFollowActive
-        ? (unFollowUser(this.props.userId, this.state.followedUserId),
-          this.setState({ isFollowActive: false, followActive: false }),
-          this.handleFollowActiveChange())
-        : (followUser(followBody),
-          this.setState({ isFollowActive: true, followActive: true }),
-          this.handleFollowActiveChange());
-    }
-  }
-
-  handleFollowInit(active) {
-    this.setState({
-      followActive: active,
-    });
   }
 
   handleLikeInit(active) {
@@ -166,12 +184,6 @@ class NotePage extends React.Component {
   handleCollectInit(active) {
     this.setState({
       collectActive: active,
-    });
-  }
-
-  handleFollowActiveChange() {
-    this.setState({
-      followActive: !this.state.followActive,
     });
   }
 
@@ -218,13 +230,15 @@ class NotePage extends React.Component {
   }
 
   handleNoteChange(newNote) {
+    // const newImages = this.imageLoad(newNote.imageUrl);
     this.setState({
       noteData: newNote,
       noteLikes: newNote.likeNum,
       noteCollects: newNote.collectNum,
       noteImages: this.imageLoad(newNote.imageUrl),
-      followedUserId: newNote.userId,
     });
+
+    // this.imageLoad(this.state.noteImages);
   }
 
   handleNoteidChange(newId) {
@@ -249,13 +263,16 @@ class NotePage extends React.Component {
     });
 
     return newImages;
+    //console.log(dt, "loading images");
   }
 
   initActiveLike(users) {
     const userId = this.props.userId;
     let active = false;
     users.map(function (user) {
+      //console.log(user.id, "in active");
       if (user.id === userId) {
+        // console.log(user.id, "in active");
         active = true;
       }
     });
@@ -266,46 +283,35 @@ class NotePage extends React.Component {
     const userId = this.props.userId;
     let active = false;
     users.map(function (user) {
+      //console.log(user.id, "in active");
       if (user.id === userId) {
+        // console.log(user.id, "in active");
         active = true;
       }
     });
     this.handleCollectInit(active);
   }
 
-  initActiveFollow(relationship) {
-    let active = false;
-    if (relationship.status === true) {
-      active = true;
-      this.setState({ isFollowActive: true });
-    } else {
-      this.setState({ isFollowActive: false });
-    }
-    this.handleFollowInit(active);
-  }
-
-  async componentDidMount() {
+  componentDidMount() {
     const note = this.props.noteId;
-    await getNote(note).then(this.handleNoteChange);
+    getNote(note).then(this.handleNoteChange);
     getCommentMini(note).then(this.handleCommentsChange);
     getNoteLikedUsers(note).then(this.initActiveLike);
     getNoteCollectedUsers(note).then(this.initActiveCollect);
-    getUserRelationship(this.props.userId, this.state.followedUserId).then(
-      this.initActiveFollow
-    );
-    console.log(this.state.followedUserId, "followedUserId in DidMount");
+
+    // console.log(this.state, "state in didMount");
   }
 
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.noteId !== this.props.noteId) {
-      await getNote(this.props.noteId).then(this.handleNoteChange);
+      getNote(this.props.noteId).then(this.handleNoteChange);
       getCommentMini(this.props.noteId).then(this.handleCommentsChange);
       getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
       getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
-      getUserRelationship(this.props.userId, this.state.followedUserId).then(
-        this.initActiveFollow
-      );
-      console.log(this.state.followedUserId, "followedUserId in DidUpDate");
+      // const active = getNoteLikedUsers(this.props.noteId).then(
+      //   this.initActiveLike
+      // );
+      // active.then(this.handleLikeInit);
     }
   }
 
@@ -319,18 +325,27 @@ class NotePage extends React.Component {
       commentUpdate,
       likeActive,
       collectActive,
-      followActive,
     } = this.state;
 
     if (!noteData) {
       return "Loading";
     }
 
+    // console.log(noteData.noteId, "is id in notepage");
+    // console.log(noteLikes, "likes in notepage");
+    // console.log(noteCollects, "collects in notepage");
+    // const { userId } = this.props;
     const backend = "http://localhost:8080";
 
+    // console.log(noteImages);
     console.log(this.state, "this is state in render");
+
+    // console.log(ImageLoader);
+
+    //console.log(this.props, "props in notepage");
+
     return (
-      <NoteCard>
+      <ProductCard>
         <CardContainer>
           <ImageContainer>
             <ImageSlider slides={noteImages} />
@@ -338,59 +353,43 @@ class NotePage extends React.Component {
         </CardContainer>
         <CardContainer>
           <RightBox>
-            <AuthorContainer>
-              <AuthorAvatarContainer>
+            <ProductSummary>
+              <BrandImageContainer>
                 <NoteAuthorImage src={`${backend}/${noteData.authorAvatar}`} />
-              </AuthorAvatarContainer>
-              <AuthorNameContainer>
-                <NoteAuthorLabel>{noteData.author}</NoteAuthorLabel>
-              </AuthorNameContainer>
-              <AuthorButtonContainer>
-                <Button
-                  type={"AUTHORFOLLOW"}
-                  followActive={followActive}
-                  data={{
-                    handleFollowClick: this.handleFollowClick.bind(this),
-                    handleFollowActiveChange:
-                      this.handleFollowActiveChange.bind(this),
-                  }}
-                />
-              </AuthorButtonContainer>
-            </AuthorContainer>
+              </BrandImageContainer>
+              <BrandInfoContainer>
+                <BrandNameLabel>Yves Saint Laurent</BrandNameLabel>
+                <ProductNameLabel>
+                  ColorBar Perfect Match Primer
+                </ProductNameLabel>
+                <BrandRating>
+                  <BrandRatingImg src={ratingMiniImage} />
+                </BrandRating>
+              </BrandInfoContainer>
+            </ProductSummary>
             <Accordion
-              type={"NOTE"}
+              type={"PRODUCT"}
               noteData={noteData}
               commentData={commentData}
             />
             <FunctionSetContainer>
-              <Button
-                likeActive={likeActive}
-                type={"LIKENOTE"}
-                data={{
-                  handleLikeClick: this.handleLikeClick.bind(this),
-                  handleLikeActiveChange:
-                    this.handleLikeActiveChange.bind(this),
-                }}
-              />
-              <Button
-                number={noteLikes}
-                noteId={noteData.noteId}
-                type={"LIKENOTEUSERS"}
-              />
-              <Button
-                collectActive={collectActive}
-                type={"COLLECTNOTE"}
-                data={{
-                  handleCollectClick: this.handleCollectClick.bind(this),
-                  handleCollectActiveChange:
-                    this.handleCollectActiveChange.bind(this),
-                }}
-              />
-              <Button
-                number={noteCollects}
-                noteId={noteData.noteId}
-                type={"COLLECTNOTEUSERS"}
-              />
+              <CollectionButtons>
+                <Button
+                  collectActive={collectActive}
+                  number={noteCollects}
+                  type={"COLLECTNOTE"}
+                  data={{
+                    handleCollectClick: this.handleCollectClick.bind(this),
+                    handleCollectActiveChange:
+                      this.handleCollectActiveChange.bind(this),
+                  }}
+                />
+                <Button
+                  number={noteCollects}
+                  noteId={noteData.noteId}
+                  type={"COLLECTNOTEUSERS"}
+                />
+              </CollectionButtons>
               <Button type={"FORWARDNOTE"} />
             </FunctionSetContainer>
             <QuickCommentContainer>
@@ -404,9 +403,9 @@ class NotePage extends React.Component {
             </QuickCommentContainer>
           </RightBox>
         </CardContainer>
-      </NoteCard>
+      </ProductCard>
     );
   }
 }
 
-export default NotePage;
+export default ProductPage;

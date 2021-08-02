@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import authorAvatar from "../../../media/user_avatar3_sml.png";
 
 const CommentsListCard = styled.div`
   position: relative;

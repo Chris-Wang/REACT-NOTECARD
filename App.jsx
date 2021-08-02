@@ -2,12 +2,17 @@ import React from "react";
 import Header from "./app/Header";
 import Page from "./app/Page";
 import Footer from "./app/Footer";
+import Root from "./routes/Root";
+import { BrowserRouter, Route } from "react-router-dom";
+import ExplorePage from "./app/Page/components/ExplorePage";
+import NotePage from "./app/Page/components/NotePage";
+import ProductPage from "./app/Page/components/ProductPage";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: "9ff24091-a6bb-41fd-9d09-d7129f18e9f2",
+      userId: "3d9a9030-c1b9-4091-b91e-ffac9231fed3",
       noteId: "1",
     };
 
@@ -18,8 +23,6 @@ class App extends React.Component {
     this.setState({
       noteId: newId,
     });
-
-    // console.log(this.state.noteId, "noteid in app handle");
   }
 
   render() {
@@ -30,6 +33,7 @@ class App extends React.Component {
       <div className="main">
         <div className="container">
           <Header handeleIdChange={this.handleIdChange} />
+          {/* <Root noteId={noteId} userId={userId} /> */}
           <Page noteId={noteId} userId={userId} />
           <Footer />
         </div>

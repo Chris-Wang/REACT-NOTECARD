@@ -1,7 +1,5 @@
 import React from "react";
-
 import styled from "styled-components";
-
 import CategoryBtn from "./components/CategoryBtn";
 import HeaderLogoBtn from "./components/HeaderLogoBtn";
 import HeaderBtn from "./components/HeaderBtn";
@@ -10,10 +8,9 @@ import NoteFollowBtn from "./components/NoteFollowBtn";
 import NoteForwardBtn from "./components/NoteForwardBtn";
 import NoteFunctionBtn from "./components/NoteFunctionBtn";
 import NoteNumsBtn from "./components/NoteNumsBtn";
-
+import BrandFollowBtn from "./components/BrandFollowBtn";
 import HeaderLogo from "../Image/HeaderLogo";
 import logoImage from "../Image/HeaderLogo/logo.png";
-
 import { faCompass } from "@fortawesome/free-solid-svg-icons";
 import { faHouseUser } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
@@ -45,30 +42,21 @@ const ActiveFunctionBtn = styled(NoteFunctionBtn)`
   color: #a86c6d;
 `;
 
+const FollowingStatus = styled(NoteFollowBtn)`
+  color: black;
+  background-color: #c7c7c7;
+`;
+
 class Button extends React.Component {
   container = React.createRef();
   constructor(props) {
     super(props);
     this.state = {
       seen: false,
-      isUserFollow: true,
       likeUsersData: null,
       collectUsersData: null,
-      // like: this.props.number,
-      // collect: this.props.number,
-      // likeActive: false,
-      // collectActive: false,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.handleUserFollowClick = this.handleUserFollowClick.bind(this);
-    // this.handleLikeClick = this.handleLikeClick.bind(this);
-    // this.handleCollectClick = this.handleCollectClick.bind(this);
-  }
-
-  handleUserFollowClick() {
-    this.setState((state) => ({
-      isUserFollow: !state.isUserFollow,
-    }));
   }
 
   handleButtonClick() {
@@ -77,29 +65,6 @@ class Button extends React.Component {
     }));
   }
 
-  // handleNumChange(newLike, newCollect) {
-  //   this.setState({
-  //     like: newLike,
-  //     collect: newCollect,
-  //   });
-  // }
-
-  // handleCollectClick() {
-  //   this.setState({
-  //     collectActive: !this.state.collectActive,
-  //     collect: this.state.collectActive
-  //       ? this.state.collect - 1
-  //       : this.state.collect + 1,
-  //   });
-  // }
-
-  // handleLikeClick() {
-  //   this.setState({
-  //     likeActive: !this.state.likeActive,
-  //     like: this.state.likeActive ? this.state.like - 1 : this.state.like + 1,
-  //   });
-  // }
-
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
@@ -107,18 +72,6 @@ class Button extends React.Component {
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
-
-  // componentDidUpdate(prevProps) {
-  //   console.log(this.props.noteData, "in update");
-  //   if (
-  //     prevProps.noteData.noteId.noteId !== this.props.noteData.noteId.noteId
-  //   ) {
-  //     handleNumChange(
-  //       this.props.noteData.likeNum.likeNum,
-  //       this.props.noteData.collectNum.collectNum
-  //     );
-  //   }
-  // }
 
   handleClickOutside = (event) => {
     if (
@@ -202,9 +155,20 @@ class Button extends React.Component {
 
       case "AUTHORFOLLOW":
         return (
-          <NoteFollowBtn onClick={this.handleUserFollowClick}>
-            {this.state.isUserFollow ? "Follow" : "Following"}
+          <NoteFollowBtn onClick={this.props.data.handleFollowClick}>
+            {this.props.followActive ? (
+              <FollowingStatus>Following</FollowingStatus>
+            ) : (
+              "Follow"
+            )}
           </NoteFollowBtn>
+        );
+
+      case "BRANDFOLLOW":
+        return (
+          <BrandFollowBtn onClick={this.handleUserFollowClick}>
+            {this.state.isUserFollow ? "Follow" : "Following"}
+          </BrandFollowBtn>
         );
       case "LIKENOTE":
         return (
@@ -263,8 +227,6 @@ class Button extends React.Component {
   }
 
   render() {
-    // console.log(this.props.noteData, "id in button rendering");
-    // const changeNumber = this.state.liked ? this.state.like - 1 : this.state.like + 1
     return (
       <div>
         <Container ref={this.container}>
@@ -293,14 +255,12 @@ class Button extends React.Component {
           {this.state.seen && this.props.type === "LIKENOTEUSERS" && (
             <NoteLikeMenu
               noteId={this.props.noteId}
-              number={this.props.number}
               seenChange={this.handleButtonClick}
             />
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
             <NoteCollectMenu
               noteId={this.props.noteId}
-              number={this.props.number}
               seenChange={this.handleButtonClick}
             />
           )}

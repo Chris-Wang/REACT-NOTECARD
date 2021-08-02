@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import DescriptionLabel from "../TextLabel/components/DescriptionLabel";
+import LowestPriceLabel from "../TextLabel/components/LowestPriceLabel";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,6 +29,22 @@ const AccordionContainer = styled.div`
 
   width: 358px;
   height: 480px;
+`;
+
+const PriceContainer = styled(DisplayContainer)`
+  border-radius: 5px;
+  margin: 2px;
+  align-items: center;
+
+  height: 50px;
+`;
+
+const ProductInfoContainer = styled(DisplayContainer)`
+  border-radius: 5px;
+  margin: 2px;
+  border: solid 0.6px #c7c7c7;
+
+  height: 300px;
 `;
 
 const DescriptionContainer = styled(DisplayContainer)`
@@ -122,77 +139,145 @@ class Accordion extends React.Component {
     });
   };
 
+  renderAccordion(type) {
+    switch (type) {
+      case "NOTE":
+        return (
+          <>
+            {this.state.itemFirOn && (
+              <>
+                <DescriptionContainer>
+                  <DescriptionLabel>
+                    {this.props.noteData.content}
+                  </DescriptionLabel>
+                </DescriptionContainer>
+                <ItemsTabOff onClick={this.handleTabTwoClick}>
+                  Linked Product
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+                <ItemsTabOff onClick={this.handleTabThreeDesOffClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+              </>
+            )}
+            {this.state.itemSecOn && (
+              <>
+                <ItemsTabOn onClick={this.handleTabTwoClick}>
+                  Linked Product
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </ItemsTabArrow>
+                </ItemsTabOn>
+                <ItemsContainer>
+                  <ProductMiniCard products={this.state.productData} />
+                </ItemsContainer>
+                <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+              </>
+            )}
+            {this.state.itemThdOn && (
+              <>
+                <ItemsTabOn onClick={this.handleTabThreeOnClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </ItemsTabArrow>
+                </ItemsTabOn>
+                <CommentsContainer>
+                  <CommentMiniCard comments={this.props.commentData} />
+                </CommentsContainer>
+              </>
+            )}
+          </>
+        );
+
+      case "PRODUCT":
+        return (
+          <>
+            {this.state.itemFirOn && (
+              <>
+                <PriceContainer>
+                  <LowestPriceLabel>$43</LowestPriceLabel>
+                </PriceContainer>
+                <ProductInfoContainer>
+                  {this.props.noteData.content}
+                </ProductInfoContainer>
+
+                <ItemsTabOff onClick={this.handleTabTwoClick}>
+                  Compare Price from Retailers
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+                <ItemsTabOff onClick={this.handleTabThreeDesOffClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+              </>
+            )}
+            {this.state.itemSecOn && (
+              <>
+                <ItemsTabOn onClick={this.handleTabTwoClick}>
+                  Compare Price from Retailers
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </ItemsTabArrow>
+                </ItemsTabOn>
+                <ItemsContainer>
+                  <ProductMiniCard products={this.state.productData} />
+                </ItemsContainer>
+                <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                  </ItemsTabArrow>
+                </ItemsTabOff>
+              </>
+            )}
+            {this.state.itemThdOn && (
+              <>
+                <ItemsTabOn onClick={this.handleTabThreeOnClick}>
+                  View Comments
+                  <ItemsTabArrow>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </ItemsTabArrow>
+                </ItemsTabOn>
+                <CommentsContainer>
+                  <CommentMiniCard comments={this.props.commentData} />
+                </CommentsContainer>
+              </>
+            )}
+          </>
+        );
+    }
+  }
+
   componentDidMount() {
     getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
-    //getCommentMini(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
-      // console.log(this.props.noteData.noteId, "new note in accordion");
       getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
     }
   }
 
   render() {
-    // console.log(this.props.commentData, "comments in render <Accordion>");
     const { productData } = this.state;
-
     return (
       <AccordionContainer>
-        {this.state.itemFirOn && (
-          <>
-            <DescriptionContainer>
-              <DescriptionLabel>{this.props.noteData.content}</DescriptionLabel>
-            </DescriptionContainer>
-            <ItemsTabOff onClick={this.handleTabTwoClick}>
-              Linked Product
-              <ItemsTabArrow>
-                <FontAwesomeIcon icon={faChevronUp} />
-              </ItemsTabArrow>
-            </ItemsTabOff>
-            <ItemsTabOff onClick={this.handleTabThreeDesOffClick}>
-              View Comments
-              <ItemsTabArrow>
-                <FontAwesomeIcon icon={faChevronUp} />
-              </ItemsTabArrow>
-            </ItemsTabOff>
-          </>
-        )}
-
-        {this.state.itemSecOn && (
-          <>
-            <ItemsTabOn onClick={this.handleTabTwoClick}>
-              Linked Product
-              <ItemsTabArrow>
-                <FontAwesomeIcon icon={faChevronDown} />
-              </ItemsTabArrow>
-            </ItemsTabOn>
-            <ItemsContainer>
-              <ProductMiniCard products={productData} />
-            </ItemsContainer>
-            <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
-              View Comments
-              <ItemsTabArrow>
-                <FontAwesomeIcon icon={faChevronUp} />
-              </ItemsTabArrow>
-            </ItemsTabOff>
-          </>
-        )}
-
-        {this.state.itemThdOn && (
-          <>
-            <ItemsTabOn onClick={this.handleTabThreeOnClick}>
-              View Comments
-              <ItemsTabArrow>
-                <FontAwesomeIcon icon={faChevronDown} />
-              </ItemsTabArrow>
-            </ItemsTabOn>
-            <CommentsContainer>
-              <CommentMiniCard comments={this.props.commentData} />
-            </CommentsContainer>
-          </>
-        )}
+        {this.renderAccordion(this.props.type)}
       </AccordionContainer>
     );
   }

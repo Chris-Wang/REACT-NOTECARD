@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
 const ImageArrowBtn = styled.button`
+  font-size: 2em;
+  margin: 0;
+  border: none;
+  color: white;
 
-    font-size: 2em;
-    margin:  0;
-    border: none; 
-    color: white;
+  background: transparent;
 
-    background: transparent; 
+  position: absolute;
+  top: 48%;
 
-    position: absolute;
-    top: 48%;
+  opacity: 0.6;
 
-    opacity: 0.6;
+  &:hover {
+    transform: translateZ(-2px);
+    transition: width 0.3s ease-in-out;
+    color: black;
+  }
 
-    &:hover{
-        transform: translateZ(-2px);
-        transition: width 0.3s ease-in-out;
-    }
-    
-    &:active {
-        color: 9F6F6E;
-    }
+  &:active {
+    color: #a86c6d;
+  }
 `;
 
 export default ImageArrowBtn;

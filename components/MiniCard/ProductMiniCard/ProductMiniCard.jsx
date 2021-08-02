@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React from "react";
-import productMiniImage1 from "../../../media/product_img1_sml.png";
-import ratingMiniImage from "../../../media/rating_smp_sml.png";
 import ProductCardMini from "./components/ProductCardMini";
+import ProductRatingStar from "./components/ProductRatingStar/ProductRatingStar";
+
 const ProductCardMiniLeftContainer = styled.div`
   position: relative;
   display: flex;
@@ -119,30 +119,6 @@ const ProductMiniPriceLabel = styled.div`
   color: black;
 `;
 
-const ProductMiniRating = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 70%;
-`;
-
-const ProductMiniRatingImg = styled.img`
-  flex-grow: 0;
-  margin: 0 auto;
-
-  border-radius: 4px;
-  transition-property: transform, box-shadow;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-
-  // &:hover{
-  //     transform: translateZ(-2px);
-  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);
-  // }
-`;
-
 class ProductMiniCard extends React.Component {
   constructor(props) {
     super(props);
@@ -171,9 +147,7 @@ class ProductMiniCard extends React.Component {
                 <ProductMiniPriceLabel>
                   ${product.productPrice}
                 </ProductMiniPriceLabel>
-                <ProductMiniRating>
-                  <ProductMiniRatingImg src={ratingMiniImage} />
-                </ProductMiniRating>
+                <ProductRatingStar rating={product.rating} />
               </ProductMiniPriceContainer>
             </ProductCardMiniRightContainer>
           </ProductCardMini>

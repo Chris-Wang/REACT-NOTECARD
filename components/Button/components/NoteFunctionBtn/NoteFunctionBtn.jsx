@@ -11,12 +11,14 @@ const NoteFunctionBtn = styled.button`
   color: #c7c7c7;
   background: transparent;
 
-  //   &:hover {
-  //     color: #f4ded7;
-  //   }
+  // &:hover {
+  //   transform: translateZ(-2px);
+  //   transition: width 0.8s ease-in-out;
+  //   color: #f4ded7;
+  // }
 
   // &:active {
-  //     color: #a86c6d;
+  //   color: #a86c6d;
   // }
 `;
 

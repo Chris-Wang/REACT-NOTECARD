@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import userAvator from "../../../media/user_avatar2_sml.png";
 import ContentLabel from "../../TextLabel/components/MiniCardUserContentLabel";
 
 const MiniCard = styled.div`
