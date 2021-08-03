@@ -3,7 +3,7 @@ import Header from "./app/Header";
 import Page from "./app/Page";
 import Footer from "./app/Footer";
 import Root from "./routes/Root";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import ExplorePage from "./app/Page/components/ExplorePage";
 import NotePage from "./app/Page/components/NotePage";
 import ProductPage from "./app/Page/components/ProductPage";
@@ -30,15 +30,11 @@ class App extends React.Component {
     console.log(this.state.noteId, "noteid in app");
     console.log(this.state.userId, "userid in app");
     return (
-      <BrowserRouter>
+      <Router>
         <div className="main">
-          <div className="container">
-            <Header handeleIdChange={this.handleIdChange} />
-            <Root noteId={noteId} userId={userId} />
-            <Footer />
-          </div>
+          <Root noteId={noteId} userId={userId} />
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

@@ -209,7 +209,7 @@ class ExplorePage extends React.Component {
       noteId: nId,
       userId: defaultUID,
     };
-    console.log(noteData, "in on forward");
+    // console.log(noteData, "in on forward");
     this.props.history.push(this.notePath(noteData));
   };
 
@@ -218,7 +218,7 @@ class ExplorePage extends React.Component {
       noteId: this.state.demoNote[0].noteId,
       userId: defaultUID,
     };
-    console.log(noteData, "in on forwardTop");
+    // console.log(noteData, "in on forwardTop");
     this.props.history.push(this.notePath(noteData));
   };
 
@@ -227,7 +227,7 @@ class ExplorePage extends React.Component {
       noteId: this.state.demoNote[1].noteId,
       userId: defaultUID,
     };
-    console.log(noteData, "in on forwardBtm");
+    // console.log(noteData, "in on forwardBtm");
     this.props.history.push(this.notePath(noteData));
   };
 
@@ -236,7 +236,7 @@ class ExplorePage extends React.Component {
       noteId: this.state.demoProduct.productId,
       userId: defaultUID,
     };
-    console.log(productData, "in on forwardProduct");
+    // console.log(productData, "in on forwardProduct");
     this.props.history.push(this.productPath(productData));
   };
 

@@ -25,6 +25,7 @@ import NoteCollectMenu from "../Menu/NoteCollectMenu";
 import HeaderLikeMenu from "../Menu/HeaderLikeMenu";
 import HeaderCollectMenu from "../Menu/HeaderCollectMenu";
 import HeaderUserMenu from "../Menu/HeaderUserMenu";
+import { withRouter } from "react-router-dom";
 
 const Container = styled.div`
   display: inline-block;
@@ -57,6 +58,7 @@ class Button extends React.Component {
       collectUsersData: null,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleClickExplore = this.handleClickExplore.bind(this);
   }
 
   handleButtonClick() {
@@ -84,6 +86,11 @@ class Button extends React.Component {
     }
   };
 
+  handleClickExplore = () => {
+    console.log(this.props, "click explore");
+    this.props.history.push("/");
+  };
+
   renderButton(type) {
     switch (type) {
       case "CATEGORY":
@@ -95,14 +102,14 @@ class Button extends React.Component {
 
       case "HEADERLOGO":
         return (
-          <HeaderLogoBtn>
+          <HeaderLogoBtn onClick={this.handleClickExplore}>
             <HeaderLogo src={logoImage} />
           </HeaderLogoBtn>
         );
 
       case "HOME":
         return (
-          <HeaderBtn>
+          <HeaderBtn onClick={this.handleClickExplore}>
             <FontAwesomeIcon icon={faHouseUser} />
           </HeaderBtn>
         );
@@ -270,4 +277,4 @@ class Button extends React.Component {
   }
 }
 
-export default Button;
+export default withRouter(Button);

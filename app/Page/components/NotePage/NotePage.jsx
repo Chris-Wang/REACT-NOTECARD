@@ -342,7 +342,7 @@ class NotePage extends React.Component {
 
     const { params } = this.props.match;
 
-    console.log(this.props, "in notepage");
+    // console.log(this.props, "in notepage");
 
     if (!noteData) {
       return <NoteCard>Loading...</NoteCard>;
@@ -350,7 +350,7 @@ class NotePage extends React.Component {
 
     const backend = "http://localhost:8080";
 
-    console.log(this.state, "this is state in render");
+    // console.log(this.state, "this is state in render");
     return (
       <NoteCard>
         <CardContainer>

@@ -10,6 +10,8 @@ const HeaderButton = styled.button`
   color: #9f6f6e;
   background-color: #f4ded7;
 
+  cursor: pointer;
+
   &:hover {
     transform: translateZ(-2px);
     transition: width 0.3s ease-in-out;

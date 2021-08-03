@@ -12,6 +12,8 @@ const ItemsTab = styled.div`
   font-size: 1em;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+
+  cursor: pointer;
 `;
 
 export default ItemsTab;

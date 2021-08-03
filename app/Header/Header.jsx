@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HeaderDiv from "../../components/Layout/HeaderLayout/HeaderDiv";
 import Button from "../../components/Button";
 import InputBox from "../../components/InputBox";
+import { withRouter } from "react-router-dom";
 
 const HeadBar = styled(HeaderDiv)`
   min-width: 1016px;
@@ -51,7 +52,6 @@ class Header extends React.Component {
 
   render() {
     const { handeleIdChange } = this.props;
-
     return (
       <HeadBar>
         <HeadBarContainer>
@@ -77,4 +77,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
