@@ -9,16 +9,12 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const Root = (data) => (
   <Router>
     <div className="pages">
-      {/* <NotePage noteId={data.noteId} userId={data.userId} />
-    <ProductPage noteId={data.noteId} userId={data.userId} /> */}
-      {/* <ExplorePage noteId={data.noteId} userId={data.userId} /> */}
-
-      {/* <Route path="/users" component={UsersPage} /> */}
       <Switch>
         <Route exact path="/" component={ExplorePage} />
-        <Route path="/notes/:id" component={NotePage} />
-        <Route path="/products/:id" component={ProductPage} />
+        <Route path="/notes" component={NotePage} />
+        <Route path="/products" component={ProductPage} />
       </Switch>
+
       {/* <Route component={Notfound} /> */}
     </div>
   </Router>

@@ -26,7 +26,8 @@ const ProductCard = styled(FlexBox)`
   width: 1000px;
 
   padding: 3px;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
+
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px #a86c6d;
@@ -201,8 +202,8 @@ class ProductPage extends React.Component {
 
   handleCollectClick() {
     const collectBody = {
-      userId: this.props.userId,
-      noteId: this.props.noteId,
+      userId: this.props.location.state.userId,
+      noteId: this.props.location.state.noteId,
     };
     collectNote(collectBody).then(this.handleCollectChange);
     this.handleCollectActiveChange();
@@ -216,8 +217,8 @@ class ProductPage extends React.Component {
 
   handleLikeClick() {
     const likeBody = {
-      userId: this.props.userId,
-      noteId: this.props.noteId,
+      userId: this.props.location.state.userId,
+      noteId: this.props.location.state.noteId,
     };
     likeNote(likeBody).then(this.handleLikeChange);
     this.handleLikeActiveChange();
@@ -267,7 +268,7 @@ class ProductPage extends React.Component {
   }
 
   initActiveLike(users) {
-    const userId = this.props.userId;
+    const userId = this.props.location.state.userId;
     let active = false;
     users.map(function (user) {
       //console.log(user.id, "in active");
@@ -280,7 +281,7 @@ class ProductPage extends React.Component {
   }
 
   initActiveCollect(users) {
-    const userId = this.props.userId;
+    const userId = this.props.location.state.userId;
     let active = false;
     users.map(function (user) {
       //console.log(user.id, "in active");
@@ -293,11 +294,11 @@ class ProductPage extends React.Component {
   }
 
   componentDidMount() {
-    const note = this.props.match.params.id;
-    getNote(note).then(this.handleNoteChange);
-    getCommentMini(note).then(this.handleCommentsChange);
-    getNoteLikedUsers(note).then(this.initActiveLike);
-    getNoteCollectedUsers(note).then(this.initActiveCollect);
+    const { noteId, userId } = this.props.location.state;
+    getNote(noteId).then(this.handleNoteChange);
+    getCommentMini(noteId).then(this.handleCommentsChange);
+    getNoteLikedUsers(noteId).then(this.initActiveLike);
+    getNoteCollectedUsers(noteId).then(this.initActiveCollect);
 
     // console.log(this.state, "state in didMount");
   }
@@ -394,7 +395,7 @@ class ProductPage extends React.Component {
             </FunctionSetContainer>
             <QuickCommentContainer>
               <InputBox
-                userId={this.props.userId}
+                userId={this.props.location.state.userId}
                 noteId={noteData.noteId}
                 type={"COMMENT"}
                 handleCommentsChange={this.handleCommentsChange.bind(this)}

@@ -5,6 +5,9 @@ import { Route, Link } from "react-router-dom";
 import NotePage from "../NotePage";
 import ProductPage from "../ProductPage";
 
+import getExploreProduct from "../../../../apis/getExploreProduct";
+import getExploreNote from "../../../../apis/getExploreNote";
+
 const ExploreCard = styled.div`
   box-sizing: border-box;
   width: 1000px;
@@ -55,8 +58,13 @@ const SmlCard = styled.div`
   padding: 0;
   margin: 10px;
   border-radius: 10px;
-  border: solid 1px #a86c6d;
   position: relative;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #a86c6d;
+    // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const SmlTopCard = styled.div`
@@ -66,9 +74,15 @@ const SmlTopCard = styled.div`
   padding: 0;
   margin: 10px;
   border-radius: 10px;
-  border: solid 1px #a86c6d;
   position: relative;
   grid-area: smallTopCard;
+
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #a86c6d;
+    // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const SmlBtmCard = styled.div`
@@ -78,9 +92,14 @@ const SmlBtmCard = styled.div`
   padding: 0;
   margin: 10px;
   border-radius: 10px;
-  border: solid 1px #a86c6d;
   position: relative;
   grid-area: smallBottomCard;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #a86c6d;
+    // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const LgCard = styled.div`
@@ -90,10 +109,53 @@ const LgCard = styled.div`
   padding: 0;
   margin: 10px;
   border-radius: 10px;
-  border: solid 1px #a86c6d;
+
   position: relative;
   grid-area: largeCard;
+
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #a86c6d;
+    // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+  }
 `;
+
+const LgCardImg = styled.img`
+  margin: 0 auto;
+  width: 635px;
+  height: 640px;
+  object-fit: cover;
+
+  border-radius: 10px;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  // &:hover{
+  //     transform: translateZ(-2px);
+  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);
+  // }
+`;
+
+const SmlCardImg = styled.img`
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 10px;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  // &:hover{
+  //     transform: translateZ(-2px);
+  //     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.15);
+  // }
+`;
+
+const defaultUID = "7e7a1468-f708-4c69-8249-a8a786ab64ba";
 
 class ExplorePage extends React.Component {
   constructor(props) {
@@ -101,48 +163,133 @@ class ExplorePage extends React.Component {
 
     this.state = {
       noteData: null,
-      noteLikes: 0,
-      noteCollects: 0,
-      noteImages: null,
-      likeActive: false,
-      collectActive: false,
-      commentData: null,
-      likeUsersData: null,
-      collectUsersData: null,
+      productsData: null,
+      demoProduct: null,
+      demoNote: null,
     };
+
+    this.handleNoteChange = this.handleNoteChange.bind(this);
+    this.handleProductChange = this.handleProductChange.bind(this);
+    this.onForwardTop = this.onForwardTop.bind(this);
+    this.onForwardBottom = this.onForwardBottom.bind(this);
+    this.onForward = this.onForward.bind(this);
+    this.onForwardProduct = this.onForwardProduct.bind(this);
   }
 
-  componentDidMount() {}
+  handleNoteChange(newNote) {
+    this.setState({
+      noteData: newNote,
+      demoNote: newNote.slice(0, 8),
+    });
+  }
+
+  handleProductChange(newProduct) {
+    this.setState({
+      productsData: newProduct,
+      demoProduct: newProduct[2],
+    });
+  }
+
+  productPath = (productData) => {
+    return {
+      pathname: "/products",
+      state: productData,
+    };
+  };
+
+  notePath = (noteData) => {
+    return {
+      pathname: "/notes",
+      state: noteData,
+    };
+  };
+
+  onForward = (nId) => {
+    const noteData = {
+      noteId: nId,
+      userId: defaultUID,
+    };
+    console.log(noteData, "in on forward");
+    this.props.history.push(this.notePath(noteData));
+  };
+
+  onForwardTop = () => {
+    const noteData = {
+      noteId: this.state.demoNote[0].noteId,
+      userId: defaultUID,
+    };
+    console.log(noteData, "in on forwardTop");
+    this.props.history.push(this.notePath(noteData));
+  };
+
+  onForwardBottom = () => {
+    const noteData = {
+      noteId: this.state.demoNote[1].noteId,
+      userId: defaultUID,
+    };
+    console.log(noteData, "in on forwardBtm");
+    this.props.history.push(this.notePath(noteData));
+  };
+
+  onForwardProduct = () => {
+    let productData = {
+      noteId: this.state.demoProduct.productId,
+      userId: defaultUID,
+    };
+    console.log(productData, "in on forwardProduct");
+    this.props.history.push(this.productPath(productData));
+  };
+
+  componentDidMount() {
+    getExploreNote().then(this.handleNoteChange);
+    getExploreProduct().then(this.handleProductChange);
+  }
 
   componentDidUpdate(prevProps) {}
 
   render() {
-    console.log(this.props, "noteid in page");
-    console.log(this.props, "userid in page");
+    // console.log(this.state.noteData, "note in page");
+    // console.log(this.state.productsData, "product in page");
+    // console.log(this.state.demoNote, "demo in page");
 
+    const backend = "http://localhost:8080";
+
+    if (!this.state.demoProduct) {
+      return "Loading";
+    }
+
+    if (!this.state.demoNote) {
+      return "Loading";
+    }
+
+    const smlCards = this.state.demoNote.slice(2, 8);
+
+    // console.log(smlCards, "sml demo in page");
     return (
       <ExploreCard>
         <MidCardsBox>
-          <SmlTopCard>
-            <Link to="/notes/1">Note 1 </Link>
+          <SmlTopCard onClick={this.onForwardTop}>
+            <SmlCardImg src={`${backend}/${this.state.demoNote[0].imageUrl}`} />
           </SmlTopCard>
-          <SmlBtmCard>
-            <Link to="/notes/2">Note 2 </Link>
+          <SmlBtmCard onClick={this.onForwardBottom}>
+            <SmlCardImg src={`${backend}/${this.state.demoNote[1].imageUrl}`} />
           </SmlBtmCard>
-          <LgCard>
-            <Link to="/products/1">Product 1 </Link>
+          <LgCard onClick={this.onForwardProduct}>
+            <LgCardImg
+              src={`${backend}/${this.state.demoProduct.imageAddress}`}
+            />
           </LgCard>
         </MidCardsBox>
         <SmlCardsBox>
-          <SmlCard></SmlCard>
-          <SmlCard></SmlCard>
-          <SmlCard></SmlCard>
-          <SmlCard></SmlCard>
-          <SmlCard></SmlCard>
-          <SmlCard></SmlCard>
+          {smlCards.map((card) => (
+            <SmlCard
+              key={card.noteId}
+              onClick={this.onForward.bind(this, card.noteId)}
+            >
+              <SmlCardImg src={`${backend}/${card.imageUrl}`} />
+            </SmlCard>
+          ))}
         </SmlCardsBox>
-        <Route path="/notes/:id" component={NotePage} />
-        <Route path="/products/:id" component={ProductPage} />
       </ExploreCard>
     );
   }

@@ -35,7 +35,6 @@ class App extends React.Component {
           <div className="container">
             <Header handeleIdChange={this.handleIdChange} />
             <Root noteId={noteId} userId={userId} />
-            {/* <Page noteId={noteId} userId={userId} /> */}
             <Footer />
           </div>
         </div>

@@ -25,7 +25,7 @@ const NoteCard = styled(FlexBox)`
   width: 1000px;
 
   padding: 3px;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px #a86c6d;
@@ -137,12 +137,15 @@ class NotePage extends React.Component {
 
   handleFollowClick() {
     const followBody = {
-      userId: this.props.userId,
+      userId: this.props.location.state.userId,
       followedUserId: this.state.followedUserId,
     };
     {
       this.state.isFollowActive
-        ? (unFollowUser(this.props.userId, this.state.followedUserId),
+        ? (unFollowUser(
+            this.props.location.state.userId,
+            this.state.followedUserId
+          ),
           this.setState({ isFollowActive: false, followActive: false }),
           this.handleFollowActiveChange())
         : (followUser(followBody),
@@ -189,8 +192,8 @@ class NotePage extends React.Component {
 
   handleCollectClick() {
     const collectBody = {
-      userId: this.props.userId,
-      noteId: this.props.noteId,
+      userId: this.props.location.state.userId,
+      noteId: this.props.location.state.noteId,
     };
     collectNote(collectBody).then(this.handleCollectChange);
     this.handleCollectActiveChange();
@@ -204,8 +207,8 @@ class NotePage extends React.Component {
 
   handleLikeClick() {
     const likeBody = {
-      userId: this.props.userId,
-      noteId: this.props.noteId,
+      userId: this.props.location.state.userId,
+      noteId: this.props.location.state.noteId,
     };
     likeNote(likeBody).then(this.handleLikeChange);
     this.handleLikeActiveChange();
@@ -252,7 +255,7 @@ class NotePage extends React.Component {
   }
 
   initActiveLike(users) {
-    const userId = this.props.userId;
+    const userId = this.props.location.state.userId;
     let active = false;
     users.map(function (user) {
       if (user.id === userId) {
@@ -263,7 +266,7 @@ class NotePage extends React.Component {
   }
 
   initActiveCollect(users) {
-    const userId = this.props.userId;
+    const userId = this.props.location.state.userId;
     let active = false;
     users.map(function (user) {
       if (user.id === userId) {
@@ -286,26 +289,35 @@ class NotePage extends React.Component {
 
   async componentDidMount() {
     // const note = this.props.noteId;
-    const note = this.props.match.params.id;
-    await getNote(note).then(this.handleNoteChange);
-    getCommentMini(note).then(this.handleCommentsChange);
-    getNoteLikedUsers(note).then(this.initActiveLike);
-    getNoteCollectedUsers(note).then(this.initActiveCollect);
-    getUserRelationship(this.props.userId, this.state.followedUserId).then(
+    // const note = this.props.match.params.id;
+    const { noteId, userId } = this.props.location.state;
+    await getNote(noteId).then(this.handleNoteChange);
+    getCommentMini(noteId).then(this.handleCommentsChange);
+    getNoteLikedUsers(noteId).then(this.initActiveLike);
+    getNoteCollectedUsers(noteId).then(this.initActiveCollect);
+    getUserRelationship(userId, this.state.followedUserId).then(
       this.initActiveFollow
     );
-    console.log(this.state.followedUserId, "followedUserId in DidMount");
   }
 
   async componentDidUpdate(prevProps) {
     if (prevProps.noteId !== this.props.noteId) {
-      await getNote(this.props.noteId).then(this.handleNoteChange);
-      getCommentMini(this.props.noteId).then(this.handleCommentsChange);
-      getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
-      getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
-      getUserRelationship(this.props.userId, this.state.followedUserId).then(
-        this.initActiveFollow
+      await getNote(this.props.location.state.noteId).then(
+        this.handleNoteChange
       );
+      getCommentMini(this.props.location.state.noteId).then(
+        this.handleCommentsChange
+      );
+      getNoteLikedUsers(this.props.location.state.noteId).then(
+        this.initActiveLike
+      );
+      getNoteCollectedUsers(this.props.location.state.noteId).then(
+        this.initActiveCollect
+      );
+      getUserRelationship(
+        his.props.location.state.userId,
+        this.state.followedUserId
+      ).then(this.initActiveFollow);
       console.log(this.state.followedUserId, "followedUserId in DidUpDate");
     }
   }
@@ -325,7 +337,7 @@ class NotePage extends React.Component {
 
     const { params } = this.props.match;
 
-    console.log(params.id, "in notepage");
+    console.log(this.props, "in notepage");
 
     if (!noteData) {
       return "Loading";
@@ -400,7 +412,7 @@ class NotePage extends React.Component {
             </FunctionSetContainer>
             <QuickCommentContainer>
               <InputBox
-                userId={this.props.userId}
+                userId={this.props.location.state.userId}
                 noteId={noteData.noteId}
                 type={"COMMENT"}
                 handleCommentsChange={this.handleCommentsChange.bind(this)}
