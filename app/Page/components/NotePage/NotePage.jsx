@@ -102,6 +102,11 @@ const QuickCommentContainer = styled(FlexBox)`
   height: 50px;
 `;
 
+const loadingLabel = styled.p`
+  margin: 0 auto;
+  padding: 0;
+`;
+
 class NotePage extends React.Component {
   constructor(props) {
     super(props);
@@ -340,7 +345,7 @@ class NotePage extends React.Component {
     console.log(this.props, "in notepage");
 
     if (!noteData) {
-      return "Loading";
+      return <NoteCard>Loading...</NoteCard>;
     }
 
     const backend = "http://localhost:8080";

@@ -123,8 +123,8 @@ const LgCard = styled.div`
 
 const LgCardImg = styled.img`
   margin: 0 auto;
-  width: 635px;
-  height: 640px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 
   border-radius: 10px;
@@ -254,12 +254,8 @@ class ExplorePage extends React.Component {
 
     const backend = "http://localhost:8080";
 
-    if (!this.state.demoProduct) {
-      return "Loading";
-    }
-
-    if (!this.state.demoNote) {
-      return "Loading";
+    if (!this.state.demoProduct | !this.state.demoNote) {
+      return <ExploreCard>Loading...</ExploreCard>;
     }
 
     const smlCards = this.state.demoNote.slice(2, 8);

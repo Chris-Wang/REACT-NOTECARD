@@ -329,7 +329,7 @@ class ProductPage extends React.Component {
     } = this.state;
 
     if (!noteData) {
-      return "Loading";
+      return <ProductCard>Loading...</ProductCard>;
     }
 
     // console.log(noteData.noteId, "is id in notepage");
