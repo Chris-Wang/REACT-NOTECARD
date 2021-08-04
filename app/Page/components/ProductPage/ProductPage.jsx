@@ -4,11 +4,13 @@ import getNote from "../../../../apis/getNote";
 import getCommentMini from "../../../../apis/getCommentMini";
 import getNoteLikedUsers from "../../../../apis/getNoteLikedUsers";
 import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
+import getProduct from "../../../../apis/getProduct";
+import getProductImg from "../../../../apis/getProductImg";
 
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageSlider from "../../../../components/Image/ImageSlider/ImageSlider";
 import FlexBox from "../../../../components/Layout/FlexBox";
-import NoteAuthorImage from "../../../../components/Image/NoteAuthorImage";
+import CardAuthorImage from "../../../../components/Image/CardAuthorImage";
 import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAuthorLabel";
 import ProductNameLabel from "../../../../components/TextLabel/components/ProductNameLabel";
 import BrandNameLabel from "../../../../components/TextLabel/components/BrandNameLabel";
@@ -19,6 +21,8 @@ import imgNotFound from "../../../../media/empty_data_set.png";
 import ratingMiniImage from "../../../../media/rating_smp_sml.png";
 import collectNote from "../../../../apis/collectNote";
 import likeNote from "../../../../apis/likeNote";
+import ProductRatingStar from "../../../../components/MiniCard/ProductMiniCard/components/ProductRatingStar";
+import NoteMiniCard from "../../../../components/MiniCard/NoteMiniCard";
 
 const ProductCard = styled(FlexBox)`
   flex-direction: row;
@@ -81,6 +85,8 @@ const BrandInfoContainer = styled(FlexBox)`
 const BrandRating = styled.div`
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
 
   padding: 0;
   margin: 0;
@@ -88,8 +94,8 @@ const BrandRating = styled.div`
   width: 270px;
   height: 23px;
 
-  font-size: 1em;
-  font-family: New Paris;
+  font-size: 0.85rem;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -148,12 +154,42 @@ const QuickCommentContainer = styled(FlexBox)`
   height: 50px;
 `;
 
+const NoteCards = styled.section`
+  display: flex;
+  flex-direction: column;
+  width: 990px;
+  border: solid 0.5px #c7c7c7;
+  margin: 35px auto 0 auto;
+`;
+
+const NoteCardsTitle = styled.h2`
+  font-size: 1.5rem;
+  font-family: "Prata", New Paris;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: 0.18px;
+  text-align: center;
+  color: black;
+`;
+
+const NoteCardsPanel = styled.div`
+  display: flex;
+  flex-direction: row;
+  border: solid 0.5px #c7c7c7;
+  width: 100%;
+  justify-content: center;
+`;
+
 class ProductPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       noteData: null,
+      productData: null,
+      productImg: null,
       noteLikes: 0,
       noteCollects: 0,
       noteImages: null,
@@ -174,6 +210,9 @@ class ProductPage extends React.Component {
     this.handleCollectInit = this.handleCollectInit.bind(this);
     this.initActiveLike = this.initActiveLike.bind(this);
     this.initActiveCollect = this.initActiveCollect.bind(this);
+
+    this.handleProductChange = this.handleProductChange.bind(this);
+    this.handleProductImgChange = this.handleProductImgChange.bind(this);
   }
 
   handleLikeInit(active) {
@@ -242,6 +281,23 @@ class ProductPage extends React.Component {
     // this.imageLoad(this.state.noteImages);
   }
 
+  handleProductChange(newProduct) {
+    // const newImages = this.imageLoad(newNote.imageUrl);
+    this.setState({
+      productData: newProduct,
+    });
+
+    // this.imageLoad(this.state.noteImages);
+  }
+
+  handleProductImgChange(newImg) {
+    // const newImages = this.imageLoad(newNote.imageUrl);
+    this.setState({
+      productImg: this.imageLoad(newImg),
+    });
+    // this.imageLoad(this.state.noteImages);
+  }
+
   handleNoteidChange(newId) {
     this.setState({
       noteid: newId,
@@ -258,7 +314,7 @@ class ProductPage extends React.Component {
     const prefix = "http://localhost:8080";
     let newImages = images.map(function (img) {
       let imgData = { image: "" };
-      imgData.image = `${prefix}/${img}`;
+      imgData.image = `${prefix}/${img.imageAddress}`;
       if (img === null) imgData.image = imgNotFound;
       return imgData;
     });
@@ -295,6 +351,8 @@ class ProductPage extends React.Component {
 
   componentDidMount() {
     const { noteId, userId } = this.props.location.state;
+    getProduct(noteId).then(this.handleProductChange);
+    getProductImg(noteId).then(this.handleProductImgChange);
     getNote(noteId).then(this.handleNoteChange);
     getCommentMini(noteId).then(this.handleCommentsChange);
     getNoteLikedUsers(noteId).then(this.initActiveLike);
@@ -326,12 +384,17 @@ class ProductPage extends React.Component {
       commentUpdate,
       likeActive,
       collectActive,
+
+      productData,
+      productImg,
     } = this.state;
 
-    if (!noteData) {
+    if (!noteData | !productData | !productImg) {
       return <ProductCard>Loading...</ProductCard>;
     }
 
+    console.log(productData, "is product in productpage");
+    console.log(productImg, "is product img in productpage");
     // console.log(noteData.noteId, "is id in notepage");
     // console.log(noteLikes, "likes in notepage");
     // console.log(noteCollects, "collects in notepage");
@@ -339,72 +402,85 @@ class ProductPage extends React.Component {
     const backend = "http://localhost:8080";
 
     // console.log(noteImages);
-    console.log(this.state, "this is state in render");
+    // console.log(this.state, "this is state in render");
 
     // console.log(ImageLoader);
 
     //console.log(this.props, "props in notepage");
 
     return (
-      <ProductCard>
-        <CardContainer>
-          <ImageContainer>
-            <ImageSlider slides={noteImages} />
-          </ImageContainer>
-        </CardContainer>
-        <CardContainer>
-          <RightBox>
-            <ProductSummary>
-              <BrandImageContainer>
-                <NoteAuthorImage src={`${backend}/${noteData.authorAvatar}`} />
-              </BrandImageContainer>
-              <BrandInfoContainer>
-                <BrandNameLabel>Yves Saint Laurent</BrandNameLabel>
-                <ProductNameLabel>
-                  ColorBar Perfect Match Primer
-                </ProductNameLabel>
-                <BrandRating>
-                  <BrandRatingImg src={ratingMiniImage} />
-                </BrandRating>
-              </BrandInfoContainer>
-            </ProductSummary>
-            <Accordion
-              type={"PRODUCT"}
-              noteData={noteData}
-              commentData={commentData}
-            />
-            <FunctionSetContainer>
-              <CollectionButtons>
-                <Button
-                  collectActive={collectActive}
-                  number={noteCollects}
-                  type={"COLLECTNOTE"}
-                  data={{
-                    handleCollectClick: this.handleCollectClick.bind(this),
-                    handleCollectActiveChange:
-                      this.handleCollectActiveChange.bind(this),
-                  }}
-                />
-                <Button
-                  number={noteCollects}
-                  noteId={noteData.noteId}
-                  type={"COLLECTNOTEUSERS"}
-                />
-              </CollectionButtons>
-              <Button type={"FORWARDNOTE"} />
-            </FunctionSetContainer>
-            <QuickCommentContainer>
-              <InputBox
-                userId={this.props.location.state.userId}
-                noteId={noteData.noteId}
-                type={"COMMENT"}
-                handleCommentsChange={this.handleCommentsChange.bind(this)}
-                commentUpdat={commentUpdate}
+      <>
+        <ProductCard>
+          <CardContainer>
+            <ImageContainer>
+              <ImageSlider slides={productImg} />
+            </ImageContainer>
+          </CardContainer>
+          <CardContainer>
+            <RightBox>
+              <ProductSummary>
+                <BrandImageContainer>
+                  <CardAuthorImage src={`${backend}/${productData.logo}`} />
+                </BrandImageContainer>
+                <BrandInfoContainer>
+                  <BrandNameLabel>{productData.brand}</BrandNameLabel>
+                  <ProductNameLabel>{productData.name}</ProductNameLabel>
+                  <BrandRating>
+                    <ProductRatingStar
+                      type={"flex-start"}
+                      rating={productData.rating}
+                    />
+                  </BrandRating>
+                </BrandInfoContainer>
+              </ProductSummary>
+              <Accordion
+                type={"PRODUCT"}
+                noteData={noteData}
+                productData={productData}
+                commentData={commentData}
               />
-            </QuickCommentContainer>
-          </RightBox>
-        </CardContainer>
-      </ProductCard>
+              <FunctionSetContainer>
+                <CollectionButtons>
+                  <Button
+                    collectActive={collectActive}
+                    number={noteCollects}
+                    type={"COLLECTNOTE"}
+                    data={{
+                      handleCollectClick: this.handleCollectClick.bind(this),
+                      handleCollectActiveChange:
+                        this.handleCollectActiveChange.bind(this),
+                    }}
+                  />
+                  <Button
+                    number={noteCollects}
+                    noteId={noteData.noteId}
+                    type={"COLLECTNOTEUSERS"}
+                  />
+                </CollectionButtons>
+                <Button type={"FORWARDNOTE"} />
+              </FunctionSetContainer>
+              <QuickCommentContainer>
+                <InputBox
+                  userId={this.props.location.state.userId}
+                  noteId={noteData.noteId}
+                  type={"COMMENT"}
+                  handleCommentsChange={this.handleCommentsChange.bind(this)}
+                  commentUpdat={commentUpdate}
+                />
+              </QuickCommentContainer>
+            </RightBox>
+          </CardContainer>
+        </ProductCard>
+        <NoteCards>
+          <NoteCardsTitle>Related Notes</NoteCardsTitle>
+          <NoteCardsPanel>
+            <NoteMiniCard />
+            <NoteMiniCard />
+            <NoteMiniCard />
+            <NoteMiniCard />
+          </NoteCardsPanel>
+        </NoteCards>
+      </>
     );
   }
 }

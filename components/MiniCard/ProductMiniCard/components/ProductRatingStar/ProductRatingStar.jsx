@@ -5,7 +5,8 @@ const ProductMiniRating = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
+  justify-content: ${(props) => props.type};
   width: 70%;
 `;
 
@@ -44,7 +45,7 @@ const StarsOuter = styled.div`
   }
 
   &::before {
-    content: "\f005 \f005 \f005 \f005 \f005";
+    content: "\f005  \f005  \f005  \f005  \f005";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     color: #ccc;
@@ -60,7 +61,7 @@ const StarsInner = styled.div`
   width: ${(props) => props.width};
 
   &::before {
-    content: "\f005 \f005 \f005 \f005 \f005";
+    content: "\f005  \f005  \f005  \f005  \f005";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     color: #a86c6d;
@@ -85,6 +86,7 @@ class ProductRatingStar extends React.Component {
     const starPercentage =
       (this.state.productRating / this.state.starsTotal) * 100;
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+    console.log(starPercentageRounded, "give me the star");
     this.setState({
       width: starPercentageRounded,
     });
@@ -92,7 +94,7 @@ class ProductRatingStar extends React.Component {
 
   render() {
     return (
-      <ProductMiniRating>
+      <ProductMiniRating type={this.props.type}>
         <StarsOuter>
           <StarsInner width={this.state.width} />
           <StarsRatingNumber>

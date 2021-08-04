@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import ProductCardMini from "./components/ProductCardMini";
-import ProductRatingStar from "./components/ProductRatingStar/ProductRatingStar";
+import ProductRatingStar from "./components/ProductRatingStar";
 
 const ProductCardMiniLeftContainer = styled.div`
   position: relative;
@@ -147,7 +147,7 @@ class ProductMiniCard extends React.Component {
                 <ProductMiniPriceLabel>
                   ${product.productPrice}
                 </ProductMiniPriceLabel>
-                <ProductRatingStar rating={product.rating} />
+                <ProductRatingStar type={"center"} rating={product.rating} />
               </ProductMiniPriceContainer>
             </ProductCardMiniRightContainer>
           </ProductCardMini>

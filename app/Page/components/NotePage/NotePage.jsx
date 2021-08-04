@@ -7,7 +7,7 @@ import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageSlider from "../../../../components/Image/ImageSlider/ImageSlider";
 import FlexBox from "../../../../components/Layout/FlexBox";
-import NoteAuthorImage from "../../../../components/Image/NoteAuthorImage";
+import CardAuthorImage from "../../../../components/Image/CardAuthorImage";
 import NoteAuthorLabel from "../../../../components/TextLabel/components/NoteAuthorLabel";
 import Button from "../../../../components/Button";
 import InputBox from "../../../../components/InputBox";
@@ -350,6 +350,8 @@ class NotePage extends React.Component {
 
     const backend = "http://localhost:8080";
 
+    // console.log(noteImages, "images in notepage");
+
     // console.log(this.state, "this is state in render");
     return (
       <NoteCard>
@@ -362,7 +364,7 @@ class NotePage extends React.Component {
           <RightBox>
             <AuthorContainer>
               <AuthorAvatarContainer>
-                <NoteAuthorImage src={`${backend}/${noteData.authorAvatar}`} />
+                <CardAuthorImage src={`${backend}/${noteData.authorAvatar}`} />
               </AuthorAvatarContainer>
               <AuthorNameContainer>
                 <NoteAuthorLabel>{noteData.author}</NoteAuthorLabel>

@@ -206,10 +206,12 @@ class Accordion extends React.Component {
             {this.state.itemFirOn && (
               <>
                 <PriceContainer>
-                  <LowestPriceLabel>$43</LowestPriceLabel>
+                  <LowestPriceLabel>
+                    ${this.props.productData.lowestPrice}
+                  </LowestPriceLabel>
                 </PriceContainer>
                 <ProductInfoContainer>
-                  {this.props.noteData.content}
+                  {this.props.productData.description}
                 </ProductInfoContainer>
 
                 <ItemsTabOff onClick={this.handleTabTwoClick}>
