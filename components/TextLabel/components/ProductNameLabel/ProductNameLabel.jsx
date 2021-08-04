@@ -19,6 +19,10 @@ const ProductNameLabel = styled.div`
   letter-spacing: 0.18px;
   text-align: left;
   color: black;
+
+  word-wrap: break-word;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export default ProductNameLabel;

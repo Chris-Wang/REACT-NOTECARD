@@ -15,6 +15,12 @@ const ProductCardMini = styled.div`
   border: solid 0.6px #c7c7c7;
 
   height: 106px;
+
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #a86c6d;
+  }
 `;
 
 export default ProductCardMini;

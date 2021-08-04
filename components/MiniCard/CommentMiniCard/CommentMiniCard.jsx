@@ -123,35 +123,65 @@ class CommentMiniCard extends React.Component {
     super(props);
   }
 
-  render() {
+  renderCommentMiniCard(type) {
     const { comments } = this.props;
     const backend = "http://localhost:8080";
 
     if (!comments) {
       return "Loading...";
     }
+    switch (type) {
+      case "NOTE":
+        return (
+          <>
+            {comments.map((comment) => (
+              <CommentsListCard key={comment.commentId}>
+                <CommentAvatorContainer>
+                  <CommentAvatarImg
+                    src={`${backend}/${comment.commentAuthorAvatar}`}
+                  />
+                </CommentAvatorContainer>
+                <CommentAuthorContainer>
+                  <CommentAuthorNameLabel>
+                    {comment.commentAuthor}:
+                  </CommentAuthorNameLabel>
+                </CommentAuthorContainer>
+                <CommentLabelContainer>
+                  <CommentContentLabel>{comment.comment}</CommentContentLabel>
+                </CommentLabelContainer>
+              </CommentsListCard>
+            ))}
+          </>
+        );
+      case "PRODUCT":
+        return (
+          <>
+            {comments.map((comment) => (
+              <CommentsListCard key={comment.commentAuthorNickname}>
+                <CommentAvatorContainer>
+                  <CommentAvatarImg
+                    src={`${backend}/${comment.avatarAddress}`}
+                  />
+                </CommentAvatorContainer>
+                <CommentAuthorContainer>
+                  <CommentAuthorNameLabel>
+                    {comment.commentAuthorNickname}:
+                  </CommentAuthorNameLabel>
+                </CommentAuthorContainer>
+                <CommentLabelContainer>
+                  <CommentContentLabel>
+                    {comment.commentContents}
+                  </CommentContentLabel>
+                </CommentLabelContainer>
+              </CommentsListCard>
+            ))}
+          </>
+        );
+    }
+  }
 
-    return (
-      <div>
-        {comments.map((comment) => (
-          <CommentsListCard key={comment.commentId}>
-            <CommentAvatorContainer>
-              <CommentAvatarImg
-                src={`${backend}/${comment.commentAuthorAvatar}`}
-              />
-            </CommentAvatorContainer>
-            <CommentAuthorContainer>
-              <CommentAuthorNameLabel>
-                {comment.commentAuthor}:
-              </CommentAuthorNameLabel>
-            </CommentAuthorContainer>
-            <CommentLabelContainer>
-              <CommentContentLabel>{comment.comment}</CommentContentLabel>
-            </CommentLabelContainer>
-          </CommentsListCard>
-        ))}
-      </div>
-    );
+  render() {
+    return <>{this.renderCommentMiniCard(this.props.type)}</>;
   }
 }
 

@@ -15,6 +15,7 @@ import getProductMini from "../../apis/getProductMini";
 import getCommentMini from "../../apis/getCommentMini";
 import ProductMiniCard from "../MiniCard/ProductMiniCard";
 import CommentMiniCard from "../MiniCard/CommentMiniCard";
+import getPrice from "../../apis/getPrice";
 
 const AccordionContainer = styled.div`
   position: relative;
@@ -66,8 +67,8 @@ const ItemsContainer = styled(TabDisplayContainer)`
 `;
 
 const CommentsContainer = styled(TabDisplayContainer)`
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
 
   margin: 0px 2px 2px 2px;
   padding: 10px 6px 0 10px;
@@ -85,10 +86,12 @@ class Accordion extends React.Component {
       itemThdOn: false,
       productData: null,
       commentData: null,
+      productPrice: null,
     };
 
     this.handleProductChange = this.handleProductChange.bind(this);
-    this.handleCommentsChange = this.handleCommentsChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    //this.handleCommentsChange = this.handleCommentsChange.bind(this);
   }
 
   handleTabTwoClick = () => {
@@ -106,11 +109,17 @@ class Accordion extends React.Component {
     });
   }
 
-  handleCommentsChange(newComments) {
+  handlePriceChange(newPrice) {
     this.setState({
-      commentData: newComments,
+      productPrice: newPrice,
     });
   }
+
+  // handleCommentsChange(newComments) {
+  //   this.setState({
+  //     commentData: newComments,
+  //   });
+  // }
 
   handleTabThreeDesOffClick = () => {
     this.setState((state) => {
@@ -174,7 +183,10 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <ItemsContainer>
-                  <ProductMiniCard products={this.state.productData} />
+                  <ProductMiniCard
+                    type={"NOTE"}
+                    products={this.state.productData}
+                  />
                 </ItemsContainer>
                 <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
                   View Comments
@@ -193,7 +205,10 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <CommentsContainer>
-                  <CommentMiniCard comments={this.props.commentData} />
+                  <CommentMiniCard
+                    type={"NOTE"}
+                    comments={this.props.commentData}
+                  />
                 </CommentsContainer>
               </>
             )}
@@ -213,7 +228,6 @@ class Accordion extends React.Component {
                 <ProductInfoContainer>
                   {this.props.productData.description}
                 </ProductInfoContainer>
-
                 <ItemsTabOff onClick={this.handleTabTwoClick}>
                   Compare Price from Retailers
                   <ItemsTabArrow>
@@ -237,7 +251,10 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <ItemsContainer>
-                  <ProductMiniCard products={this.state.productData} />
+                  <ProductMiniCard
+                    type={"PRODUCT"}
+                    products={this.state.productPrice}
+                  />
                 </ItemsContainer>
                 <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
                   View Comments
@@ -256,7 +273,10 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <CommentsContainer>
-                  <CommentMiniCard comments={this.props.commentData} />
+                  <CommentMiniCard
+                    type={"PRODUCT"}
+                    comments={this.props.commentData}
+                  />
                 </CommentsContainer>
               </>
             )}
@@ -267,16 +287,20 @@ class Accordion extends React.Component {
 
   componentDidMount() {
     getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+    getPrice(this.props.noteData.noteId).then(this.handlePriceChange);
+    //getProductComment(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
       getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+      getPrice(this.props.noteData.noteId).then(this.handlePriceChange);
+      //getProductComment(this.props.noteData.noteId).then(this.handleCommentsChange);
     }
   }
 
   render() {
-    const { productData } = this.state;
+    //const { productData } = this.state;
     return (
       <AccordionContainer>
         {this.renderAccordion(this.props.type)}

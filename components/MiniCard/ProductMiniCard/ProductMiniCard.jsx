@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import ProductCardMini from "./components/ProductCardMini";
 import ProductRatingStar from "./components/ProductRatingStar";
+import { withRouter } from "react-router-dom";
 
 const ProductCardMiniLeftContainer = styled.div`
   position: relative;
@@ -119,10 +120,27 @@ const ProductMiniPriceLabel = styled.div`
   color: black;
 `;
 
+const defaultUID = "16a0b5a3-d732-47ed-b9aa-6a5fa31931e2";
 class ProductMiniCard extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  productPath = (productData) => {
+    return {
+      pathname: "/products",
+      state: productData,
+    };
+  };
+
+  onForward = (pId) => {
+    const productData = {
+      noteId: pId,
+      userId: defaultUID,
+    };
+    // console.log(noteData, "in on forward");
+    this.props.history.push(this.productPath(productData));
+  };
 
   render() {
     const { products } = this.props;
@@ -134,7 +152,10 @@ class ProductMiniCard extends React.Component {
     return (
       <div>
         {products.map((product) => (
-          <ProductCardMini key={product.productId}>
+          <ProductCardMini
+            key={product.productId}
+            onClick={this.onForward.bind(this, product.productId)}
+          >
             <ProductCardMiniLeftContainer>
               <ProductImageMini src={`${backend}/${product.imageAddress}`} />
             </ProductCardMiniLeftContainer>
@@ -157,4 +178,4 @@ class ProductMiniCard extends React.Component {
   }
 }
 
-export default ProductMiniCard;
+export default withRouter(ProductMiniCard);

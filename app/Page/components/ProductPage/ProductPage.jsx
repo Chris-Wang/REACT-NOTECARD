@@ -6,6 +6,7 @@ import getNoteLikedUsers from "../../../../apis/getNoteLikedUsers";
 import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
 import getProduct from "../../../../apis/getProduct";
 import getProductImg from "../../../../apis/getProductImg";
+import getProductNotes from "../../../../apis/getProductNotes";
 
 import CardContainer from "../../../../components/Layout/CardContainer";
 import ImageSlider from "../../../../components/Image/ImageSlider/ImageSlider";
@@ -23,6 +24,8 @@ import collectNote from "../../../../apis/collectNote";
 import likeNote from "../../../../apis/likeNote";
 import ProductRatingStar from "../../../../components/MiniCard/ProductMiniCard/components/ProductRatingStar";
 import NoteMiniCard from "../../../../components/MiniCard/NoteMiniCard";
+import getPrice from "../../../../apis/getPrice";
+import getProductComment from "../../../../apis/getProductComment";
 
 const ProductCard = styled(FlexBox)`
   flex-direction: row;
@@ -105,23 +108,6 @@ const BrandRating = styled.div`
   color: black;
 `;
 
-const BrandRatingImg = styled.img`
-  flex-grow: 0;
-  margin: 0 auto;
-
-  border-radius: 4px;
-`;
-
-const BrandButtonContainer = styled(FlexBox)`
-  justify-content: center;
-  align-items: center;
-
-  padding: 2px;
-  width: 80px;
-  height: 80px;
-  margin: 0;
-`;
-
 const FunctionSetContainer = styled(FlexBox)`
   flex-direction: row;
   justify-content: space-between;
@@ -158,7 +144,7 @@ const NoteCards = styled.section`
   display: flex;
   flex-direction: column;
   width: 990px;
-  border: solid 0.5px #c7c7c7;
+  // border: solid 0.5px #c7c7c7;
   margin: 35px auto 0 auto;
 `;
 
@@ -177,9 +163,10 @@ const NoteCardsTitle = styled.h2`
 const NoteCardsPanel = styled.div`
   display: flex;
   flex-direction: row;
-  border: solid 0.5px #c7c7c7;
+  // border: solid 0.5px #c7c7c7;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 class ProductPage extends React.Component {
@@ -189,6 +176,7 @@ class ProductPage extends React.Component {
     this.state = {
       noteData: null,
       productData: null,
+      productNotes: null,
       productImg: null,
       noteLikes: 0,
       noteCollects: 0,
@@ -198,6 +186,7 @@ class ProductPage extends React.Component {
       commentData: null,
       likeUsersData: null,
       collectUsersData: null,
+      //productPrice: null,
     };
 
     this.handleNoteChange = this.handleNoteChange.bind(this);
@@ -210,9 +199,9 @@ class ProductPage extends React.Component {
     this.handleCollectInit = this.handleCollectInit.bind(this);
     this.initActiveLike = this.initActiveLike.bind(this);
     this.initActiveCollect = this.initActiveCollect.bind(this);
-
     this.handleProductChange = this.handleProductChange.bind(this);
     this.handleProductImgChange = this.handleProductImgChange.bind(this);
+    this.handleProductNotesChange = this.handleProductNotesChange.bind(this);
   }
 
   handleLikeInit(active) {
@@ -275,7 +264,6 @@ class ProductPage extends React.Component {
       noteData: newNote,
       noteLikes: newNote.likeNum,
       noteCollects: newNote.collectNum,
-      noteImages: this.imageLoad(newNote.imageUrl),
     });
 
     // this.imageLoad(this.state.noteImages);
@@ -295,6 +283,15 @@ class ProductPage extends React.Component {
     this.setState({
       productImg: this.imageLoad(newImg),
     });
+    // this.imageLoad(this.state.noteImages);
+  }
+
+  handleProductNotesChange(newNotes) {
+    // const newImages = this.imageLoad(newNote.imageUrl);
+    this.setState({
+      productNotes: newNotes,
+    });
+
     // this.imageLoad(this.state.noteImages);
   }
 
@@ -353,8 +350,9 @@ class ProductPage extends React.Component {
     const { noteId, userId } = this.props.location.state;
     getProduct(noteId).then(this.handleProductChange);
     getProductImg(noteId).then(this.handleProductImgChange);
+    getProductNotes(noteId).then(this.handleProductNotesChange);
     getNote(noteId).then(this.handleNoteChange);
-    getCommentMini(noteId).then(this.handleCommentsChange);
+    getProductComment(noteId).then(this.handleCommentsChange);
     getNoteLikedUsers(noteId).then(this.initActiveLike);
     getNoteCollectedUsers(noteId).then(this.initActiveCollect);
 
@@ -364,7 +362,7 @@ class ProductPage extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.noteId !== this.props.noteId) {
       getNote(this.props.noteId).then(this.handleNoteChange);
-      getCommentMini(this.props.noteId).then(this.handleCommentsChange);
+      getProductComment(this.props.noteId).then(this.handleCommentsChange);
       getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
       getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
       // const active = getNoteLikedUsers(this.props.noteId).then(
@@ -387,14 +385,16 @@ class ProductPage extends React.Component {
 
       productData,
       productImg,
+      productNotes,
     } = this.state;
 
-    if (!noteData | !productData | !productImg) {
+    if (!noteData | !productData | !productImg | !productNotes) {
       return <ProductCard>Loading...</ProductCard>;
     }
 
-    console.log(productData, "is product in productpage");
-    console.log(productImg, "is product img in productpage");
+    // console.log(productData, "is product in productpage");
+    // console.log(productImg, "is product img in productpage");
+    console.log(productNotes[0], "is notes img in productpage");
     // console.log(noteData.noteId, "is id in notepage");
     // console.log(noteLikes, "likes in notepage");
     // console.log(noteCollects, "collects in notepage");
@@ -436,6 +436,7 @@ class ProductPage extends React.Component {
               <Accordion
                 type={"PRODUCT"}
                 noteData={noteData}
+                //productPrice={productPrice}
                 productData={productData}
                 commentData={commentData}
               />
@@ -465,7 +466,7 @@ class ProductPage extends React.Component {
                   noteId={noteData.noteId}
                   type={"COMMENT"}
                   handleCommentsChange={this.handleCommentsChange.bind(this)}
-                  commentUpdat={commentUpdate}
+                  commentUpdate={commentUpdate}
                 />
               </QuickCommentContainer>
             </RightBox>
@@ -474,10 +475,7 @@ class ProductPage extends React.Component {
         <NoteCards>
           <NoteCardsTitle>Related Notes</NoteCardsTitle>
           <NoteCardsPanel>
-            <NoteMiniCard />
-            <NoteMiniCard />
-            <NoteMiniCard />
-            <NoteMiniCard />
+            <NoteMiniCard notes={productNotes} />
           </NoteCardsPanel>
         </NoteCards>
       </>
