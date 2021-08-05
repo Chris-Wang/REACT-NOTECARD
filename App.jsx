@@ -27,8 +27,8 @@ class App extends React.Component {
 
   render() {
     const { noteId, userId } = this.state;
-    console.log(this.state.noteId, "noteid in app");
-    console.log(this.state.userId, "userid in app");
+    // console.log(this.state.noteId, "noteid in app");
+    // console.log(this.state.userId, "userid in app");
     return (
       <Router>
         <div className="main">

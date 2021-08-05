@@ -16,6 +16,8 @@ import getCommentMini from "../../apis/getCommentMini";
 import ProductMiniCard from "../MiniCard/ProductMiniCard";
 import CommentMiniCard from "../MiniCard/CommentMiniCard";
 import getPrice from "../../apis/getPrice";
+import PriceMiniCard from "../MiniCard/PriceMiniCard";
+
 
 const AccordionContainer = styled.div`
   position: relative;
@@ -184,7 +186,7 @@ class Accordion extends React.Component {
                 </ItemsTabOn>
                 <ItemsContainer>
                   <ProductMiniCard
-                    type={"NOTE"}
+                    //type={"NOTE"}
                     products={this.state.productData}
                   />
                 </ItemsContainer>
@@ -251,8 +253,7 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <ItemsContainer>
-                  <ProductMiniCard
-                    type={"PRODUCT"}
+                  <PriceMiniCard
                     products={this.state.productPrice}
                   />
                 </ItemsContainer>
