@@ -155,7 +155,7 @@ const SmlCardImg = styled.img`
   // }
 `;
 
-const defaultUID = "16a0b5a3-d732-47ed-b9aa-6a5fa31931e2";
+const defaultUID = "3d115e74-ad43-44eb-a832-ea53ac542f61";
 
 class ExplorePage extends React.Component {
   constructor(props) {

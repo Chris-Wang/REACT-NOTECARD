@@ -421,7 +421,7 @@ class NotePage extends React.Component {
               <InputBox
                 userId={this.props.location.state.userId}
                 noteId={noteData.noteId}
-                type={"COMMENT"}
+                type={"NOTECOMMENT"}
                 handleCommentsChange={this.handleCommentsChange.bind(this)}
                 commentUpdat={commentUpdate}
               />

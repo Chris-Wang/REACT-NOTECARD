@@ -25,6 +25,7 @@ import NoteCollectMenu from "../Menu/NoteCollectMenu";
 import HeaderLikeMenu from "../Menu/HeaderLikeMenu";
 import HeaderCollectMenu from "../Menu/HeaderCollectMenu";
 import HeaderUserMenu from "../Menu/HeaderUserMenu";
+import CategoriesListMenu from "../Menu/CategoriesListMenu"
 import { withRouter } from "react-router-dom";
 
 const Container = styled.div`
@@ -95,8 +96,13 @@ class Button extends React.Component {
     switch (type) {
       case "CATEGORY":
         return (
-          <CategoryBtn>
-            <FontAwesomeIcon icon={faCompass} />
+          <CategoryBtn onClick={this.handleButtonClick}>
+            {this.state.seen ? (
+              <HeaderMenuOn>
+                <FontAwesomeIcon icon={faCompass} />
+              </HeaderMenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faCompass} />)}
           </CategoryBtn>
         );
 
@@ -177,6 +183,7 @@ class Button extends React.Component {
             {this.state.isUserFollow ? "Follow" : "Following"}
           </BrandFollowBtn>
         );
+
       case "LIKENOTE":
         return (
           <NoteFunctionBtn onClick={this.props.data.handleLikeClick}>
@@ -212,8 +219,32 @@ class Button extends React.Component {
             )}
           </NoteFunctionBtn>
         );
+      
+      case "COLLECTPRODUCT":
+        return (
+          <NoteFunctionBtn onClick={this.props.data.handleCollectClick}>
+            {this.props.collectActive ? (
+              <MenuOn>
+                <FontAwesomeIcon icon={faBookmark} />
+              </MenuOn>
+            ) : (
+              <FontAwesomeIcon icon={faBookmark} />
+            )}
+          </NoteFunctionBtn>
+        );
 
       case "COLLECTNOTEUSERS":
+        return (
+          <NoteNumsBtn onClick={this.handleButtonClick}>
+            {this.state.seen ? (
+              <MenuOn>{this.props.number}</MenuOn>
+            ) : (
+              `${this.props.number}`
+            )}
+          </NoteNumsBtn>
+        );
+
+      case "COLLECTPRODUCTUSERS":
         return (
           <NoteNumsBtn onClick={this.handleButtonClick}>
             {this.state.seen ? (
@@ -270,6 +301,9 @@ class Button extends React.Component {
               noteId={this.props.noteId}
               seenChange={this.handleButtonClick}
             />
+          )}
+          {this.state.seen && this.props.type === "CATEGORY" && (
+            <CategoriesListMenu seenChange={this.handleButtonClick} />
           )}
         </Container>
       </div>

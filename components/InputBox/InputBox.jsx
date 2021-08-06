@@ -5,7 +5,7 @@ import CommentInput from "./components/CommentInput";
 import SubmitButton from "./components/SubmitButton";
 import SubmitComment from "./components/SubmitComment";
 import getCommentMini from "../../apis/getCommentMini";
-
+import postProductComment from "../../apis/postProductComment";
 import postNoteComment from "../../apis/postNoteComment";
 class InputBox extends React.Component {
   constructor(props) {
@@ -86,7 +86,19 @@ class InputBox extends React.Component {
           />
         );
 
-      case "COMMENT":
+      case "NOTECOMMENT":
+        return (
+          <CommentInput
+            placeholder="Say Something..."
+            type="text"
+            inputColor="black"
+            value={this.state.InputValue}
+            onKeyPress={this.handleCommentKeyPress}
+            onChange={this.handleGetInputValue}
+          />
+        );
+
+      case "PRODUCTCOMMENT":
         return (
           <CommentInput
             placeholder="Say Something..."
@@ -107,7 +119,10 @@ class InputBox extends React.Component {
         {this.state.seenButton && this.props.type === "SEARCH" && (
           <SubmitButton onClick={this.handlePost}>Search</SubmitButton>
         )}
-        {this.state.seenButton && this.props.type === "COMMENT" && (
+        {this.state.seenButton && this.props.type === "NOTECOMMENT" && (
+          <SubmitComment onClick={this.handlePostComment}>Post</SubmitComment>
+        )}
+        {this.state.seenButton && this.props.type === "PRODUCTCOMMENT" && (
           <SubmitComment onClick={this.handlePostComment}>Post</SubmitComment>
         )}
       </>

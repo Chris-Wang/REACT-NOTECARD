@@ -4,6 +4,7 @@ import getNote from "../../../../apis/getNote";
 import getCommentMini from "../../../../apis/getCommentMini";
 import getNoteLikedUsers from "../../../../apis/getNoteLikedUsers";
 import getNoteCollectedUsers from "../../../../apis/getNoteCollectedUsers";
+import getProductCollectedUsers from "../../../../apis/getProductCollectedUsers";
 import getProduct from "../../../../apis/getProduct";
 import getProductImg from "../../../../apis/getProductImg";
 import getProductNotes from "../../../../apis/getProductNotes";
@@ -354,7 +355,8 @@ class ProductPage extends React.Component {
     getNote(noteId).then(this.handleNoteChange);
     getProductComment(noteId).then(this.handleCommentsChange);
     getNoteLikedUsers(noteId).then(this.initActiveLike);
-    getNoteCollectedUsers(noteId).then(this.initActiveCollect);
+    // getNoteCollectedUsers(noteId).then(this.initActiveCollect);
+    getProductCollectedUsers(noteId).then(this.initActiveCollect);
 
     // console.log(this.state, "state in didMount");
   }
@@ -364,7 +366,8 @@ class ProductPage extends React.Component {
       getNote(this.props.noteId).then(this.handleNoteChange);
       getProductComment(this.props.noteId).then(this.handleCommentsChange);
       getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
-      getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
+      // getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
+      getProductCollectedUsers(this.props.noteId).then(this.initActiveCollect);
       // const active = getNoteLikedUsers(this.props.noteId).then(
       //   this.initActiveLike
       // );
@@ -445,7 +448,7 @@ class ProductPage extends React.Component {
                   <Button
                     collectActive={collectActive}
                     number={noteCollects}
-                    type={"COLLECTNOTE"}
+                    type={"COLLECTPRODUCT"}
                     data={{
                       handleCollectClick: this.handleCollectClick.bind(this),
                       handleCollectActiveChange:
@@ -455,7 +458,7 @@ class ProductPage extends React.Component {
                   <Button
                     number={noteCollects}
                     noteId={noteData.noteId}
-                    type={"COLLECTNOTEUSERS"}
+                    type={"COLLECTPRODUCTUSERS"}
                   />
                 </CollectionButtons>
                 <Button type={"FORWARDNOTE"} />
@@ -464,7 +467,7 @@ class ProductPage extends React.Component {
                 <InputBox
                   userId={this.props.location.state.userId}
                   noteId={noteData.noteId}
-                  type={"COMMENT"}
+                  type={"PRODUCTCOMMENT"}
                   handleCommentsChange={this.handleCommentsChange.bind(this)}
                   commentUpdate={commentUpdate}
                 />

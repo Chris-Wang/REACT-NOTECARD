@@ -8,7 +8,7 @@ const PriceListCard = styled.div`
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 8px;
+  padding: 2px;
   width: 332px;
   border-radius: 5px;
   margin: 0 0 10px 0;
@@ -19,15 +19,15 @@ const PriceListCard = styled.div`
 
 const ProductPriceMini = styled.div`
   box-sizing: border-box;
-  width: 150px;
-  padding: 0px;
-  margin: 7px 0px 10px 0px;
-  height: 40px;
+  width: 30px;
+  padding: 3px;
+  margin: 10px 0px 0px 5px;
+  height: 30px;
   justify-content: center;
   font-family: Prata;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 44px;
   color: #565561;
   text-align: center;  
@@ -36,41 +36,52 @@ const ProductPriceMini = styled.div`
 const ProductMiniRetailerNameLabel = styled.div`
   box-sizing: border-box;
   width: 150px;
-  padding: 0px;
-  margin: 7px 0px 10px 0px;
-  height: 40px;
+  padding: 3px;
+  margin: 10px 0px 0px 10px;
+  height: 15px;
   justify-content: center;
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 15px;
   color: #565561;
   text-align: center;
 `;
 
-const ProductMiniRetailerNameBold = styled(ProductMiniRetailerNameLabel)`
+const ProductMiniRetailerNameBold = styled.div`
+  box-sizing: border-box;
+  width: 150px;
+  padding: 3px;
+  margin: 0px 0px 0px 13px;
+  height: 15px;
+  justify-content: center;
+  font-family: Poppins;
+  font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
+  line-height: 15px;
+  color: #565561;
+  text-align: center;
 `;
 
 const ProductMiniLinkLabel = styled.a`
   box-sizing: border-box;
-  width: 150px;
-  padding: 0px;
-  margin: 7px 0px 10px 0px;
-  height: 40px;
-  font-size: 0.9em;
+  width: 80px;
+  padding: 0.5px 2px 2px 0.5px;
+  margin: 20px 15px 10px 0px;
+  height: 25px;
+  font-size: 0.8em;
   font-family: sans-serif;
-  font-weight: 450;
+  font-weight: 350;
   font-stretch: normal;
   font-style: normal;
-  line-height: 38px;
+  line-height: 25px;
   text-align: center;
   color: #FFFFFF;
-  word-wrap: break-word;
   background: #A86C6D;
   text-decoration: none;
+  border-radius: 3px;
 `;
 
 const defaultUID = "16a0b5a3-d732-47ed-b9aa-6a5fa31931e2";
