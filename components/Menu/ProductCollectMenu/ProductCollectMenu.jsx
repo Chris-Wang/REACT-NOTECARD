@@ -1,29 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import NoteMenu from "../components/NoteMenu";
 import MenuTitle from "../components/MenuTitle";
 import MenuItems from "../components/MenuItems";
 import UserMiniCard from "../../MiniCard/UserMiniCard";
-import getNoteLikedUsers from "../../../apis/getNoteLikedUsers";
-import HeaderMenu from "../components/HeaderMenu";
+import getProductCollectedUsers from "../../../apis/getProductCollectedUsers";
 
 const Container = styled.div`
   display: inline-block;
 `;
 
-const UserMenu = styled(HeaderMenu)`
-  width: 200px;
-  height: 120px;
-  right: -2px;
-  z-index: 100;
+const CollectMenu = styled(NoteMenu)`
+  right: 30px;
 `;
-
-class HeaderUserMenu extends React.Component {
+class ProductCollectMenu extends React.Component {
   container = React.createRef();
   constructor(props) {
     super(props);
     this.state = {
-      userLikeData: null,
-      userFollowData: null,
+      usersData: null,
       seen: false,
     };
 
@@ -45,12 +40,14 @@ class HeaderUserMenu extends React.Component {
       !this.container.current.contains(event.target)
     ) {
       this.props.seenChange;
-      // console.log("callback");
     }
   };
 
   componentDidMount() {
-    // getNoteLikedUsers(this.props.noteId).then(this.handleUsersDataChange);
+    //getNoteCollectedUsers(this.props.noteId).then(this.handleUsersDataChange);
+    getProductCollectedUsers(this.props.noteId).then(
+      this.handleUsersDataChange
+    );
     // document.addEventListener("mousedown", this.handleClickOutside);
   }
 
@@ -59,29 +56,29 @@ class HeaderUserMenu extends React.Component {
   }
 
   render() {
-    const { userLikeData, userFollowData } = this.state;
+    const { usersData } = this.state;
 
-    if (!userLikeData | !userFollowData) {
+    if (!usersData) {
       return (
         <Container ref={this.container}>
-          <UserMenu>
-            <MenuTitle type="Hi, there" />
+          <CollectMenu>
+            <MenuTitle type="Collects" />
             <MenuItems>Loading...</MenuItems>
-          </UserMenu>
+          </CollectMenu>
         </Container>
       );
     }
     return (
       <Container ref={this.container}>
-        <UserMenu>
-          <MenuTitle type="User Panel" />
+        <CollectMenu>
+          <MenuTitle type="Collects" />
           <MenuItems>
-            <UserMiniCard users={userLikeData} type="LIKES" />
+            <UserMiniCard users={usersData} type="PRODUCTCOLLECT" />
           </MenuItems>
-        </UserMenu>
+        </CollectMenu>
       </Container>
     );
   }
 }
 
-export default HeaderUserMenu;
+export default ProductCollectMenu;

@@ -13,10 +13,10 @@ const MiniCard = styled.div`
   width: 256px;
 
   border-radius: 5px;
-  margin: 0 0 9px 0;
+  margin: 0 0 5px 0;
   border: solid 0.6px #c7c7c7;
 
-  height: 40px;
+  height: 45px;
 `;
 
 const UserAvatar = styled.div`
@@ -27,7 +27,7 @@ const UserAvatar = styled.div`
   box-sizing: border-box;
   padding: 0px;
   width: 30px;
-  margin: 5px 3px 5px 7px;
+  margin: 7px 0px 0px 5px;
   height: 30px;
 `;
 
@@ -48,10 +48,8 @@ const Content = styled.div`
   justify-content: center;
   box-sizing: border-box;
   align-items: center;
-
   width: 210px;
   padding: 0px;
-
   margin: 0px 0px 0px 0px;
   height: 40px;
 `;
@@ -78,6 +76,11 @@ class UserMiniCard extends React.Component {
               )}
               {type === "COLLECT" && (
                 <ContentLabel>{user.nickName} collects this note</ContentLabel>
+              )}
+              {type === "PRODUCTCOLLECT" && (
+                <ContentLabel>
+                  {user.nickName} collects this product
+                </ContentLabel>
               )}
             </Content>
           </MiniCard>

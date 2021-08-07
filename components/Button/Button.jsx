@@ -22,10 +22,11 @@ import { faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NoteLikeMenu from "../Menu/NoteLikeMenu";
 import NoteCollectMenu from "../Menu/NoteCollectMenu";
+import ProductCollectMenu from "../Menu/ProductCollectMenu";
 import HeaderLikeMenu from "../Menu/HeaderLikeMenu";
 import HeaderCollectMenu from "../Menu/HeaderCollectMenu";
 import HeaderUserMenu from "../Menu/HeaderUserMenu";
-import CategoriesListMenu from "../Menu/CategoriesListMenu"
+import CategoriesListMenu from "../Menu/CategoriesListMenu";
 import { withRouter } from "react-router-dom";
 
 const Container = styled.div`
@@ -102,7 +103,8 @@ class Button extends React.Component {
                 <FontAwesomeIcon icon={faCompass} />
               </HeaderMenuOn>
             ) : (
-              <FontAwesomeIcon icon={faCompass} />)}
+              <FontAwesomeIcon icon={faCompass} />
+            )}
           </CategoryBtn>
         );
 
@@ -219,7 +221,7 @@ class Button extends React.Component {
             )}
           </NoteFunctionBtn>
         );
-      
+
       case "COLLECTPRODUCT":
         return (
           <NoteFunctionBtn onClick={this.props.data.handleCollectClick}>
@@ -272,21 +274,18 @@ class Button extends React.Component {
           {this.state.seen && this.props.type === "COLLECTEDNOTE" && (
             <HeaderCollectMenu
               noteId={this.props.noteId}
-              number={this.props.number}
               seenChange={this.handleButtonClick}
             />
           )}
           {this.state.seen && this.props.type === "LIKEHISTORY" && (
             <HeaderLikeMenu
               noteId={this.props.noteId}
-              number={this.props.number}
               seenChange={this.handleButtonClick}
             />
           )}
           {this.state.seen && this.props.type === "USERPROFILE" && (
             <HeaderUserMenu
               noteId={this.props.noteId}
-              number={this.props.number}
               seenChange={this.handleButtonClick}
             />
           )}
@@ -298,6 +297,12 @@ class Button extends React.Component {
           )}
           {this.state.seen && this.props.type === "COLLECTNOTEUSERS" && (
             <NoteCollectMenu
+              noteId={this.props.noteId}
+              seenChange={this.handleButtonClick}
+            />
+          )}
+          {this.state.seen && this.props.type === "COLLECTPRODUCTUSERS" && (
+            <ProductCollectMenu
               noteId={this.props.noteId}
               seenChange={this.handleButtonClick}
             />

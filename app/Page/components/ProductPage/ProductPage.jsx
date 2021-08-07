@@ -21,7 +21,7 @@ import InputBox from "../../../../components/InputBox";
 import Accordion from "../../../../components/Accordion";
 import imgNotFound from "../../../../media/empty_data_set.png";
 import ratingMiniImage from "../../../../media/rating_smp_sml.png";
-import collectNote from "../../../../apis/collectNote";
+import collectProduct from "../../../../apis/collectProduct";
 import likeNote from "../../../../apis/likeNote";
 import ProductRatingStar from "../../../../components/MiniCard/ProductMiniCard/components/ProductRatingStar";
 import NoteMiniCard from "../../../../components/MiniCard/NoteMiniCard";
@@ -179,13 +179,13 @@ class ProductPage extends React.Component {
       productData: null,
       productNotes: null,
       productImg: null,
-      noteLikes: 0,
+      //noteLikes: 0,
       noteCollects: 0,
       noteImages: null,
-      likeActive: false,
+      //likeActive: false,
       collectActive: false,
       commentData: null,
-      likeUsersData: null,
+      //likeUsersData: null,
       collectUsersData: null,
       //productPrice: null,
     };
@@ -193,23 +193,23 @@ class ProductPage extends React.Component {
     this.handleNoteChange = this.handleNoteChange.bind(this);
     this.handleCommentsChange = this.handleCommentsChange.bind(this);
     this.handleCollectChange = this.handleCollectChange.bind(this);
-    this.handleLikeChange = this.handleLikeChange.bind(this);
-    this.handleLikeActiveChange = this.handleLikeActiveChange.bind(this);
+    //this.handleLikeChange = this.handleLikeChange.bind(this);
+    //this.handleLikeActiveChange = this.handleLikeActiveChange.bind(this);
     this.handleCollectActiveChange = this.handleCollectActiveChange.bind(this);
-    this.handleLikeInit = this.handleLikeInit.bind(this);
+    //this.handleLikeInit = this.handleLikeInit.bind(this);
     this.handleCollectInit = this.handleCollectInit.bind(this);
-    this.initActiveLike = this.initActiveLike.bind(this);
+    //this.initActiveLike = this.initActiveLike.bind(this);
     this.initActiveCollect = this.initActiveCollect.bind(this);
     this.handleProductChange = this.handleProductChange.bind(this);
     this.handleProductImgChange = this.handleProductImgChange.bind(this);
     this.handleProductNotesChange = this.handleProductNotesChange.bind(this);
   }
 
-  handleLikeInit(active) {
-    this.setState({
-      likeActive: active,
-    });
-  }
+  // handleLikeInit(active) {
+  //   this.setState({
+  //     likeActive: active,
+  //   });
+  // }
 
   handleCollectInit(active) {
     this.setState({
@@ -217,11 +217,11 @@ class ProductPage extends React.Component {
     });
   }
 
-  handleLikeActiveChange() {
-    this.setState({
-      likeActive: !this.state.likeActive,
-    });
-  }
+  // handleLikeActiveChange() {
+  //   this.setState({
+  //     likeActive: !this.state.likeActive,
+  //   });
+  // }
 
   handleCollectActiveChange() {
     this.setState({
@@ -232,9 +232,9 @@ class ProductPage extends React.Component {
   handleCollectClick() {
     const collectBody = {
       userId: this.props.location.state.userId,
-      noteId: this.props.location.state.noteId,
+      productId: this.props.location.state.noteId,
     };
-    collectNote(collectBody).then(this.handleCollectChange);
+    collectProduct(collectBody).then(this.handleCollectChange);
     this.handleCollectActiveChange();
   }
 
@@ -244,27 +244,27 @@ class ProductPage extends React.Component {
     });
   }
 
-  handleLikeClick() {
-    const likeBody = {
-      userId: this.props.location.state.userId,
-      noteId: this.props.location.state.noteId,
-    };
-    likeNote(likeBody).then(this.handleLikeChange);
-    this.handleLikeActiveChange();
-  }
+  // handleLikeClick() {
+  //   const likeBody = {
+  //     userId: this.props.location.state.userId,
+  //     noteId: this.props.location.state.noteId,
+  //   };
+  //   likeNote(likeBody).then(this.handleLikeChange);
+  //   this.handleLikeActiveChange();
+  // }
 
-  handleLikeChange(newLike) {
-    this.setState({
-      noteLikes: newLike.likeCount,
-    });
-  }
+  // handleLikeChange(newLike) {
+  //   this.setState({
+  //     noteLikes: newLike.likeCount,
+  //   });
+  // }
 
   handleNoteChange(newNote) {
     // const newImages = this.imageLoad(newNote.imageUrl);
     this.setState({
       noteData: newNote,
-      noteLikes: newNote.likeNum,
-      noteCollects: newNote.collectNum,
+      //noteLikes: newNote.likeNum,
+      //noteCollects: newNote.collectNum,
     });
 
     // this.imageLoad(this.state.noteImages);
@@ -274,6 +274,7 @@ class ProductPage extends React.Component {
     // const newImages = this.imageLoad(newNote.imageUrl);
     this.setState({
       productData: newProduct,
+      noteCollects: newProduct.collectNum,
     });
 
     // this.imageLoad(this.state.noteImages);
@@ -321,18 +322,18 @@ class ProductPage extends React.Component {
     //console.log(dt, "loading images");
   }
 
-  initActiveLike(users) {
-    const userId = this.props.location.state.userId;
-    let active = false;
-    users.map(function (user) {
-      //console.log(user.id, "in active");
-      if (user.id === userId) {
-        // console.log(user.id, "in active");
-        active = true;
-      }
-    });
-    this.handleLikeInit(active);
-  }
+  // initActiveLike(users) {
+  //   const userId = this.props.location.state.userId;
+  //   let active = false;
+  //   users.map(function (user) {
+  //     //console.log(user.id, "in active");
+  //     if (user.id === userId) {
+  //       // console.log(user.id, "in active");
+  //       active = true;
+  //     }
+  //   });
+  //   this.handleLikeInit(active);
+  // }
 
   initActiveCollect(users) {
     const userId = this.props.location.state.userId;
@@ -354,7 +355,7 @@ class ProductPage extends React.Component {
     getProductNotes(noteId).then(this.handleProductNotesChange);
     getNote(noteId).then(this.handleNoteChange);
     getProductComment(noteId).then(this.handleCommentsChange);
-    getNoteLikedUsers(noteId).then(this.initActiveLike);
+    //getNoteLikedUsers(noteId).then(this.initActiveLike);
     // getNoteCollectedUsers(noteId).then(this.initActiveCollect);
     getProductCollectedUsers(noteId).then(this.initActiveCollect);
 
@@ -365,7 +366,7 @@ class ProductPage extends React.Component {
     if (prevProps.noteId !== this.props.noteId) {
       getNote(this.props.noteId).then(this.handleNoteChange);
       getProductComment(this.props.noteId).then(this.handleCommentsChange);
-      getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
+      //getNoteLikedUsers(this.props.noteId).then(this.initActiveLike);
       // getNoteCollectedUsers(this.props.noteId).then(this.initActiveCollect);
       getProductCollectedUsers(this.props.noteId).then(this.initActiveCollect);
       // const active = getNoteLikedUsers(this.props.noteId).then(
@@ -378,14 +379,13 @@ class ProductPage extends React.Component {
   render() {
     const {
       noteData,
-      noteLikes,
+      //noteLikes,
       noteCollects,
-      noteImages,
+      //noteImages,
       commentData,
       commentUpdate,
-      likeActive,
+      //likeActive,
       collectActive,
-
       productData,
       productImg,
       productNotes,
@@ -466,7 +466,7 @@ class ProductPage extends React.Component {
               <QuickCommentContainer>
                 <InputBox
                   userId={this.props.location.state.userId}
-                  noteId={noteData.noteId}
+                  productId={productData.productId}
                   type={"PRODUCTCOMMENT"}
                   handleCommentsChange={this.handleCommentsChange.bind(this)}
                   commentUpdate={commentUpdate}
@@ -476,7 +476,7 @@ class ProductPage extends React.Component {
           </CardContainer>
         </ProductCard>
         <NoteCards>
-          <NoteCardsTitle>Related Notes</NoteCardsTitle>
+          <NoteCardsTitle>{productData.productId}Related Notes</NoteCardsTitle>
           <NoteCardsPanel>
             <NoteMiniCard notes={productNotes} />
           </NoteCardsPanel>

@@ -18,7 +18,6 @@ import CommentMiniCard from "../MiniCard/CommentMiniCard";
 import getPrice from "../../apis/getPrice";
 import PriceMiniCard from "../MiniCard/PriceMiniCard";
 
-
 const AccordionContainer = styled.div`
   position: relative;
   display: flex;
@@ -186,7 +185,7 @@ class Accordion extends React.Component {
                 </ItemsTabOn>
                 <ItemsContainer>
                   <ProductMiniCard
-                    //type={"NOTE"}
+                    userId={this.props.userId}
                     products={this.state.productData}
                   />
                 </ItemsContainer>
@@ -253,9 +252,7 @@ class Accordion extends React.Component {
                   </ItemsTabArrow>
                 </ItemsTabOn>
                 <ItemsContainer>
-                  <PriceMiniCard
-                    products={this.state.productPrice}
-                  />
+                  <PriceMiniCard products={this.state.productPrice} />
                 </ItemsContainer>
                 <ItemsTabOff onClick={this.handleTabThreeItmOffClick}>
                   View Comments

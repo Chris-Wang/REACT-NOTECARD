@@ -5,6 +5,7 @@ import CommentInput from "./components/CommentInput";
 import SubmitButton from "./components/SubmitButton";
 import SubmitComment from "./components/SubmitComment";
 import getCommentMini from "../../apis/getCommentMini";
+import getProductComment from "../../apis/getProductComment";
 import postProductComment from "../../apis/postProductComment";
 import postNoteComment from "../../apis/postNoteComment";
 class InputBox extends React.Component {
@@ -54,10 +55,30 @@ class InputBox extends React.Component {
     });
   };
 
+  handlePostProductComment = () => {
+    const { inputValue } = this.state;
+    const postBody = {
+      productId: this.props.productId,
+      authorId: this.props.userId,
+      content: inputValue,
+    };
+    this.sendProductCommentUpdate(postBody);
+    this.setState({
+      seenButton: false,
+    });
+  };
+
   async sendUpdate(postBody) {
     await postNoteComment(postBody);
     getCommentMini(this.props.noteId).then(this.props.handleCommentsChange);
     console.log("in sendUpdate <InputBox>");
+  }
+
+  async sendProductCommentUpdate(postBody) {
+    await postProductComment(postBody);
+    getProductComment(this.props.productId).then(
+      this.props.handleCommentsChange
+    );
   }
 
   handleSearchKeyPress = (event) => {
@@ -69,6 +90,12 @@ class InputBox extends React.Component {
   handleCommentKeyPress = (event) => {
     if (event.key === "Enter") {
       this.handlePostComment();
+    }
+  };
+
+  handleProductCommentKeyPress = (event) => {
+    if (event.key === "Enter") {
+      this.handlePostProductComment();
     }
   };
 
@@ -105,7 +132,7 @@ class InputBox extends React.Component {
             type="text"
             inputColor="black"
             value={this.state.InputValue}
-            onKeyPress={this.handleCommentKeyPress}
+            onKeyPress={this.handleProductCommentKeyPress}
             onChange={this.handleGetInputValue}
           />
         );
@@ -123,7 +150,9 @@ class InputBox extends React.Component {
           <SubmitComment onClick={this.handlePostComment}>Post</SubmitComment>
         )}
         {this.state.seenButton && this.props.type === "PRODUCTCOMMENT" && (
-          <SubmitComment onClick={this.handlePostComment}>Post</SubmitComment>
+          <SubmitComment onClick={this.handlePostProductComment}>
+            Post
+          </SubmitComment>
         )}
       </>
     );

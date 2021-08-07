@@ -120,7 +120,7 @@ const ProductMiniPriceLabel = styled.div`
   color: black;
 `;
 
-const defaultUID = "16a0b5a3-d732-47ed-b9aa-6a5fa31931e2";
+// const defaultUID = "16a0b5a3-d732-47ed-b9aa-6a5fa31931e2";
 class ProductMiniCard extends React.Component {
   constructor(props) {
     super(props);
@@ -136,9 +136,9 @@ class ProductMiniCard extends React.Component {
   onForward = (pId) => {
     const productData = {
       noteId: pId,
-      userId: defaultUID,
+      userId: this.props.userId,
     };
-    // console.log(noteData, "in on forward");
+    // console.log(productData, "in on forward");
     this.props.history.push(this.productPath(productData));
   };
 

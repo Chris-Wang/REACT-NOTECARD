@@ -320,7 +320,7 @@ class NotePage extends React.Component {
         this.initActiveCollect
       );
       getUserRelationship(
-        his.props.location.state.userId,
+        this.props.location.state.userId,
         this.state.followedUserId
       ).then(this.initActiveFollow);
       console.log(this.state.followedUserId, "followedUserId in DidUpDate");
@@ -340,14 +340,17 @@ class NotePage extends React.Component {
       followActive,
     } = this.state;
 
-    const { params } = this.props.match;
+    const userId = this.props.location.state.userId;
+
+    // const { params } = this.props.match;
 
     // console.log(this.props, "in notepage");
 
-    if (!noteData) {
+    if (!noteData | !userId) {
       return <NoteCard>Loading...</NoteCard>;
     }
 
+    // console.log(userId, "user in notepage");
     const backend = "http://localhost:8080";
 
     // console.log(noteImages, "images in notepage");
@@ -385,6 +388,7 @@ class NotePage extends React.Component {
               type={"NOTE"}
               noteData={noteData}
               commentData={commentData}
+              userId={userId}
             />
             <FunctionSetContainer>
               <Button
@@ -423,7 +427,7 @@ class NotePage extends React.Component {
                 noteId={noteData.noteId}
                 type={"NOTECOMMENT"}
                 handleCommentsChange={this.handleCommentsChange.bind(this)}
-                commentUpdat={commentUpdate}
+                commentUpdate={commentUpdate}
               />
             </QuickCommentContainer>
           </RightBox>
