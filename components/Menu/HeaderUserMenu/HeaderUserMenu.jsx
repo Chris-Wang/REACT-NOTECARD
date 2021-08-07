@@ -3,6 +3,8 @@ import styled from "styled-components";
 import MenuTitle from "../components/MenuTitle";
 import MenuItems from "../components/MenuItems";
 import UserMiniCard from "../../MiniCard/UserMiniCard";
+import UserMenuTitle from "../components/UserMenuTitle";
+import Button from "../../Button";
 import getNoteLikedUsers from "../../../apis/getNoteLikedUsers";
 import HeaderMenu from "../components/HeaderMenu";
 
@@ -10,9 +12,22 @@ const Container = styled.div`
   display: inline-block;
 `;
 
-const UserMenu = styled(HeaderMenu)`
+const UserMenu = styled.div`
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  position: absolute;
+  background-color: #ffffff;
+  top: 40px;
+
+  padding: 0px 3px 0 12px;
+  margin: 2px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 0.6px #c7c7c7;
+
   width: 200px;
-  height: 120px;
+  height: 90px;
   right: -2px;
   z-index: 100;
 `;
@@ -65,8 +80,8 @@ class HeaderUserMenu extends React.Component {
       return (
         <Container ref={this.container}>
           <UserMenu>
-            <MenuTitle type="Hi, there" />
-            <MenuItems>Loading...</MenuItems>
+            <UserMenuTitle type="Hi, there" />
+            <Button type="LOGIN" />
           </UserMenu>
         </Container>
       );

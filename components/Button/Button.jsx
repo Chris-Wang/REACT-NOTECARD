@@ -9,6 +9,7 @@ import NoteForwardBtn from "./components/NoteForwardBtn";
 import NoteFunctionBtn from "./components/NoteFunctionBtn";
 import NoteNumsBtn from "./components/NoteNumsBtn";
 import BrandFollowBtn from "./components/BrandFollowBtn";
+import UserLoginBtn from "./components/UserLoginBtn";
 import HeaderLogo from "../Image/HeaderLogo";
 import logoImage from "../Image/HeaderLogo/logo.png";
 import { faCompass } from "@fortawesome/free-solid-svg-icons";
@@ -166,6 +167,11 @@ class Button extends React.Component {
               <FontAwesomeIcon icon={faUserAlt} />
             )}
           </HeaderLastBtn>
+        );
+
+      case "LOGIN":
+        return (
+          <UserLoginBtn onClick={this.handleClickExplore}>Login</UserLoginBtn>
         );
 
       case "AUTHORFOLLOW":

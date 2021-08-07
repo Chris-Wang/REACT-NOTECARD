@@ -1,0 +1,33 @@
+import React from "react";
+import styled from "styled-components";
+import MenuTitleLabel from "../../../TextLabel/components/NoteMenuTitleLabel";
+
+const MenuTitleContainer = styled.div`
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 3px;
+  width: 190px;
+  height: 30px;
+
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+`;
+
+class UserMenuTitle extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    // const { users } = this.props;
+
+    return (
+      <MenuTitleContainer>
+        <MenuTitleLabel>{this.props.type}</MenuTitleLabel>
+      </MenuTitleContainer>
+    );
+  }
+}
+
+export default UserMenuTitle;
