@@ -62,7 +62,7 @@ const SmlCard = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: solid 1px #a86c6d;
+    box-shadow: 0px 1px 4px 1px #a86c6d;
     // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
   }
 `;
@@ -80,7 +80,7 @@ const SmlTopCard = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: solid 1px #a86c6d;
+    box-shadow: 0px 1px 4px 1px #a86c6d;
     // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
   }
 `;
@@ -97,7 +97,7 @@ const SmlBtmCard = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: solid 1px #a86c6d;
+    box-shadow: 0px 1px 4px 1px #a86c6d;
     // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
   }
 `;
@@ -116,7 +116,9 @@ const LgCard = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: solid 1px #a86c6d;
+    box-shadow: 0px 1px 4px 1px #a86c6d;
+
+    // border: solid 1px #a86c6d;
     // box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
   }
 `;
