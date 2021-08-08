@@ -90,8 +90,13 @@ class Button extends React.Component {
   };
 
   handleClickExplore = () => {
-    console.log(this.props, "click explore");
+    // console.log(this.props, "click explore");
     this.props.history.push("/");
+  };
+
+  handleClickSignIn = () => {
+    // console.log(this.props, "click explore");
+    this.props.history.push("/signin");
   };
 
   renderButton(type) {
@@ -171,7 +176,7 @@ class Button extends React.Component {
 
       case "LOGIN":
         return (
-          <UserLoginBtn onClick={this.handleClickExplore}>Login</UserLoginBtn>
+          <UserLoginBtn onClick={this.handleClickSignIn}>Login</UserLoginBtn>
         );
 
       case "AUTHORFOLLOW":

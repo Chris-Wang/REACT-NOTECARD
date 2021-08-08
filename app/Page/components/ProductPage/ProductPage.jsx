@@ -476,7 +476,7 @@ class ProductPage extends React.Component {
           </CardContainer>
         </ProductCard>
         <NoteCards>
-          <NoteCardsTitle>{productData.productId}Related Notes</NoteCardsTitle>
+          <NoteCardsTitle>Related Notes</NoteCardsTitle>
           <NoteCardsPanel>
             <NoteMiniCard notes={productNotes} />
           </NoteCardsPanel>

@@ -86,7 +86,6 @@ const CommentAuthorNameLabel = styled.div`
   width: 100%;
   box-sizing: border-box;
   height: 100%;
-
   font-size: 0.85em;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
