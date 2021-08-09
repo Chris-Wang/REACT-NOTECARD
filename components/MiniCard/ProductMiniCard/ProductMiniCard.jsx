@@ -135,7 +135,7 @@ class ProductMiniCard extends React.Component {
 
   onForward = (pId) => {
     const productData = {
-      noteId: pId,
+      productId: pId,
       userId: this.props.userId,
     };
     // console.log(productData, "in on forward");

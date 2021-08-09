@@ -9,6 +9,6 @@ import LocalHostMap from "../../utils/LocalHostMap";
 //   },
 // };
 export default (postBody) =>
-  LocalHostMap.post("/note/createnewcomment", postBody).then(
+  LocalHostMap.post("/note/newcomment", postBody).then(
     (response) => response.data
   );

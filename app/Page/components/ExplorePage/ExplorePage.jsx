@@ -157,7 +157,7 @@ const SmlCardImg = styled.img`
   // }
 `;
 
-const defaultUID = "ddade195-e3cb-490e-8193-e04a193cd4eb";
+const defaultUID = "7d2d53e0-0197-4171-a967-3db094b734c4";
 
 class ExplorePage extends React.Component {
   constructor(props) {
@@ -235,7 +235,7 @@ class ExplorePage extends React.Component {
 
   onForwardProduct = () => {
     let productData = {
-      noteId: this.state.demoProduct.productId,
+      productId: this.state.demoProduct.productId,
       userId: defaultUID,
     };
     // console.log(productData, "in on forwardProduct");

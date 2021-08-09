@@ -86,7 +86,7 @@ class ProductRatingStar extends React.Component {
     const starPercentage =
       (this.state.productRating / this.state.starsTotal) * 100;
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-    console.log(starPercentageRounded, "give me the star");
+    // console.log(starPercentageRounded, "give me the star");
     this.setState({
       width: starPercentageRounded,
     });

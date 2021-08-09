@@ -116,12 +116,6 @@ class Accordion extends React.Component {
     });
   }
 
-  // handleCommentsChange(newComments) {
-  //   this.setState({
-  //     commentData: newComments,
-  //   });
-  // }
-
   handleTabThreeDesOffClick = () => {
     this.setState((state) => {
       return {
@@ -284,16 +278,30 @@ class Accordion extends React.Component {
   }
 
   componentDidMount() {
-    getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
-    getPrice(this.props.noteData.noteId).then(this.handlePriceChange);
+    if (this.props.type === "PRODUCT") {
+      getPrice(this.props.productData.productId).then(this.handlePriceChange);
+    }
+    if (this.props.type === "NOTE") {
+      getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
+    }
+
     //getProductComment(this.props.noteData.noteId).then(this.handleCommentsChange);
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
-      getProductMini(this.props.noteData.noteId).then(this.handleProductChange);
-      getPrice(this.props.noteData.noteId).then(this.handlePriceChange);
-      //getProductComment(this.props.noteData.noteId).then(this.handleCommentsChange);
+    if (this.props.type === "PRODUCT") {
+      if (
+        prevProps.productData.productId !== this.props.productData.productId
+      ) {
+        getPrice(this.props.productData.productId).then(this.handlePriceChange);
+      }
+    }
+    if (this.props.type === "NOTE") {
+      if (prevProps.noteData.noteId !== this.props.noteData.noteId) {
+        getProductMini(this.props.noteData.noteId).then(
+          this.handleProductChange
+        );
+      }
     }
   }
 
