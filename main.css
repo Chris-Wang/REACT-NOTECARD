@@ -34,6 +34,46 @@ body {
   flex: 1;
 }
 
+.form-input {
+  background: none;
+  background-color: white;
+  color: grey;
+  font-size: 1rem;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 95%;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px #a86c6d;
+  margin: 18px 0;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.form-input-label {
+  border: none;
+  color: grey;
+  font-size: 1rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 15px;
+  transition: 300ms ease all;
+}
+
+.form-input-label:focus {
+  outline: none;
+}
+
+.shrink {
+  top: 0px;
+  font-size: 0.8rem;
+  color: black;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }

@@ -156,7 +156,7 @@ class CommentMiniCard extends React.Component {
         return (
           <>
             {comments.map((comment) => (
-              <CommentsListCard key={comment.commentAuthorNickname}>
+              <CommentsListCard key={comment.commentId}>
                 <CommentAvatorContainer>
                   <CommentAvatarImg
                     src={`${backend}/${comment.avatarAddress}`}

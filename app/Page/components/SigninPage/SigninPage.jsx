@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import SignInLogo from "../../../../components/Image/SignInLogo";
 import logoImage from "../../../../components/Image/HeaderLogo/logo.png";
+import FormInput from "../../../../components/InputBox/components/FormInput";
+import LoginBtn from "../../../../components/Button/components/LoginBtn";
 
 const SignCard = styled.div`
   display: flex;
@@ -27,19 +29,19 @@ const LogoContainer = styled.div`
   margin-bottom: 12px;
 `;
 
-const FormInput = styled.div`
-  width: 280px;
-  height: 60px;
-  border: solid 1px #a86c6d;
-  margin-top: 6px;
-`;
+// const FormInput = styled.div`
+//   width: 280px;
+//   height: 60px;
+//   border: solid 1px #a86c6d;
+//   margin-top: 6px;
+// `;
 
-const LoginBtn = styled.div`
-  margin-top: 12px;
-  width: 280px;
-  height: 40px;
-  border: solid 1px #a86c6d;
-`;
+// const LoginBtn = styled.div`
+//   margin-top: 12px;
+//   width: 280px;
+//   height: 40px;
+//   border: solid 1px #a86c6d;
+// `;
 
 const Divider = styled.div`
   display: flex;
@@ -99,16 +101,30 @@ class SigninPage extends React.Component {
             <SignInLogo src={logoImage} />
           </LogoContainer>
           <form onSubmit={this.handleSubmit}>
-            <FormInput></FormInput>
-            <FormInput></FormInput>
-            <LoginBtn></LoginBtn>
+            <FormInput
+              name="email"
+              type="email"
+              handleChange={this.handleChange}
+              value={this.state.email}
+              label="email"
+              required
+            />
+            <FormInput
+              name="password"
+              type="password"
+              value={this.state.password}
+              handleChange={this.handleChange}
+              label="password"
+              required
+            />
+            <LoginBtn>Login</LoginBtn>
           </form>
           <Divider>
             <DividerLine />
             <DividerLabel>OR</DividerLabel>
             <DividerLine />
           </Divider>
-          <LoginBtn></LoginBtn>
+          <LoginBtn>Login Via Google</LoginBtn>
         </SignCard>
       </>
     );

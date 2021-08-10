@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import FormInput from "../../InputBox/components/FormInput";
 import { withRouter } from "react-router-dom";
 
 const PriceListCard = styled.div`
@@ -31,14 +32,16 @@ const ProductPriceMini = styled.div`
   // margin: 0 auto;
   margin-right: 10px;
   height: 100%;
-  justify-content: center;
-  font-family: Prata;
+
+  font-size: 1.5rem;
+  font-family: New Paris;
+  font-weight: 600;
+  font-stretch: normal;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 44px;
-  color: #565561;
+  line-height: 1.6;
+  letter-spacing: 0.18px;
   text-align: center;
+  color: #565561;
 `;
 
 const ProductMiniRetailerNameLabel = styled.div`
